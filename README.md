@@ -34,9 +34,9 @@ To update a draft NEP, you need to created another PR after edit. Once the PR is
 
 When you believe your NEP is mature and ready to progress past the Draft phase to Final, you should do:
 
-Open a PR changing the state of your NEP to 'Public Call'. An editor will review your draft and ask if anyone objects to its being finalised. If the editor decides there is no rough consensus - for instance, because contributors point out significant issues with the NEP - they may close the PR and request that you fix the issues in the draft before trying again.
+Reopen the issue corresponding to the NEP and request for make the NEP Final. An editor will review your request and ask if anyone objects to its being finalised. If the editor decides there is no rough consensus - for instance, because contributors point out significant issues with the NEP - they may close the close and request that you fix the issues in the draft before trying again.
 
-Once the PR is merged, your NEP will be available in the Public Call NEPs for anyone to check it can be a Final NEP. Once the Public Call period has passed. An editor will update the status to Final.
+If your request for finalised a NEP has been approved, an editor will change the NEP status to Public Call for anyone to check it can be a Final NEP. Once the Public Call period has passed. An editor will update the status to Final.
 
 ## NEP Work Flow
 
@@ -62,11 +62,11 @@ Each status change is requested by the NEP author and reviewed by the NEP editor
   * :arrow_right: Draft: Once the champion has finished a NEP and consider it's ready to be merged to Newton's Github repository. they will write a draft NEP as a [pull request]. Consider including an implementation if this will aid people in studying the NEP.
 * **Draft**: If the draft is agreeable amount the Newton community, NEP editor will assign the NEP a number (generally the issue or PR number related to the NEP) and merge your pull request. The NEP editor will not unreasonably deny an NEP.
   * Once the first draft has been merged, you may submit follow-up pull requests with further changes to your draft until such point as you believe the NEP to be mature and ready to proceed to the next status.
-  * :arrow_right: Last Call -- If agreeable, the NEP editor will assign Last Call status and set a review end date (`review-period-end`), normally 14 days later.
-  * :x: Last Call: A request for Last Call status will be denied if material changes are still expected to be made to the draft. We hope that NEPs only enter Last Call once, so as to avoid unnecessary noise on the RSS feed.
-* **Last Call**: This NEP will listed prominently on the https://newtonproject.org/nep website.
-  * :x: A Last Call which results in material changes or substantial unaddressed technical complaints will cause the NEP to revert to Draft.
-  * :arrow_right: Final: A successful Last Call without material changes or unaddressed technical complaints will become Final.
+  * :arrow_right: Public Call -- If agreeable, the NEP editor will assign Public Call status and set a review end date (`review-period-end`), normally 14 days later.
+  * :x: Public Call: A request for Public Call status will be denied if material changes are still expected to be made to the draft. We hope that NEPs only enter Public Call once, so as to avoid unnecessary noise on the RSS feed.
+* **Public Call**: This NEP will listed prominently on the https://newtonproject.org/nep website.
+  * :x: A Public Call which results in material changes or substantial unaddressed technical complaints will cause the NEP to revert to Draft.
+  * :arrow_right: Final: A successful Public Call without material changes or unaddressed technical complaints will become Final.
 * **Final**: This NEP represents the current state-of-the-art. A Final NEP should only be updated to correct errata.
 
 Other exceptional statuses include:
@@ -106,7 +106,7 @@ If your NEP requires images, the image files should be included in a subdirector
 
   - `Discussions to` cannot point to GitHub pull requests.
 
-- `Status`: WIP, Draft, Last Call, Final etc.
+- `Status`: WIP, Draft, Public Call, Final etc.
 
 - `Created`: yyyy-mm-dd
 
