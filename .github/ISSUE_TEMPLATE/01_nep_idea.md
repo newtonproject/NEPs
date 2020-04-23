@@ -1,6 +1,6 @@
 ---
 name: A NEP Idea
-about: You want to
+about: You have an idea think can be a NEP and want others to discuss.
 title: 'A NEP idea on: <replace with your idea>'
 labels: ''
 assignees: ''
