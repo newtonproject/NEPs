@@ -12,11 +12,7 @@
 | Created | 2020-04-23 |
 | Updated | |
 
-This is the suggested token template for new NEPs.
-
-Note that an NEP number will be assigned by an editor. When opening a pull request to submit your NEP, please use an abbreviated title in the filename, `nep-draft_title_abbrev.md`.
-
-The title should be 44 characters or less.
+This is the suggested template for org NEPs.
 
 ## Simple Summary
 
@@ -24,62 +20,103 @@ The title should be 44 characters or less.
 
 ## Abstract
 
-A short (~200 word) description of the technical issue being addressed.
+基于NewChain的全栈式区块链技术，NewOrg中的链上组织管理，制度激励、信息同步、任务追踪、提案投票等治理功能可帮助实现：
+
+组织通过收款进行融资，并记录股权占比；
+
+发起支出提案，公示资金使用用途（或以投票方式进行核准）；
+
+盈利组织，可根据贡献度，进行收益发放；
+
+组织账目可视化。
 
 ## Motivation
 
-The motivation is critical for NEPs that want to change the Newton protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the NEP solves. NEP submissions without sufficient motivation may be rejected outright.
+实体企业的创建，有一定的门槛，需要各级审批。企业内做到公开透明，是件很复杂的事情。
+
+此标准对于不需要实体企业，又需要创建一个公正、公开的组织形式，提供了一套治理方法。
+
+我们希望，自由组织可以通过合约模板方便的创建，做到账目公开透明，财务流向清晰，全员可参与。
+
+组织可以事件跟踪，任务派发，并且融入工作量证明，达到全员共建状态。
 
 ## Specification
 
-The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current ....
-
-### Meta Data (example)
+### Meta Data
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-| **Creation Input** |
-| Creator | write creator to the contract | deploy/can not be changed |
-| Owner | Owner can take full control of contract | multi-owner? / can be changed? |
-| TokenName | Name of token, 3-5 letters | can not be changed |
-| **After Creation** |
-| Admins | Owner can take full control of contract | multi-owner? / can be changed? read: public |
-| Members | | |
+| OrgName | Name of token, 3-5 letters | can not be changed |
+| Owner | 组织创始人 | add/remove addmin |
+| Admins | 组织的管理者 | add/remove member |
+| Members | 组织成员 | |
+| lockFee | 创建组织锁定的NEW | |
+| orgStatus | 组织状态 | |
+| Messages | 消息公告 | |
+| Tasks | 任务 | |
+| Proposal | 提案 | |
+| Property | 资产 | |
 
-
-### Interaction / Functions (example)
+### Interaction / Functions
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
-| AddOwner | add owner to... | permission: owner |
-| TransferOwner | transfer own to other NEW Address | permission: owner |
-| CreateNewToken | Create new token from this contract |  |
-| AddMemberBySubscribe | | permission: contract |
-| RemoveMember | | permission: owner/admin |
-| RemoveExpiredMember | | permission: contract |
+|**Owner**|
+| create | 创建组织 | permission: owner |
+| initData | 初始化组织信息 | permission: owner |
+| enableOrg | 激活组织 | permission: owner |
+| addAdmin | 添加管理员 | permission: owner |
+| removeAdmin | 移除管理员 | permission: owner |
+| closeOrg | 关闭组织 | permission: owner |
+| changeOwner | 更改创始人 | permission: owner |
+|**Admin**|
+| modifyJoinFee | 修改订阅费 | permission: owner/admin |
+| removeMember | 剔除成员 | permission: owner/admin |
+|**Member**|
+| joinOrg | 加入组织 |  |
+| renewal | 续费 | permission: member |
+| exitOrg | 退出组织 | permission: member |
+|**Message**|
+| submitMessage | 提交消息 | permission: owner/admin |
+| editMessage | 编辑消息 | permission: owner/admin |
+| deleteMessage | 删除消息 | permission: owner/admin |
+|**Tasks**|
+| submitTask | 发布任务 | permission: owner/admin |
+| taskReward | 任务奖励 | permission: owner/admin |
+| editTask | 编辑任务 | permission: owner/admin |
+| pickTask | 领取任务 |  |
+| finishTask | 完成任务 |  |
+| checkTask | 审核任务 | permission: owner/admin |
+| closeTask | 关闭任务 | permission: owner/admin |
+|**Proposal**|
+| submitProposal | 发布提案 | permission: owner/admin |
+| vote | 投票 |  |
+| closeProposal | 关闭提案 | permission: owner/admin |
+|**Property**|
+| income | 入账 |  |
+| expend | 出帐 |  |
+| donate | 捐赠 |  |
+|**Query**|
+| getOwner | 查询合约创始人 |  |
+| isAdmin | 查询是否为管理员 |  |
+| isMember | 查询是否为组织成员 | |
+| getLockFee | 查询锁定金额 | |
+| getOrgStatus | 查询组织状态 | |
+| getMessage | 查询消息详情 | |
+| getTask | 查询任务 | |
+| getPropose | 查询提案 | |
+| getVote | 查询投票 | |
+| getResult | 查询提案结果 | |
+| getProperty | 查询资产 | |
 
 
-## Rationale (optional)
+## Test Cases
+TBD
 
-The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.
+## Implementation
+TBD
 
-## Backwards Compatibility (optional)
-
-All NEPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The NEP must explain how the author proposes to deal with these incompatibilities. NEP submissions without a sufficient backwards compatibility treatise may be rejected outright.
-
-## Test Cases (optional)
-
-Test cases for an implementation are mandatory for NEPs that are affecting consensus changes. Other NEPs can choose to include links to test cases if applicable.
-
-## Implementation (optional)
-
-The implementations must be completed before any NEP is given status "Final", but it need not be completed before the NEP is accepted. While there is merit to the approach of reaching consensus on the specification and rationale before writing code, the principle of "rough consensus and running code" is still useful when it comes to resolving many discussions of API details.
-
-## Security Considerations (optional)
-
-All NEPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life cycle of the proposal. E.g. include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. NEP submissions missing the "Security Considerations" section will be rejected. An NEP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
-
-## References (optional)
+## References
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
