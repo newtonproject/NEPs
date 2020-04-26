@@ -20,7 +20,7 @@ The title should be 44 characters or less.
 
 ## Simple Summary
 
-If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the NEP.
+牛顿生态体系中的生命力组织NewOrg模板是下一代社会治理和协作的NewDAO新范式。
 
 ## Abstract
 
