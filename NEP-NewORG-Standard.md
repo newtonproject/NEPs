@@ -5,7 +5,7 @@
 | NEP | to be assigned |
 | Title | New paradigm of organization |
 | Author |  [Evan Liu](mailto:evanliuchina@gmail.com), [Xia Wu](https://github.com/xiawu), [Lee Willson](https://github.com/leewillson), [Zhou Xiqiao](https://github.com/zhouxiqiao), [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29) |
-| Discussions to | https://github.com/newtonproject/newtonapp-specs/issues/4 |
+| Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/1 |
 | Status | Draft |
 | Type | NewOrg Template |
 | Category | technical |
