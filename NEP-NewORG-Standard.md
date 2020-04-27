@@ -40,6 +40,7 @@ This is the suggested template for NewOrg NRC-X.
 |:-|:-|:-|
 | name | 组织名称 | can not be changed |
 | symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
+| icon | 组织头像(URL) | URL to an image |
 | totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
 | decimals | 小数位数 | 组织通证(股份)可分粒度 |
 | owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
@@ -61,9 +62,11 @@ This is the suggested template for NewOrg NRC-X.
 | changeOwner | 更改创始人 | permission: owner |
 | mint | 增发组织通证 | permission: owner |
 | burn | 销毁组织通证 | permission: owner |
-|**Partners/Voters**|
-| mint | 增资，增发组织通证 | permission: all |
-| burn | 撤资，销毁组织通证 | permission: all |
+|**Shareholders**|
+| increaseCapital | 增资，相应增发组织通证(规则和算法由合约定义) | permission: all |
+| decreaseCapital | 撤资，相应销毁组织通证(规则和算法由合约定义) | permission: all |
+| interestOf(address) | 查询收益数量 | |
+| withdrawInterest() | 提取收益 | permission: shareholder |
 |**Query**|
 | balanceOf(address) | 查询持有量 | 持有组织通证(股份)即为组织一员 |
 | transfer(from, to) | 转移组织通证所有权 | |
