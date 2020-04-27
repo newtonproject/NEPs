@@ -38,16 +38,16 @@ This is the suggested template for org NEPs.
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-| OrgName | Name of token, 3-5 letters | can not be changed |
-| Owner | 组织创始人 | add/remove addmin |
-| Admins | 组织的管理者 | add/remove member |
-| Members | 组织成员 | |
-| lockFee | 创建组织锁定的NEW | |
-| orgStatus | 组织状态 | |
-| Messages | 消息公告 | |
-| Tasks | 任务 | |
-| Proposal | 提案 | |
-| Property | 资产 | |
+| name | 组织名称 | can not be changed |
+| symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
+| totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
+| decimals | 小数位数 | 组织通证(股份)可分粒度 |
+| owner | 组织创始人 | add/remove addmin |
+| admins | 组织的管理者 | add/remove shareholders |
+| shareholders | 组织通证持有者(股东) | address => # of tokens |
+| shareholder_types | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| stakingCapital | 组织实缴质押资本(NEW) | |
+| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
 ### Interaction / Functions
 
