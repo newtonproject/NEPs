@@ -45,7 +45,7 @@ This is the suggested template for NewOrg NRC-X.
 | owner | 组织创始人 | add/remove boardmembers/shareholders |
 | boardmembers | 组织的管理者(董事会) | 批准治理操作(比如增资扩股，增减董事，增减股东等) |
 | shareholders | 组织通证持有者(股东) | address => # of tokens |
-| shareholder_types | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| shareholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
 | stakingCapital | 组织实缴质押资本(NEW) | |
 | orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
