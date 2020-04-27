@@ -12,7 +12,7 @@
 | Created | 2020-04-23 |
 | Updated | |
 
-This is the suggested template for org NEPs.
+This is the suggested template for NewOrg NRC-X.
 
 ## Simple Summary
 
