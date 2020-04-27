@@ -30,7 +30,7 @@ This is the suggested template for org NEPs.
 
 用基于NewChain区块链及其智能合约技术的治理新范式取代传统股份有限公司治理范式。见下图：
 
-
+![neworg_layers](neworg_layers.png)
 
 ## Specification
 
