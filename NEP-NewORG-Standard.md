@@ -42,8 +42,7 @@ This is the suggested template for NewOrg NRC-X.
 | symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
 | totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
 | decimals | 小数位数 | 组织通证(股份)可分粒度 |
-| owner | 组织创始人 | add/remove boardmembers |
-| boardmembers | 组织的管理者(董事会) | approve各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
+| owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
 | shareholders | 组织通证持有者(股东) | address => # of tokens |
 | shareholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
 | stakingCapital | 组织实缴质押资本(NEW) | |
@@ -54,53 +53,33 @@ This is the suggested template for NewOrg NRC-X.
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
 |**Owner**|
-| create | 创建组织 | permission: owner |
-| initData | 初始化组织信息 | permission: owner |
-| enableOrg | 激活组织 | permission: owner |
+| constructor() | 创建组织通证 | permission: owner |
 | addAdmin | 添加管理员 | permission: owner |
 | removeAdmin | 移除管理员 | permission: owner |
-| closeOrg | 关闭组织 | permission: owner |
+| freezeOrg | 冻结组织 | permission: owner |
+| unfreezeOrg | 解冻组织 | permission: owner |
 | changeOwner | 更改创始人 | permission: owner |
-|**Admin**|
-| modifyJoinFee | 修改订阅费 | permission: owner/admin |
-| removeMember | 剔除成员 | permission: owner/admin |
-|**Member**|
-| joinOrg | 加入组织 |  |
-| renewal | 续费 | permission: member |
-| exitOrg | 退出组织 | permission: member |
-|**Message**|
-| submitMessage | 提交消息 | permission: owner/admin |
-| editMessage | 编辑消息 | permission: owner/admin |
-| deleteMessage | 删除消息 | permission: owner/admin |
-|**Tasks**|
-| submitTask | 发布任务 | permission: owner/admin |
-| taskReward | 任务奖励 | permission: owner/admin |
-| editTask | 编辑任务 | permission: owner/admin |
-| pickTask | 领取任务 |  |
-| finishTask | 完成任务 |  |
-| checkTask | 审核任务 | permission: owner/admin |
-| closeTask | 关闭任务 | permission: owner/admin |
-|**Proposal**|
-| submitProposal | 发布提案 | permission: owner/admin |
-| vote | 投票 |  |
-| closeProposal | 关闭提案 | permission: owner/admin |
-|**Property**|
-| income | 入账 |  |
-| expend | 出帐 |  |
-| donate | 捐赠 |  |
+| mint | 增发组织通证 | permission: owner |
+| burn | 销毁组织通证 | permission: owner |
+|**Partners/Voters**|
+| mint | 增资，增发组织通证 | permission: all |
+| burn | 撤资，销毁组织通证 | permission: all |
 |**Query**|
-| getOwner | 查询合约创始人 |  |
-| isAdmin | 查询是否为管理员 |  |
-| isMember | 查询是否为组织成员 | |
-| getLockFee | 查询锁定金额 | |
-| getOrgStatus | 查询组织状态 | |
-| getMessage | 查询消息详情 | |
-| getTask | 查询任务 | |
-| getPropose | 查询提案 | |
-| getVote | 查询投票 | |
-| getResult | 查询提案结果 | |
-| getProperty | 查询资产 | |
-
+| balanceOf(address) | 查询持有量 | 持有组织通证(股份)即为组织一员 |
+| transfer(from, to) | 转移组织通证所有权 | |
+| approve(spender, value) | 授权他人操作我持有的组织通证 | |
+| allowance(owner, spender) | 查看授权情况 | |
+| transferFrom(from, to, value) | 转移授权人持有的组织通证 | |
+| totalSupply | 查询组织通证总量(总股数) | |
+| name | 查询组织名称 |  |
+| symbol | 查询组织通证(股份)代号 |  |
+| totalSupply | 查询组织通证(股份)总量 |  |
+| decimals | 查询小数位数 | 组织通证(股份)可分粒度 |
+| owner | 查询组织创始人 |  |
+| isShareholder(address) | 查询是否组织通证持有者(组织成员/股东) | |
+| shareholderTypeOf(address) | 查询组织成员/股东类型 | (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| stakingCapital | 组织实缴质押资本(NEW) | |
+| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
 ## Test Cases
 TBD
@@ -109,6 +88,8 @@ TBD
 TBD
 
 ## References
+
+* ERC-20 https://eips.ethereum.org/EIPS/eip-20 
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
