@@ -64,7 +64,9 @@ This is the suggested template for NewOrg NRC-X.
 | burn | 销毁组织通证 | permission: owner |
 |**Shareholders**|
 | increaseCapital | 增资，相应增发组织通证(规则和算法由合约定义) | permission: all |
-| decreaseCapital | 撤资，相应销毁组织通证(规则和算法由合约定义) | permission: all |
+| decreaseCapital | 撤资，相应销毁组织通证(规则和算法由合约定义) | permission: shareholder |
+| increaseVote | 增加投票 | permission: all |
+| decreaseVote | 撤销投票 | permission: shareholder voter | 
 | interestOf(address) | 查询收益数量 | |
 | withdrawInterest() | 提取收益 | permission: shareholder |
 |**Query**|
