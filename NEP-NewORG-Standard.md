@@ -1,4 +1,4 @@
-# NewORG  Standard
+# NewORG  Standard (NRC-X)
 
 | Item | Description |
 |:-|:-|
@@ -12,7 +12,7 @@
 | Created | 2020-04-23 |
 | Updated | |
 
-This is the suggested template for org NEPs.
+This is the suggested template for NewOrg NRC-X.
 
 ## Simple Summary
 
@@ -20,25 +20,17 @@ This is the suggested template for org NEPs.
 
 ## Abstract
 
-基于NewChain的全栈式区块链技术，NewOrg中的链上组织管理，制度激励、信息同步、任务追踪、提案投票等治理功能可帮助实现：
-
-组织通过收款进行融资，并记录股权占比；
-
-发起支出提案，公示资金使用用途（或以投票方式进行核准）；
-
-盈利组织，可根据贡献度，进行收益发放；
-
-组织账目可视化。
+本标准定义了基于NewChain及其智能合约技术实现NewOrg的方法和标准：
+1. 基于NewChain及其智能合约技术
+2. 用基于区块链技术的治理新范式取代传统股份有限公司治理范式
+3. 定义一套组织治理的元规则，并将该套元规则在NewChain链层和合约层进行划分，实现了(1)元规则的业务无关性，(2)组织股份通证治理的灵活性，(3)NewChain对所有组织的抓手
+4. 该模型可兼容目前NewPay中既有的锁仓节点和NewForce挖矿模型，可以比较容易迁移过来
 
 ## Motivation
 
-实体企业的创建，有一定的门槛，需要各级审批。企业内做到公开透明，是件很复杂的事情。
+用基于NewChain区块链及其智能合约技术的治理新范式取代传统股份有限公司治理范式。见下图：
 
-此标准对于不需要实体企业，又需要创建一个公正、公开的组织形式，提供了一套治理方法。
-
-我们希望，自由组织可以通过合约模板方便的创建，做到账目公开透明，财务流向清晰，全员可参与。
-
-组织可以事件跟踪，任务派发，并且融入工作量证明，达到全员共建状态。
+![neworg_layers](neworg_layers.png)
 
 ## Specification
 
@@ -46,69 +38,48 @@ This is the suggested template for org NEPs.
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-| OrgName | Name of token, 3-5 letters | can not be changed |
-| Owner | 组织创始人 | add/remove addmin |
-| Admins | 组织的管理者 | add/remove member |
-| Members | 组织成员 | |
-| lockFee | 创建组织锁定的NEW | |
-| orgStatus | 组织状态 | |
-| Messages | 消息公告 | |
-| Tasks | 任务 | |
-| Proposal | 提案 | |
-| Property | 资产 | |
+| name | 组织名称 | can not be changed |
+| symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
+| totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
+| decimals | 小数位数 | 组织通证(股份)可分粒度 |
+| owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
+| shareholders | 组织通证持有者(股东) | address => # of tokens |
+| shareholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| stakingCapital | 组织实缴质押资本(NEW) | |
+| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
 ### Interaction / Functions
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
 |**Owner**|
-| create | 创建组织 | permission: owner |
-| initData | 初始化组织信息 | permission: owner |
-| enableOrg | 激活组织 | permission: owner |
+| constructor() | 创建组织通证 | permission: owner |
 | addAdmin | 添加管理员 | permission: owner |
 | removeAdmin | 移除管理员 | permission: owner |
-| closeOrg | 关闭组织 | permission: owner |
+| freezeOrg | 冻结组织 | permission: owner |
+| unfreezeOrg | 解冻组织 | permission: owner |
 | changeOwner | 更改创始人 | permission: owner |
-|**Admin**|
-| modifyJoinFee | 修改订阅费 | permission: owner/admin |
-| removeMember | 剔除成员 | permission: owner/admin |
-|**Member**|
-| joinOrg | 加入组织 |  |
-| renewal | 续费 | permission: member |
-| exitOrg | 退出组织 | permission: member |
-|**Message**|
-| submitMessage | 提交消息 | permission: owner/admin |
-| editMessage | 编辑消息 | permission: owner/admin |
-| deleteMessage | 删除消息 | permission: owner/admin |
-|**Tasks**|
-| submitTask | 发布任务 | permission: owner/admin |
-| taskReward | 任务奖励 | permission: owner/admin |
-| editTask | 编辑任务 | permission: owner/admin |
-| pickTask | 领取任务 |  |
-| finishTask | 完成任务 |  |
-| checkTask | 审核任务 | permission: owner/admin |
-| closeTask | 关闭任务 | permission: owner/admin |
-|**Proposal**|
-| submitProposal | 发布提案 | permission: owner/admin |
-| vote | 投票 |  |
-| closeProposal | 关闭提案 | permission: owner/admin |
-|**Property**|
-| income | 入账 |  |
-| expend | 出帐 |  |
-| donate | 捐赠 |  |
+| mint | 增发组织通证 | permission: owner |
+| burn | 销毁组织通证 | permission: owner |
+|**Partners/Voters**|
+| mint | 增资，增发组织通证 | permission: all |
+| burn | 撤资，销毁组织通证 | permission: all |
 |**Query**|
-| getOwner | 查询合约创始人 |  |
-| isAdmin | 查询是否为管理员 |  |
-| isMember | 查询是否为组织成员 | |
-| getLockFee | 查询锁定金额 | |
-| getOrgStatus | 查询组织状态 | |
-| getMessage | 查询消息详情 | |
-| getTask | 查询任务 | |
-| getPropose | 查询提案 | |
-| getVote | 查询投票 | |
-| getResult | 查询提案结果 | |
-| getProperty | 查询资产 | |
-
+| balanceOf(address) | 查询持有量 | 持有组织通证(股份)即为组织一员 |
+| transfer(from, to) | 转移组织通证所有权 | |
+| approve(spender, value) | 授权他人操作我持有的组织通证 | |
+| allowance(owner, spender) | 查看授权情况 | |
+| transferFrom(from, to, value) | 转移授权人持有的组织通证 | |
+| totalSupply | 查询组织通证总量(总股数) | |
+| name | 查询组织名称 |  |
+| symbol | 查询组织通证(股份)代号 |  |
+| totalSupply | 查询组织通证(股份)总量 |  |
+| decimals | 查询小数位数 | 组织通证(股份)可分粒度 |
+| owner | 查询组织创始人 |  |
+| isShareholder(address) | 查询是否组织通证持有者(组织成员/股东) | |
+| shareholderTypeOf(address) | 查询组织成员/股东类型 | (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| stakingCapital | 组织实缴质押资本(NEW) | |
+| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
 ## Test Cases
 TBD
@@ -117,6 +88,8 @@ TBD
 TBD
 
 ## References
+
+* ERC-20 https://eips.ethereum.org/EIPS/eip-20 
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
