@@ -42,8 +42,8 @@ This is the suggested template for NewOrg NRC-X.
 | symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
 | totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
 | decimals | 小数位数 | 组织通证(股份)可分粒度 |
-| owner | 组织创始人 | add/remove boardmembers/shareholders |
-| boardmembers | 组织的管理者(董事会) | 批准治理操作(比如增资扩股，增减董事，增减股东等) |
+| owner | 组织创始人 | add/remove boardmembers |
+| boardmembers | 组织的管理者(董事会) | 批准各种治理操作(比如增资扩股，增减董事，增减股东等),规则可由合约自定义实现 |
 | shareholders | 组织通证持有者(股东) | address => # of tokens |
 | shareholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
 | stakingCapital | 组织实缴质押资本(NEW) | |
