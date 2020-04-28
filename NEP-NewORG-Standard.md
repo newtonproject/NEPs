@@ -39,7 +39,7 @@ This is the suggested template for NewOrg NRC-X.
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-|**org info**|
+|**org info:**|
 | name | 组织名称 | can not be changed |
 | type | 组织类型 | 定义：... |
 | icon | 组织头像(URL) | URL to an image |
@@ -47,13 +47,13 @@ This is the suggested template for NewOrg NRC-X.
 | owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
 | description | 组织介绍 | 限定长度 XX 字节 |
 | orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
-|**org token**|
+| stakingCapital | 组织实缴质押资本(NEW) | |
+|**org token:**|
 | symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
 | totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
 | decimals | 小数位数 | 组织通证(股份)可分粒度 |
-| shareholders | 组织通证持有者(股东) | address => # of tokens |
-| shareholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
-| stakingCapital | 组织实缴质押资本(NEW) | |
+| stakeholders | 组织通证持有者(股东) | address => # of org tokens |
+| stakeholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
 
 ### Interaction / Functions
 
