@@ -92,6 +92,14 @@ This is the suggested template for NewOrg NRC-X.
 | stakingCapital | 组织实缴质押资本(NEW) | |
 | orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
 
+## Issues
+
+- Q: 是否允许只创建org而不定义org token？
+- A: 由产品确定。对于Newton App的实现而言是允许的。
+
+- Q: 是否允许不创建org而创建其他种类的token？
+- A: 对于Newton App的实现而言，token必须关联/隶属于某一个org。
+
 ## Test Cases
 TBD
 
