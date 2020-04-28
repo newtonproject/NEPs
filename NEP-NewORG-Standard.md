@@ -97,10 +97,10 @@ This is the suggested template for NewOrg NRC-X.
 ## Issues
 
 - Q: 是否允许只创建org而不定义org token？
-- A: 由产品确定。对于Newton App的实现而言是允许的。
+- A: 由产品具体实现确定。对于Newton App的实现而言是允许的。
 
 - Q: 是否允许不创建org而创建其他种类的token？
-- A: 对于Newton App的实现而言，token必须关联/隶属于某一个org。
+- A: 由产品具体实现确定。对于Newton App的实现而言，token必须关联/隶属于某一个org。
 
 ## Test Cases
 TBD
