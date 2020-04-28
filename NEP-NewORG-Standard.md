@@ -43,6 +43,8 @@ This is the suggested template for NewOrg NRC-X.
 | name | 组织名称 | can not be changed |
 | type | 组织类型 | 定义：... |
 | icon | 组织头像(URL) | URL to an image |
+| region | 组织所在区域 | 国家/地区 |
+| url | 组织官网链接 | URL to org website |
 | versionTag | 组织版本 | x.y.z |
 | owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
 | description | 组织介绍 | 限定长度 XX 字节 |
