@@ -102,6 +102,10 @@ This is the suggested template for NewOrg NRC-X.
 - Q: 是否允许不创建org而创建其他种类的token？
 - A: 由产品具体实现确定。对于Newton App的实现而言，token必须关联/隶属于某一个org。
 
+## Rationale
+
+![org_token_logic](org_token_logic.png)
+
 ## Test Cases
 TBD
 
