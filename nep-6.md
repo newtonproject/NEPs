@@ -1,4 +1,4 @@
-# NEP-X: Basic Token Standard
+# NEP 6: Basic Token Standard
 
 | Item | Description |
 |:-|:-|
@@ -62,7 +62,7 @@ TBD
 ## Implementation (optional)
 
 ```solidity
-interface INRC-X {
+interface INRC6 {
     /**
      * @dev Returns the amount of tokens in existence.
      */
