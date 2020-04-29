@@ -62,7 +62,7 @@ TBD
 ## Implementation (optional)
 
 ```solidity
-interface IERC20 {
+interface INRC-X {
     /**
      * @dev Returns the amount of tokens in existence.
      */
