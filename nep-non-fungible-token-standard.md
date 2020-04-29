@@ -66,7 +66,7 @@ TBD
 ## Implementation
 ```solidity
 
-interface NRC-X {
+interface INRC-X {
     /**
      * @dev Emitted when `tokenId` token is transfered from `from` to `to`.
      */
