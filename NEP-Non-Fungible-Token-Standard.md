@@ -5,7 +5,7 @@
 | NEP | to be assigned |
 | Title | Non-Fungible Token Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com) |
-| Discussions to | TBD |
+| Discussions to | https://github.com/newtonproject/NEPs/issues/7 |
 | Status | Draft |
 | Type | Standard |
 | Category | Technical |
