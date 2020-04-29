@@ -1,13 +1,13 @@
-# NEP Template for Token Contract <!--- Replace with NEP-N: Title, once a NEP number is assigned, the editor will update the NEP number in this document -->
+# NEP-X: Basic Token Standard
 
 | Item | Description |
 |:-|:-|
 | NEP | to be assigned |
-| Title | nep-Basic-Token-Standard |
+| Title | Basic Token Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29), [LiuChao](https://github.com/LiuChaooo) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/6 |
 | Status | Draft |
-| Type | Standard Track |
+| Type | Standard |
 | Category | Technical |
 | Created | 2020-04-29 |
 | Updated |  |
@@ -30,29 +30,22 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-| **Creation Input** |
 | name | Name of token | can not be changed |
 | symbol | Symbol of token | can not be changed |
 | decimals | decimals of Token | can not be changed |
+| totalSupply | Total supply of Token |  |
 
 
 ### Interaction / Functions
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
-|**Owner**|
-| constructor | Create token contract | permission: owner |
-|**Query**|
-| name | Returns the name of the token |  |
-| symbol | Returns the symbol of the token |  |
-| decimals | Returns the decimals of the token |  |
-| totalSupply | Returns the amount of tokens in existence |  |
-| balanceOf(account) | Returns the amount of tokens owned by `account` |  |
-|**Common functions**|
 | transfer(recipient, amount) | Moves `amount` tokens from the caller's account to `recipient` |  |
 | allowance(owner, spender) | Returns the remaining number of tokens that `spender` is allowed to spend from `owner` |  |
 | approve(spender, amount) | Sets `amount` as the allowance of `spender` over the caller's tokens |  |
 | transferFrom(sender, recipient, amount) | Moves `amount` tokens from `sender` to `recipient` |  |
+|**Query**|
+| balanceOf(account) | Returns the amount of tokens owned by `account` |  |
 |**Events**|
 | Transfer(from, to, value) | Emitted when `value` tokens are moved from one account (`from`) to another (`to`). |  |
 | Approval(owner, spender, value) | Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve} |  |
@@ -68,7 +61,78 @@ TBD
 
 ## Implementation (optional)
 
-TBD
+```solidity
+interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed _from, address indexed _to, uint256 _value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+}
+```
 
 ## References
 
