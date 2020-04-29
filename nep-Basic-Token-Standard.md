@@ -57,8 +57,8 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 | approve(spender, amount) | Sets `amount` as the allowance of `spender` over the caller's tokens |  |
 | transferFrom(sender, recipient, amount) | Moves `amount` tokens from `sender` to `recipient` |  |
 |**Events**|
-| Transfer | Emitted when `value` tokens are moved from one account (`from`) to another (`to`). |  |
-| Approval | Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve} |  |
+| Transfer(from, to, value) | Emitted when `value` tokens are moved from one account (`from`) to another (`to`). |  |
+| Approval(owner, spender, value) | Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve} |  |
 
 
 ## Rationale (optional)
