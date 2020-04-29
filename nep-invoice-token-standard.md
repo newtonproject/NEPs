@@ -75,7 +75,7 @@ The reference implementation contains all the [tests](https://gitlab.newtonproje
 ```solidity
 pragma solidity ^0.5.0;
 
-interface InvoiceToken {
+interface INRC-X{
     ///////////////////////////////////////////////////
     //       function for owner                      //
     ///////////////////////////////////////////////////
