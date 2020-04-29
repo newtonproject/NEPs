@@ -6,7 +6,7 @@
 | Title | nep-Basic-Token-Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29), [LiuChao](https://github.com/LiuChaooo) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/6 |
-| Status | WIP |
+| Status | Draft |
 | Type | Standard Track |
 | Category | Technical |
 | Created | 2020-04-29 |
@@ -34,11 +34,9 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 | name | Name of token | can not be changed |
 | symbol | Symbol of token | can not be changed |
 | decimals | decimals of Token | can not be changed |
-| initialAccount | Owner of contract | can not be changed |
-| initialBalance | Initial amount of token | can not be changed |
 
 
-### Interaction / Functions (example)
+### Interaction / Functions
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
@@ -46,12 +44,10 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 | constructor | Create token contract | permission: owner |
 | mint | Create token from this contract | permission: owner |
 | burn | Destroy token from this contract | permission: owner |
-| approveInternal | Sets the allowance | permission: owner |
-|**Shareholders**|
-| transferInternal | transfer token via this contract | permission: all |
 |**Query**|
 | totalSupply | Returns the amount of tokens in existence |  |
 | balanceOf(account) | Returns the amount of tokens owned by `account` |  |
+|**Common functions**|
 | transfer(recipient, amount) | Moves `amount` tokens from the caller's account to `recipient` |  |
 | allowance(owner, spender) | Returns the remaining number of tokens that `spender` is allowed to spend from `owner` |  |
 | approve(spender, amount) | Sets `amount` as the allowance of `spender` over the caller's tokens |  |
