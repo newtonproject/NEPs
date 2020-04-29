@@ -42,9 +42,10 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 |:-|:-|:-|
 |**Owner**|
 | constructor | Create token contract | permission: owner |
-| mint | Create token from this contract | permission: owner |
-| burn | Destroy token from this contract | permission: owner |
 |**Query**|
+| name | Returns the name of the token |  |
+| symbol | Returns the symbol of the token |  |
+| decimals | Returns the decimals of the token |  |
 | totalSupply | Returns the amount of tokens in existence |  |
 | balanceOf(account) | Returns the amount of tokens owned by `account` |  |
 |**Common functions**|
