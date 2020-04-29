@@ -37,11 +37,14 @@ This standard is inspired by the ERC-721 token standard.
 | name | A descriptive name for a collection of NFTs in this contract | can not be changed |
 | symbol | An abbreviated name for NFTs in this contract | can not be changed |
 | tokenURI | A distinct Uniform Resource Identifier (URI) for a given asset  |  |
+| owner | contract deployer, mint NFTs |  |
 
 ### Interaction / Functions / Event
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
+| mint |  mint a new token | permission: owner |
+| changeOwner |  requires owner of manager to change the owner | permission: owner |
 | transferFrom | Transfer ownership of an NFTs | permission: current owner, an authorized operator, or the approved address for this NFT |
 | safeTransferFrom | Transfers the ownership of an NFT from one address to another address | permission: current owner, an authorized operator, or the approved address for this NFT |
 | approve | Change or reaffirm the approved address for an NFT | permission: NFT owner |
