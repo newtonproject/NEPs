@@ -3,7 +3,7 @@
 | Item | Description |
 |:-|:-|
 | NEP | to be assigned |
-| Title | Basic Token Standard |
+| Title | NEP 6: Basic Token Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29), [LiuChao](https://github.com/LiuChaooo) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/6 |
 | Status | Draft |
