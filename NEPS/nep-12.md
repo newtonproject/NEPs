@@ -31,7 +31,7 @@ NewOrg methods and standard based on NewChain and smart contract technologies ar
 
 To replace the traditional limited corporation with new governance paradigm based on blockchain technologies, illustrated as below:
 
-![neworg_layers](assets/nep-12/neworg_layers.png)
+![neworg_layers](../assets/nep-12/neworg_layers.png)
 
 ## Specification
 
@@ -103,13 +103,13 @@ To replace the traditional limited corporation with new governance paradigm base
 
 ## Rationale
 
-![org_token_logic](assets/nep-12/org_token_logic.png)
+![org_token_logic](../assets/nep-12/org_token_logic.png)
 
 ## Asset Token Matrix
 
 Possible asset tokens could be formulated with the following Boston matrix:
 
-![asset_token_matrix](assets/nep-12/asset_token_matrix.png)
+![asset_token_matrix](../assets/nep-12/asset_token_matrix.png)
 
 ## Test Cases
 TBD
