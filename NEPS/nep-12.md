@@ -1,4 +1,4 @@
-# NEP12: NewORG  Standard (NRC-X)
+# NEP 12: NewORG Standard (NRC-X)
 
 | Item | Description |
 |:-|:-|
