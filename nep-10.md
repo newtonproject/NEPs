@@ -1,4 +1,4 @@
-# NEP-X: Invoice Token Standard
+# NEP 10: Invoice Token Standard
 | Item | Description |
 |:-|:-|
 | NEP | to be assigned |
@@ -75,7 +75,7 @@ The reference implementation contains all the [tests](https://gitlab.newtonproje
 ```solidity
 pragma solidity ^0.5.0;
 
-interface INRC-X{
+interface INRC10{
     ///////////////////////////////////////////////////
     //       function for owner                      //
     ///////////////////////////////////////////////////
