@@ -7,7 +7,7 @@
 | Author |  [Evan Liu](mailto:evanliuchina@gmail.com), [Xia Wu](https://github.com/xiawu), [Lee Willson](https://github.com/leewillson), [Zhou Xiqiao](https://github.com/zhouxiqiao), [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29) |
 | Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/1 |
 | Status | Draft |
-| Type | Standard Track |
+| Type | NRC |
 | Category | Technical |
 | Created | 2020-04-23 |
 | Updated | |
