@@ -8,7 +8,7 @@
 | Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/1 |
 | Status | Draft |
 | Type | Standard Track |
-| Category | technical |
+| Category | Technical |
 | Created | 2020-04-23 |
 | Updated | |
 
