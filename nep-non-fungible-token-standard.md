@@ -84,6 +84,11 @@ interface INRC-X {
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
 
     /**
+     * @dev Emitted when ownership of the contract to a new account (`newOwner`).
+     */
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    /**
      * @dev Returns the number of tokens in ``owner``'s account.
      */
     function balanceOf(address owner) external view returns (uint256 balance);
@@ -183,6 +188,12 @@ interface INRC-X {
       * Emits a {Transfer} event.
       */
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
+    
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Can only be called by the current owner.
+     */
+    function transferOwnership(address newOwner) external;
 }
 
 ```
