@@ -12,7 +12,6 @@
 | Created | 2020-04-23 |
 | Updated | |
 
-This is the suggested template for NewOrg NRC-12.
 
 ## Simple Summary
 
