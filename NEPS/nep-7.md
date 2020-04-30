@@ -1,8 +1,8 @@
-# NEP-X:Non-Fungible Token Standard
+# NEP 7:Non-Fungible Token Standard
 
 | Item | Description |
 |:-|:-|
-| NEP | to be assigned |
+| NEP | 7 |
 | Title | Non-Fungible Token Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/7 |
@@ -67,7 +67,7 @@ TBD
 ## Implementation
 ```solidity
 
-interface INRC-X {
+interface INRC7 {
     /**
      * @dev Emitted when `tokenId` token is transfered from `from` to `to`.
      */
