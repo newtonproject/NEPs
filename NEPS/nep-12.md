@@ -1,4 +1,4 @@
-# NEP 12: NewORG Standard (NRC-X)
+# NEP 12: NewORG Standard (NRC-12)
 
 | Item | Description |
 |:-|:-|
@@ -12,7 +12,7 @@
 | Created | 2020-04-23 |
 | Updated | |
 
-This is the suggested template for NewOrg NRC-X.
+This is the suggested template for NewOrg NRC-12.
 
 ## Simple Summary
 
