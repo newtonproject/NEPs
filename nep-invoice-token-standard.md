@@ -3,7 +3,7 @@
 |:-|:-|
 | NEP | to be assigned |
 | Title | Invoice Token Standard |
-| Author | [Yong Liu](mailto:liuyong5653@163.com), [Arthur Zheng](mailto:arisac@tomsc.com), [Evan Liu](mailto:evanliuchina@gmail.com) |
+| Author | [Yong Liu](mailto:liuyong5653@163.com), [Evan Liu](mailto:evanliuchina@gmail.com) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/10 |
 | Status | Draft |
 | Type | Token Template |
