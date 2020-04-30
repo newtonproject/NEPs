@@ -31,7 +31,7 @@ This is the suggested template for NewOrg NRC-X.
 
 用基于NewChain区块链及其智能合约技术的治理新范式取代传统股份有限公司治理范式。见下图：
 
-![neworg_layers](neworg_layers.png)
+![neworg_layers](assets/nep-N/neworg_layers.png)
 
 ## Specification
 
@@ -104,7 +104,7 @@ This is the suggested template for NewOrg NRC-X.
 
 ## Rationale
 
-![org_token_logic](org_token_logic.png)
+![org_token_logic](assets/nep-N/org_token_logic.png)
 
 ## Test Cases
 TBD
