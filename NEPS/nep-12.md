@@ -1,8 +1,8 @@
-# NewORG  Standard (NRC-X)
+# NEP12: NewORG  Standard (NRC-X)
 
 | Item | Description |
 |:-|:-|
-| NEP | to be assigned |
+| NEP | 12 |
 | Title | New paradigm of organization |
 | Author |  [Evan Liu](mailto:evanliuchina@gmail.com), [Xia Wu](https://github.com/xiawu), [Lee Willson](https://github.com/leewillson), [Zhou Xiqiao](https://github.com/zhouxiqiao), [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29) |
 | Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/1 |
