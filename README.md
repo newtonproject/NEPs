@@ -117,7 +117,7 @@ If your NEP requires images, the image files should be included in a subdirector
 
 ### NEP Templates
 
-- [NEP Template for Token](nep-template-for-token.md)
+- [NEP Template for Token (NRC)](nep-template-nrc.md)
 
 ## Transferring NEP Ownership
 
