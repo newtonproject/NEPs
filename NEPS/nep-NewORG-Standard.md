@@ -16,20 +16,20 @@ This is the suggested template for NewOrg NRC-X.
 
 ## Simple Summary
 
-牛顿生态体系中的生命力组织NewOrg模板是下一代社会治理和协作的NewDAO新范式。
+NewOrg template standard represents the living organization in newton ecosystem and a new DAO paradigm for the next generation social governance and collaboration.
 
 ## Abstract
 
-本标准定义了基于NewChain及其智能合约技术实现NewOrg的方法和标准：
-1. 基于NewChain及其智能合约技术
-2. 用基于区块链技术的治理新范式取代传统股份有限公司治理范式
-3. 定义一套组织治理的元规则，并将该套元规则在NewChain链层和合约层进行划分，实现了(1)元规则的业务无关性，(2)组织股份通证治理的灵活性，(3)NewChain对所有组织的抓手
-4. 该模型可兼容目前NewPay中既有的锁仓节点和NewForce挖矿模型，可以比较容易迁移过来
-5. 完全开放的标准，任何组织、机构、政府部门等都可以创建NewOrg，将中心化信用直接平移到去中心化基础设施上，成为去中心化信用
+NewOrg methods and standard based on NewChain and smart contract technologies are defined as is:
+1. based on NewChain and its smart contract technologies.
+2. to replace the traditional limited corporation with new governance paradigm based on blockchain technologies.
+3. to define a set of meta rules for organization governance, and clarify the separation of these rules between NewChain layer and contract layer to implement: (1) business irrelative meta rules; (2) flexibility of neworg governance token; (3) anchoring all neworg to NewChain.
+4. compatible with staking nodes as well as NewForce incentivization model in current NewPay for easier migration.
+5. a complete open standard for any organization, institution, goverments to create NewOrg and transfer the centralized trust to the decentralized infrastructure and trust.
 
 ## Motivation
 
-用基于NewChain区块链及其智能合约技术的治理新范式取代传统股份有限公司治理范式。见下图：
+To replace the traditional limited corporation with new governance paradigm based on blockchain technologies, illustrated as below:
 
 ![neworg_layers](assets/nep-N/neworg_layers.png)
 
@@ -40,71 +40,76 @@ This is the suggested template for NewOrg NRC-X.
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
 |**org info:**|
-| name | 组织名称 | can not be changed |
-| type | 组织类型 | 定义：... |
-| icon | 组织头像(URL) | URL to an image |
-| region | 组织所在区域 | 国家/地区 |
-| url | 组织官网链接 | URL to org website |
-| versionTag | 组织版本 | x.y.z |
-| owner | 组织创始人 | 各种治理操作(比如扩股缩股等),规则可由合约自定义实现 |
-| description | 组织介绍 | 限定长度 XX 字节 |
-| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
-| stakingCapital | 组织实缴质押资本(NEW) | |
+| name | the org name | cannot be changed |
+| type | the org type | types available: TBD |
+| icon | the org icon (URL) | URL to an image |
+| region | the region of the org | country/region |
+| url | the link to the official website of the org | URL to org website |
+| versionTag | the verison of the org | x.y.z |
+| owner | the owner of the org | governance operations can be freely defined by the smart contracts |
+| description | the description text of the org | limited length: TBD bytes |
+| orgStatus | the org status | freeze/unfreeze |
+| stakingCapital | the capital (NEW) the org staked | |
 |**org token:**|
-| symbol | 组织通证(股份)代号 | 3-4个大写字母，如BTC、NMCT等, can not be changed |
-| totalSupply | 组织通证(股份)总量 | 允许增资扩股 |
-| decimals | 小数位数 | 组织通证(股份)可分粒度 |
-| stakeholders | 组织通证持有者(股东) | address => # of org tokens |
-| stakeholderTypes | 组织通证持有者(股东)类型 | address => type (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
+| symbol | the symbol of the org token | 3-4 uppercase letters, e.g. BTC, NMCT, etc, which cannot be changed |
+| totalSupply | the total supply of the org tokens | could allow to be increased/decreased |
+| decimals | the decimals of the org token | the granularity of the org tokens |
+| stakeholders | the stakeholders having org token | address => # of org tokens |
+| stakeholderTypes | the type of the stakeholder having org token | address => type (0 - invalid; 1 - voter; 2 - partner) |
 
 ### Interaction / Functions
 
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
 |**Owner**|
-| constructor() | 创建组织通证 | permission: owner |
-| addAdmin | 添加管理员 | permission: owner |
-| removeAdmin | 移除管理员 | permission: owner |
-| freezeOrg | 冻结组织 | permission: owner |
-| unfreezeOrg | 解冻组织 | permission: owner |
-| changeOwner | 更改创始人 | permission: owner |
-| mint | 增发组织通证 | permission: owner |
-| burn | 销毁组织通证 | permission: owner |
+| constructor() | create org token (which represents an org) | permission: owner |
+| addAdmin | add administrator | permission: owner |
+| removeAdmin | remove administrator | permission: owner |
+| freezeOrg | freeze org | permission: owner |
+| unfreezeOrg | unfreeze org | permission: owner |
+| changeOwner | change the owner of org | permission: owner |
+| mint | mint new org tokens | permission: owner |
+| burn | burn org tokens | permission: owner |
 |**Shareholders**|
-| increaseCapital() | 增资/相应增发组织通证(规则和算法由合约定义) | permission: all |
-| decreaseCapital() | 撤资/相应销毁组织通证(规则和算法由合约定义) | permission: shareholder |
-| increaseVote() | 增加投票/相应增发组织通证(规则和算法由合约定义) | permission: all |
-| decreaseVote() | 撤销投票/相应销毁组织通证(规则和算法由合约定义) | permission: shareholder voter | 
-| interestOf(address) | 查询收益数量 | |
-| withdrawInterest() | 提取收益 | permission: shareholder |
+| increaseCapital() | deposit capital and mint new org tokens | permission: all |
+| decreaseCapital() | withdraw capital and burn org tokens | permission: stakeholder |
+| increaseVote() | increate vote and mint new org tokens | permission: all |
+| decreaseVote() | decrease vote and burn org tokens | permission: stakeholder voter | 
+| interestOf(address) | query the profit | |
+| withdrawInterest() | withdraw the profit | permission: stakeholder |
 |**Query**|
-| balanceOf(address) | 查询持有量 | 持有组织通证(股份)即为组织一员 |
-| transfer(from, to) | 转移组织通证所有权 | |
-| approve(spender, value) | 授权他人操作我持有的组织通证 | |
-| allowance(owner, spender) | 查看授权情况 | |
-| transferFrom(from, to, value) | 转移授权人持有的组织通证 | |
-| totalSupply | 查询组织通证总量(总股数) | |
-| name | 查询组织名称 |  |
-| symbol | 查询组织通证(股份)代号 |  |
-| totalSupply | 查询组织通证(股份)总量 |  |
-| decimals | 查询小数位数 | 组织通证(股份)可分粒度 |
-| owner | 查询组织创始人 |  |
-| isShareholder(address) | 查询是否组织通证持有者(组织成员/股东) | |
-| shareholderTypeOf(address) | 查询组织成员/股东类型 | (0 - 失效/移除; 1 - 投票人; 2 - 合伙人) |
-| stakingCapital | 组织实缴质押资本(NEW) | |
-| orgStatus | 组织状态 | 允许冻结(freeze/unfreeze) |
+| balanceOf(address) | query the balance | having org token (stake) to be an org member |
+| transfer(from, to) | transfer the ownership of org tokens | |
+| approve(spender, value) | delegate others to operate my org tokens | |
+| allowance(owner, spender) | check the delegation status | |
+| transferFrom(from, to, value) | transfer org tokens of who delegates | |
+| totalSupply | query the total stake of the org | |
+| name | query the org name |  |
+| symbol | query the symbol of the org token (stake) |  |
+| decimals | query the decimals of the org token | granularity of the org token |
+| owner | query the owner of the org |  |
+| isStakeholder(address) | query if having org token | |
+| stakeholderTypeOf(address) | query the type of the stakeholder | (0 - invalid; 1 - voter; 2 - partner) |
+| stakingCapital | the amount of capital (NEW) the org staked | |
+| orgStatus | the org status | freeze/unfreeze |
 
 ## Issues
 
-- Q: 是否允许只创建org而不定义org token？
-- A: 由产品具体实现确定。对于Newton App的实现而言是允许的。
+- Q: Should it be allowed to create org without defining org token?
+	* A: It depends on the concreate product implementation.
 
-- Q: 是否允许不创建org而创建其他种类的token？
-- A: 由产品具体实现确定。对于Newton App的实现而言，token必须关联/隶属于某一个org。
+- Q: Should it be allowed to create asset tokens without linking with an org token?
+	* A: It depends on the concreate product implementation.
 
 ## Rationale
 
 ![org_token_logic](assets/nep-N/org_token_logic.png)
+
+## Asset Token Matrix
+
+Possible asset tokens could be formulated with the following Boston matrix:
+
+![asset_token_matrix](assets/nep-N/asset_token_matrix.png)
 
 ## Test Cases
 TBD
