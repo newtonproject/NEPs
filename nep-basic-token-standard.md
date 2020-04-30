@@ -30,9 +30,9 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 
 | Item | Description | Behaviors/Properties |
 |:-|:-|:-|
-| name | Name of token | can not be changed |
-| symbol | Symbol of token | can not be changed |
-| decimals | decimals of Token | can not be changed |
+| name | Name of token |  |
+| symbol | Symbol of token |  |
+| decimals | decimals of Token |  |
 | totalSupply | Total supply of Token |  |
 
 
@@ -41,11 +41,11 @@ A standard interface allows any tokens on NewChain to be re-used by other applic
 | Function | Description | Behaviors/Properties |
 |:-|:-|:-|
 | transfer(recipient, amount) | Moves `amount` tokens from the caller's account to `recipient` |  |
-| allowance(owner, spender) | Returns the remaining number of tokens that `spender` is allowed to spend from `owner` |  |
 | approve(spender, amount) | Sets `amount` as the allowance of `spender` over the caller's tokens |  |
 | transferFrom(sender, recipient, amount) | Moves `amount` tokens from `sender` to `recipient` |  |
 |**Query**|
 | balanceOf(account) | Returns the amount of tokens owned by `account` |  |
+| allowance(owner, spender) | Returns the remaining number of tokens that `spender` is allowed to spend from `owner` |  |
 |**Events**|
 | Transfer(from, to, value) | Emitted when `value` tokens are moved from one account (`from`) to another (`to`). |  |
 | Approval(owner, spender, value) | Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve} |  |
