@@ -1,7 +1,7 @@
 # NEP 10: Invoice Token Standard
 | Item | Description |
 |:-|:-|
-| NEP | to be assigned |
+| NEP | 10 |
 | Title | Invoice Token Standard |
 | Author | [Yong Liu](mailto:liuyong5653@163.com), [Evan Liu](mailto:evanliuchina@gmail.com) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/10 |
