@@ -1,13 +1,13 @@
-# NEP 7:Non-Fungible Token Standard
+# NEP 7:Non-Fungible Token Standard (NRC-7)
 
 | Item | Description |
 |:-|:-|
 | NEP | 7 |
-| Title | Non-Fungible Token Standard |
+| Title | Non-Fungible Token Standard (NRC-7) |
 | Author | [Yong Liu](mailto:liuyong5653@163.com) |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/7 |
 | Status | Draft |
-| Type | Standard |
+| Type | NRC |
 | Category | Technical |
 | Created | 2020-04-29 |
 | Updated |  |
@@ -183,7 +183,7 @@ interface INRC7 {
       * - `from`, `to` cannot be zero.
       * - `tokenId` token must exist and be owned by `from`.
       * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
-      * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+      * - If `to` refers to a smart contract, it must implement {INRC7Receiver-onNRC7Received}, which is called upon a safe transfer.
       *
       * Emits a {Transfer} event.
       */
@@ -196,6 +196,31 @@ interface INRC7 {
     function transferOwnership(address newOwner) external;
 }
 
+```
+```solidity
+/**
+ * @title NRC7 token receiver interface
+ * @dev Interface for any contract that wants to support safeTransfers
+ * from ERC7 asset contracts.
+ */
+interface INRC7Receiver {
+
+  /**
+     * @notice Handle the receipt of an NFT
+     * @dev The NRC7 smart contract calls this function on the recipient
+     * after a {INRC7-safeTransferFrom}. This function MUST return the function selector,
+     * otherwise the caller will revert the transaction. The selector to be
+     * returned can be obtained as `this.onNRC7Received.selector`. This
+     * function MAY throw to revert and reject the transfer.
+     * Note: the NRC7 contract address is always the message sender.
+     * @param operator The address which called `safeTransferFrom` function
+     * @param from The address which previously owned the token
+     * @param tokenId The NFT identifier which is being transferred
+     * @param data Additional data with no specified format
+     * @return bytes4 `bytes4(keccak256("onNRC7Received(address,address,uint256,bytes)"))`
+     */
+    function onNRC7Received(address operator, address from, uint256 tokenId, bytes memory data) public external returns (bytes4);
+}
 ```
 
 ## References
