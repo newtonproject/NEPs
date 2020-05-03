@@ -201,7 +201,7 @@ interface INRC7 {
 /**
  * @title NRC7 token receiver interface
  * @dev Interface for any contract that wants to support safeTransfers
- * from ERC7 asset contracts.
+ * from NRC7 asset contracts.
  */
 interface INRC7Receiver {
 
