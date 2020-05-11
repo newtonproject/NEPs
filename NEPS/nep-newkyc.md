@@ -28,8 +28,8 @@ We can have either an individual or an organization on chain, however, especiall
 
 Here is a possible solution:
 
-1. Anyone can create an NewOrg "KYC service center" with a certain amount of deposit for providing the NewKYC service.
-2. When requested, the NewOrg "KYC service center" can respond, verify, and certificate by issuing a NewKYC token specifically for the requester.
+1. Anyone can create an NewOrg "KYC service center X" with a certain amount of deposit for providing the NewKYC service.
+2. When requested, the NewOrg "KYC service center X" can respond, verify, and certificate by issuing a NewKYC token specifically for the requester.
 3. The requester can hold the NewKYC token under his/her/its on-chain address for the proof of KYC. He/she/it can hold only one NewKYC token issued by a KYC service center.
 
 ![conceptual illustration](../assets/nep-N/NewKYC_concept.png)
