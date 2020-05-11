@@ -1,5 +1,7 @@
 # Newton Evolution Proposals (NEPs)
 
+[![Join the chat at https://gitter.im/newtonproject/NEPs](https://badges.gitter.im/newtonproject/NEPs.svg)](https://gitter.im/newtonproject/NEPs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Author: NTTF (Newton Tokenizing Task Force)
 
 Newton Evolution Proposals (NEPs) describe Proposals for the Newton Project including *Economic Model*, *Personnel*, *Technical*, *Community Governance* and *Business*.
@@ -115,7 +117,7 @@ If your NEP requires images, the image files should be included in a subdirector
 
 ### NEP Templates
 
-- [NEP Template for Token](nep-template-for-token.md)
+- [NEP Template for Token (NRC)](nep-template-nrc.md)
 
 ## Transferring NEP Ownership
 

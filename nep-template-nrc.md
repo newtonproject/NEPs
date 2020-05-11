@@ -1,22 +1,21 @@
-# NEP Template for Token Contract <!--- Replace with NEP-N: Title, once a NEP number is assigned, the editor will update the NEP number in this document -->
+# NEP-N: Replace NEP Title (NRC-N)
 
 | Item | Description |
 |:-|:-|
 | NEP | to be assigned |
-| Title | NEP title |
+| Title | NEP title (NRC) `The title should be 44 characters or less.`|
 | Author | a list of the author's or authors' name(s) and/or username(s), or name(s) and email(s), e.g. (use with the parentheses or triangular brackets): FirstName LastName (@GitHubUsername), FirstName LastName <foo@bar.com>, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername)> |
 | Discussions to | URL |
 | Status | Draft |
-| Type | Token Template |
+| Type | NRC |
 | Category | Technical |
 | Created | date created on, in ISO 8601 (yyyy-mm-dd) format |
 | Updated | date updated on, in ISO 8601 (yyyy-mm-dd) format |
 
 This is the suggested token template for new NEPs.
 
-Note that an NEP number will be assigned by an editor. When opening a pull request to submit your NEP, please use an abbreviated title in the filename, `nep-draft_title_abbrev.md`.
+Note that an NEP number will be assigned by an editor. When opening a pull request to submit your NEP, please use an abbreviated title in the filename, `nep-draft_title_abbrev.md`, and the NEP document should be placed under `NEPS` directory.
 
-The title should be 44 characters or less.
 
 ## Simple Summary
 
