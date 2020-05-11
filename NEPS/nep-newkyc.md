@@ -32,6 +32,8 @@ Here is a possible solution:
 2. When requested, the NewOrg "KYC service center" can respond, verify, and certificate by issuing a NewKYC token specifically for the requester.
 3. The requester can hold the NewKYC token under his/her/its on-chain address for the proof of KYC. He/she/it can hold only one NewKYC token issued by a KYC service center.
 
+![conceptual illustration](../assets/nep-N/NewKYC_concept.png)
+
 ### Meta Data
 
 | Item | Description | Behaviors/Properties |
