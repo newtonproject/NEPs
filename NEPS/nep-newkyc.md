@@ -84,5 +84,7 @@ TBD
 
 ## References (optional)
 
+* NRC-12: NewOrg Standard https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-12.md
+
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
