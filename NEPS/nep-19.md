@@ -1,4 +1,4 @@
-## NEP 19:Physical commodity standard (NRC-19)
+## NEP 19: Physical Commodity Standard (NRC-19)
 
 | Item | Description |
 |:-|:-|
@@ -8,7 +8,7 @@
 | Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/4 |
 | Status | Draft |
 | Type | NRC |
-| Category | technical |
+| Category | Technical |
 | Created | 2020-05-28 |
 | Updated |  |
 
