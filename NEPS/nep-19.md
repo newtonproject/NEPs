@@ -4,7 +4,7 @@
 |:-|:-|
 | NEP | 19 |
 | Title | Physical Commodity Token Standard (NRC-19) |
-| Author | [Wenyan Chen](https://github.com/wenyan8082000),[Tao Jiang](https://github.com/jiangtao-tang),[Yong Liu]((mailto:liuyong5653@163.com)) |
+| Author | [Wenyan Chen](https://github.com/wenyan8082000),[Tao Jiang](https://github.com/jiangtao-tang),[Yong Liu](mailto:liuyong5653@163.com) |
 | Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/4 |
 | Status | Draft |
 | Type | NRC |
