@@ -10,7 +10,7 @@
 | Type | NRC |
 | Category | Technical |
 | Created | 2020-04-23 |
-| Updated | |
+| Updated | 2020-06-16 |
 
 
 ## Simple Summary
@@ -36,69 +36,125 @@ To replace the traditional limited corporation with new governance paradigm base
 
 ### Meta Data
 
-| Item | Description | Behaviors/Properties |
-|:-|:-|:-|
-|**org info:**|
-| name | the org name | cannot be changed |
-| type | the org type | types available: TBD |
-| icon | the org icon (URL) | URL to an image |
-| region | the region of the org | country/region |
-| url | the link to the official website of the org | URL to org website |
-| versionTag | the verison of the org | x.y.z |
-| owner | the owner of the org | governance operations can be freely defined by the smart contracts |
-| description | the description text of the org | limited length: TBD bytes |
-| orgStatus | the org status | freeze/unfreeze |
-| stakingCapital | the capital (NEW) the org staked | |
-|**org token:**|
-| symbol | the symbol of the org token | 3-4 uppercase letters, e.g. BTC, NMCT, etc, which cannot be changed |
-| totalSupply | the total supply of the org tokens | could allow to be increased/decreased |
-| decimals | the decimals of the org token | the granularity of the org tokens |
-| stakeholders | the stakeholders having org token | address => # of org tokens |
-| stakeholderTypes | the type of the stakeholder having org token | address => type (0 - invalid; 1 - voter; 2 - partner) |
+The meta data functions are constant methods that returns information. Parameters all have a leading _.
+
+#### orgInfo
+
+returns the informaiton of the Org:
+- _name, the name of the Org 
+- _type, the type of the Org
+	* 1 - Commercial Instituation
+	* 2 - Community Group
+	* 3 - Government Sector
+	* 4 - Non-profit Organization
+	* 5 - Developer Community
+- _description
+- _countryRegion
+- _url, the website of the Org
+- _managementFee, %, ranging 0-100, of mining profits that would be attributed to the Org owner
+
+```js
+function orgInfo() public view returns (string _name, uint8 _type, string _description, string _contryRegion, string _url, uint8 _managementFee)
+```
+
+#### totalStaking
+
+returns the total staking amount of NEW (unit: ISSAC) of the Org.
+
+```js
+function totalStaking() public view returns (uint256 _amount)
+```
+
+#### stakingAmountOf
+
+returns the staking amount of a specific address which is a partner of the Org.
+
+```js
+function stakingAmountOf(address _partner) public view returns (uint256 _amount)
+```
+
+#### versionTag
+
+returns the versionTag (e.g. "0.1.0") of the Org.
+
+```js
+function versionTag() public view returns (string _versionTag)
+```
+
+#### owner
+
+returns the owner address of the Org.
+
+```js
+function owner() public view returns (address _owner)
+```
+
+#### countOfMember
+
+returns the count of members of the Org.
+
+```js
+function countOfMember() public view returns (uint256 _count)
+```
+
+#### isMember
+
+returns if the given address is the member of the Org.
+
+```js
+function isMember(address _person) returns (bool _isMember)
+```
 
 ### Interaction / Functions
 
-| Function | Description | Behaviors/Properties |
-|:-|:-|:-|
-|**Owner**|
-| constructor() | create org token (which represents an org) | permission: owner |
-| addAdmin | add administrator | permission: owner |
-| removeAdmin | remove administrator | permission: owner |
-| freezeOrg | freeze org | permission: owner |
-| unfreezeOrg | unfreeze org | permission: owner |
-| changeOwner | change the owner of org | permission: owner |
-| mint | mint new org tokens | permission: owner |
-| burn | burn org tokens | permission: owner |
-|**Shareholders**|
-| increaseCapital() | deposit capital and mint new org tokens | permission: all |
-| decreaseCapital() | withdraw capital and burn org tokens | permission: stakeholder |
-| increaseVote() | increate vote and mint new org tokens | permission: all |
-| decreaseVote() | decrease vote and burn org tokens | permission: stakeholder voter | 
-| interestOf(address) | query the profit | |
-| withdrawInterest() | withdraw the profit | permission: stakeholder |
-|**Query**|
-| balanceOf(address) | query the balance | having org token (stake) to be an org member |
-| transfer(from, to) | transfer the ownership of org tokens | |
-| approve(spender, value) | delegate others to operate my org tokens | |
-| allowance(owner, spender) | check the delegation status | |
-| transferFrom(from, to, value) | transfer org tokens of who delegates | |
-| totalSupply | query the total stake of the org | |
-| name | query the org name |  |
-| symbol | query the symbol of the org token (stake) |  |
-| decimals | query the decimals of the org token | granularity of the org token |
-| owner | query the owner of the org |  |
-| isStakeholder(address) | query if having org token | |
-| stakeholderTypeOf(address) | query the type of the stakeholder | (0 - invalid; 1 - voter; 2 - partner) |
-| stakingCapital | the amount of capital (NEW) the org staked | |
-| orgStatus | the org status | freeze/unfreeze |
+The interaction functions are methods that would change the states.
 
-## Issues
+#### modifyOrgInfo
 
-- Q: Should it be allowed to create org without defining org token?
-	* A: It depends on the concreate product implementation.
+modifies the information of the Org (refer to orgInfo() above).
 
-- Q: Should it be allowed to create asset tokens without linking with an org token?
-	* A: It depends on the concreate product implementation.
+```js
+function modifyOrgInfo(string _name, uint8 _type, string _description, string _contryRegion, string _url, uint8 _managementFee)
+```
+
+#### increaseStaking
+
+increases the total staking amount for the caller itself.
+
+```js
+function increaseStaking() payable
+```
+
+#### increaseStakingFor
+
+increases the staking amount for someone else.
+
+```js
+funciton increaseStakingFor(address _stakeholder) payable
+```
+
+#### decreaseStaking
+
+decreases the staking amount of the caller.
+
+```js
+function decreaseStaking()
+```
+
+#### joinOrg
+
+joins the Org (as the caller).
+
+```js
+function joinOrg()
+```
+
+#### exitOrg
+exits the Org (as the caller).
+
+```js
+function exitOrg()
+```
 
 ## Rationale
 
@@ -116,9 +172,14 @@ TBD
 ## Implementation
 TBD
 
+## TBD
+
+Org token is removed from the original version and it should be considered later.
+
 ## References
 
 * ERC-20 https://eips.ethereum.org/EIPS/eip-20 
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
