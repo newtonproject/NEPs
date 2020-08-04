@@ -1,9 +1,9 @@
 
-# NEP X: La Palma EVM and Protocol Upgrades
+# NEP 26: La Palma EVM and Protocol Upgrades
 
 | Item | Description |
 |:-|:-|
-| NEP | X |
+| NEP | 26 |
 | Title | La Palma EVM and Protocol Upgrades |
 | Author | newchain |
 | Discussions to | TBD |
