@@ -6,7 +6,7 @@
 | NEP | 26 |
 | Title | La Palma EVM and Protocol Upgrades |
 | Author | newchain |
-| Discussions to | TBD |
+| Discussions to | https://github.com/newtonproject/NEPs/issues/26 |
 | Status | Draft |
 | Type | Process |
 | Category | Technical |
