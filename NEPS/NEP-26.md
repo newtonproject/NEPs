@@ -1,10 +1,10 @@
 
-# NEP 26: La Palma EVM and Protocol Upgrades
+# NEP 26: Boom: EVM and Protocol Upgrades
 
 | Item | Description |
 |:-|:-|
 | NEP | 26 |
-| Title | La Palma EVM and Protocol Upgrades |
+| Title | Boom: EVM and Protocol Upgrades |
 | Author | newchain |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/26 |
 | Status | Draft |
@@ -15,11 +15,11 @@
 
 ### Simple Summary
 
-Enable the outstanding Ethereum Foundation _Constantinople_, _St. Petersburg_ and _Istanbul_ network protocol upgrades on the NewChain network in a hard-fork code-named _La Palma_ to enable maximum compatibility across these networks.
+Enable the outstanding Ethereum Foundation _Constantinople_, _St. Petersburg_ and _Istanbul_ network protocol upgrades on the NewChain network in a hard-fork code-named _Boom_ to enable maximum compatibility across these networks.
 
 ### Abstract
 
-Add support for a subset of protocol-impacting changes introduced in the Ethereum Foundation (ETH) network via the _Constantinople_, _St. Petersburg_ and _Istanbul_ hardforks. The proposed changes for NewChain's _La Palma_ upgrade include:
+Add support for a subset of protocol-impacting changes introduced in the Ethereum Foundation (ETH) network via the _Constantinople_, _St. Petersburg_ and _Istanbul_ hardforks. The proposed changes for NewChain's _Boom_ upgrade include:
 
 - Bitwise shifting instructions in EVM
 - Skinny CREATE2
@@ -34,8 +34,8 @@ Add support for a subset of protocol-impacting changes introduced in the Ethereu
 
 This document proposes the following blocks at which to implement these changes in the NewChain networks:
 
-- `TBD` on NewChain testnet (TBD)
-- `TBD` on NewChain mainnet (TBD)
+- `17181218` on NewChain testnet
+- `18500000` on NewChain mainnet
 
 For more information on the opcodes and their respective EIPs and implementations, please see the _Specification_ section of this document.
 
@@ -62,7 +62,7 @@ Technical specifications for each EIP can be found at those documents respective
 
 Adoption of the content of this NEP requires a hard fork as it introduces changes that are not backward compatible.
 
-The [newchain](https://github.com/newtonproject/newchain) implement this features currently and would be able to support the _La Palma_ upgrade.
+The [newchain](https://github.com/newtonproject/newchain) implement this features currently and would be able to support the _Boom_ upgrade.
 
 ## Copyright
 
