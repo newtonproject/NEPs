@@ -7,7 +7,7 @@
 | Title | Boom: EVM and Protocol Upgrades |
 | Author | newchain |
 | Discussions to | https://github.com/newtonproject/NEPs/issues/26 |
-| Status | Draft |
+| Status | Implemented |
 | Type | Process |
 | Category | Technical |
 | Created | 2020-08-03 |
@@ -34,8 +34,8 @@ Add support for a subset of protocol-impacting changes introduced in the Ethereu
 
 This document proposes the following blocks at which to implement these changes in the NewChain networks:
 
-- `17181218` on NewChain testnet
-- `18500000` on NewChain mainnet
+- `17181218` on NewChain testnet (2020-08-08 08:06:26 UTC+8)
+- `18500000` on NewChain mainnet (2020–09–20 20:59:42 UTC+8)
 
 For more information on the opcodes and their respective EIPs and implementations, please see the _Specification_ section of this document.
 
