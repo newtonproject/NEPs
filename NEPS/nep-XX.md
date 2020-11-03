@@ -63,7 +63,8 @@ Other "virtual" NewForce mining that are not on-chain verifiable, such as NewMal
 Economic calculation:
 
 	Suppose there are 11 + 10 = 21 ledger nodes in total. 50% allocation of daily released NEW would be roughly around 1,100,000 NEW.
-	Each node will get 52380 NEW per day, which will be roughly 52380 * 0.00026 (2020-11-3) * 30 = 408 USD per month > 300 USD/month that would be sufficient to cover the maintenance fee of a ledger node.
+	Each node will get 52380 NEW per day, which will be roughly 52380 * 0.00026 (2020-11-3) * 30 = 408 USD per month > 300 USD/month 
+	that would be sufficient to cover the maintenance fee of a ledger node.
 
 **Step 3. Voting**
 
