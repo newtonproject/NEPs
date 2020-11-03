@@ -58,6 +58,8 @@ The NewPool release allocation program as well as the NewForce program will be u
 1. "community nodes" 50%; and 
 2. ledger nodes 50% 
 
+Other "virtual" NewForce mining that are not on-chain verifiable, such as NewMall "buy to mine", will be deprecated forever.
+
 Economic calculation:
 
 	Suppose there are 11 + 10 = 21 ledger nodes in total. 50% allocation of daily released NEW would be roughly around 1,100,000 NEW.
