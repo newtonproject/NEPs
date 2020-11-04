@@ -1,15 +1,14 @@
-
-# NEP XX: NewChain MainNet Opening
+# NEP 27: NewChain MainNet Opening
 
 | Item | Description |
 |:-|:-|
-| NEP | XX |
+| NEP | 27 |
 | Title | NewChain MainNet Opening |
 | Author | newchain |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/XX |
+| Discussions to | https://github.com/newtonproject/NEPs/pull/27 |
 | Status | Draft |
 | Type | Process |
-| Category | Technical |
+| Category | Community Governance |
 | Created | 2020-11-03 |
 
 
