@@ -1,11 +1,11 @@
-# NEP XX: NewPay Community Node Migration
+# NEP 29: NewPay Community Node Migration
 
 | Item | Description |
 |:-|:-|
-| NEP | XX |
+| NEP | 29 |
 | Title | NewPay Community Node Migration |
 | Author | Newton Foundation |
-| Discussions to | https://github.com/newtonproject/NEPs/pull/XX |
+| Discussions to | https://github.com/newtonproject/NEPs/pull/29 |
 | Status | Draft |
 | Type | Process |
 | Category | Community Governance |
