@@ -67,7 +67,16 @@ Mintability: DISABLED.
 **Step 3. Yield Farming.**
 
 1. Once all the "community nodes" are settled and all cToken-NEW LP tokens are correctly locked up into the mining contract, the liquidity mining will be activated.
-2. Farmers, i.e. LP token owners, will receive xNEW tokens for yield farming. All farmers will share a certain amount of xNEW yielded with each block. The amount of xNEW received will be decided by the locked LP token amount * LP token price against NEW.
+2. Farmers, i.e. LP token owners, will receive xNEW tokens for yield farming. All farmers will share a certain amount of xNEW yielded with each block. The amount of xNEW received will be decided by the following formula:
+
+```
+ locked LP token amount * LP token price against NEW 
+------------------------------------------------------ * the amount of xNEW yielded with a certain block
+   ∑(LP token amount * LP token price against NEW)
+```
+
+Please note that the LP token price against NEW will be updated once a day for the performance consideration on the smart contract execution.
+
 3. xNEW is 1:1 redeemable for the native coin NEW, generated from NewPool daily release. For the percentage from NewPool release, please refer to [NEP-27 NewChain MainNet Opening](https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-27.md).
 
 
