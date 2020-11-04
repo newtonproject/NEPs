@@ -45,13 +45,14 @@ Technical specifications can be found at those documents respectively:
 
 Adoption of the content of this NEP requires the following steps:
 
-**Step 1. Preparation.**
+**Phase 0. Dry-run**
 
 1. The miner should be a qualified NewChain TestNet ledger node first.
 2. Any miner who want to participate MainNet mining should create a staking "community node" in NewPay and lock in AT LEAST 20,000,000 NEW.
 3. The miner who want to participate MainNet mining should setup the MainNet ledger node first according to the document above.
+4. Newton Foundation will coordinate the joined ledger nodes to vote for new ledger nodes to be involved into the network.
 
-**Step 2. Upgrading.**
+**Phase 1. Sustainability**
 
 The NewPool release allocation program as well as the NewForce program will be upgraded to split the daily released NEW from NewPool to allocate to 
 1. "community nodes" 50%; and 
@@ -65,7 +66,7 @@ Economic calculation:
 	Each node will get 52380 NEW per day, which will be roughly 52380 * 0.00026 (2020-11-3) * 30 = 408 USD per month > 300 USD/month 
 	that would be sufficient to cover the maintenance fee of a ledger node.
 
-**Step 3. Voting**
+**Phase 2. Self-Governance**
 
 In the first stage, Newton Foundation will coordinate the ledger nodes to vote for a new node to join, or a node to leave the network, by means of either
 1. to ask the nodes to execute a CLI command to vote; or
