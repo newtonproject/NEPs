@@ -4,7 +4,7 @@
 |:-|:-|
 | NEP | 27 |
 | Title | NewChain MainNet Opening |
-| Author | newchain |
+| Author | X-Team |
 | Discussions to | https://github.com/newtonproject/NEPs/pull/27 |
 | Status | Draft |
 | Type | Process |
@@ -50,7 +50,11 @@ Adoption of the content of this NEP requires the following steps:
 1. The miner should be a qualified NewChain TestNet ledger node first.
 2. Any miner who want to participate MainNet mining should create a staking "community node" in NewPay and lock in AT LEAST 20,000,000 NEW.
 3. The miner who want to participate MainNet mining should setup the MainNet ledger node first according to the document above.
-4. Newton Foundation will coordinate the joined ledger nodes to vote for new ledger nodes to be involved into the network.
+4. The miner should prepare a self-introductory information disclosure like below, and submit it to Newton Foundation.
+	- node name:
+	- staking "community node" name and staking amount:
+	- how you will contribute to promote Newton:
+5. Newton Foundation will coordinate the joined ledger nodes to vote for new ledger nodes to be involved into the network.
 
 **Phase 1. Sustainability**
 
