@@ -9,7 +9,7 @@
 | Status | Draft |
 | Type | Process |
 | Category | Community Governance |
-| Created | 2020-11-03 |
+| Created | 2020-12-04 |
 
 
 ### Simple Summary
@@ -48,27 +48,23 @@ Adoption of the content of this NEP requires the following steps:
 **Phase 0. Dry-run**
 
 1. The miner should be a qualified NewChain TestNet ledger node first.
-2. Any miner who want to participate MainNet mining should create a staking "community node" in NewPay and lock in AT LEAST 20,000,000 NEW.
+2. Any miner who want to participate MainNet mining should create a staking "community node" in NewPay and lock in AT LEAST 10,000,000 NEW.
 3. The miner who want to participate MainNet mining should setup the MainNet ledger node first according to the document above.
-4. The miner should prepare a self-introductory information disclosure like below, and submit it to Newton Foundation.
+4. The miner should prepare a self-introductory information disclosure like below, and submit:
 	- node name:
 	- staking "community node" name and staking amount:
 	- how you will contribute to promote Newton:
-5. Newton Foundation will coordinate the joined ledger nodes to vote for new ledger nodes to be involved into the network.
+5. The joined ledger nodes then vote for new ledger nodes to be involved into the network.
 
 **Phase 1. Sustainability**
 
 The NewPool release allocation program as well as the NewForce program will be upgraded to split the daily released NEW from NewPool to allocate to 
-1. "community nodes" 50%; and 
-2. ledger nodes 50% 
+1. "community nodes" ; and 
+2. ledger nodes 
 
 Other "virtual" NewForce mining that are not on-chain verifiable, such as NewMall "buy to mine", will be deprecated forever.
 
-Economic calculation:
-
-	Suppose there are 11 + 10 = 21 ledger nodes in total. 50% allocation of daily released NEW would be roughly around 1,100,000 NEW.
-	Each node will get 52380 NEW per day, which will be roughly 52380 * 0.00026 (2020-11-3) * 30 = 408 USD per month > 300 USD/month 
-	that would be sufficient to cover the maintenance fee of a ledger node.
+Economic calculation will be detailed out later soon before phase 1 is to be kicked start.
 
 **Phase 2. Self-Governance**
 
