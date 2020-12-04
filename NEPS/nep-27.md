@@ -9,7 +9,8 @@
 | Status | Draft |
 | Type | Process |
 | Category | Community Governance |
-| Created | 2020-12-04 |
+| Created | 2020-11-03 |
+| Updated | 2020-12-04 |
 
 
 ### Simple Summary
