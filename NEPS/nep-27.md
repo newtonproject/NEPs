@@ -10,7 +10,7 @@
 | Type | Process |
 | Category | Community Governance |
 | Created | 2020-11-03 |
-| Updated | 2020-12-04 |
+| Updated | 2020-12-07 |
 
 
 ### Simple Summary
@@ -40,7 +40,7 @@ To improve the openness of NewChain MainNet, involve the community to run the ne
 
 Technical specifications can be found at those documents respectively:
 
-- [newchain-deploy](https://github.com/newtonproject/newchain-deploy): Deployment manual for setting up a NewChain node.
+- [newchain-nodes](https://github.com/newtonproject/newchain-nodes): Deployment manual for setting up a NewChain node.
 
 ### Implementation
 
