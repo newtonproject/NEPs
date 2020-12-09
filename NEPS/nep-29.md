@@ -44,21 +44,21 @@ References can be found at those documents respectively:
 
 Adoption of the content of this NEP requires the following phases:
 
-#### Phase 0. Preparation.
+**Phase 0. Preparation.**
 
 In phase 0, the minimum required votes for a "community node" to be elected will be lowered to 0. The effective date would be officially announced beforehand.
 
-#### Phase 1. Migration.
+**Phase 1. Migration.**
 
 Phase 1 would include the following steps:
 
-**Step 1. Snapshot.**
+Step 1. Snapshot.
 
 1. At a specific date and time announced in advance for at least 20 days, a snapshot of the "community node" data will be taken.
 2. During the above period, all "community nodes" will receive daily mined NEW as usual, until step 2.
 
 
-**Step 2. Migrate.**
+Step 2. Migrate.
 
 1. The owner/creator of each "community nodes" (referred as "the node owner") would be required to calculate the NEW staking amount and issue a token (called "cToken") for this node with exactly the same amount of the total supply. [NewAsset Generator](https://www.newtonproject.org/newasset-generator/) could be used for this task.
 
@@ -79,7 +79,7 @@ Mintability: DISABLED.
 
 The deadline for this step will be announced as when step 1 begins.
 
-**Step 3. Yield Farming.**
+Step 3. Yield Farming.
 
 1. Once all the "community nodes" are settled and all cToken-NEW LP tokens are correctly locked up into the mining contract as the announce deadline in step 2, the liquidity mining will be activated.
 2. Farmers, i.e. LP token owners, will receive NEW for yield farming. All farmers will share a certain amount of NEW yielded with each block. The amount of NEW received will be decided by the following formula:
@@ -95,7 +95,7 @@ Please note that the LP token price against NEW will be updated once a day for t
 3. The mined NEW are generated from NewPool daily release. For more information on the NewPool release, please refer to [NEP-27 NewChain MainNet Opening](https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-27.md).
 
 
-**Step 4. Join and Leave.**
+Step 4. Join and Leave.
 
 Join:
 1. Prepare a certain amount of NEW, for example, 10,000,000 NEW.
@@ -108,7 +108,7 @@ Leave:
 1. Just simply remove the LP tokens from the mining contract.
 
 
-**Step 5. End.**
+Step 5. End.
 
 After 1 year yield farming, the Node Mining Area will be closed.
 
