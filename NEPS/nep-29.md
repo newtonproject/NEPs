@@ -46,7 +46,11 @@ Adoption of the content of this NEP requires the following phases:
 
 **Phase 0. Preparation.**
 
-In phase 0, the minimum required votes for a "community node" to be elected will be lowered to 0. The effective date would be officially announced beforehand.
+In phase 0, several criteria for a "community node" would be lowered as follows:
+- the minimum amount of NEW to be staked for creating a "community node" will be lowered to 1,000,000 NEW.
+- the minimum required votes for a "community node" to be elected will be lowered to 0.
+
+The effective date would be officially announced beforehand.
 
 **Phase 1. Migration.**
 
@@ -99,7 +103,7 @@ Please note that the LP token price against NEW will be updated once a day for t
 Step 4. Join and Leave.
 
 Join:
-1. Prepare a certain amount of NEW, for example, 10,000,000 NEW.
+1. Prepare a certain amount of NEW, for example, 1,000,000 NEW.
 2. Issue a token that will be used as cToken, with the same amount of the NEW in point 1, and the mintability disabled. [NewAsset Generator](https://www.newtonproject.org/newasset-generator/) could be used for this task.
 3. Create the liquidity pool with cToken:NEW = 1:1 and get all the LP tokens.
 4. Submit an application for joining the Node Mining Area.
