@@ -72,9 +72,9 @@ Precision: 18
 Mintability: DISABLED.
 ```
 
-2. The node owner will then submit an application to NewSwap for joining the Node Mining Area of NewSwap. The node owner would be required to transfer 100% of the issued cToken to NewSwap airdrop address, for being distributed to original node stakeholders through on-chain airdrop.
+2. The node owner will then submit an application to NewSwap for joining the Node Mining Area of NewSwap. The node owner would be required to transfer 100% of the issued cToken to NewSwap airdrop address, for being distributed to original node stakeholders through on-chain airdrop, according to the staked NEW in a pro rata basis.
 3. All the cToken will be airdropped to each specific person who staked NEW in this "community node" via either founding/co-founding the node or voting for the node.
-4. The "community node" will be unfrozen, for everyone to unlock the staked NEW.
+4. The "community node" will be unfrozen, for everyone to unlock the staked NEW immediately. The original NEW mining will be stopped at the same time.
 5. The node owner will create a liquidity pool for the cToken paired with NEW and put the cToken and NEW (1:1) into the liquidity pool and get the LP tokens of cToken-NEW.
 6. Each who joins the liquidity pool can then put the cToken-NEW LP tokens into the Node Mining Area of NewSwap for being ready to mine NEW. Later on, the person can read the mining contract to check out the amount of LP tokens he/she owns, and withdraw them as he/she wants.
 
