@@ -4,7 +4,7 @@
 |:-|:-|
 | NEP | 29 |
 | Title | NewPay Community Node Migration |
-| Author | x-team |
+| Author | X-Team |
 | Discussions to | https://github.com/newtonproject/NEPs/pull/29 |
 | Status | Draft |
 | Type | Process |
