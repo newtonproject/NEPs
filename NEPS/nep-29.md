@@ -52,10 +52,10 @@ In phase 0, the minimum required votes for a "community node" to be elected will
 
 Phase 1 would include the following steps:
 
-Step 1. Snapshot.
+Step 1. Freeze.
 
-1. At a specific date and time announced in advance for at least 20 days, a snapshot of the "community node" data will be taken.
-2. During the above period, all "community nodes" will receive daily mined NEW as usual, until step 2.
+1. At a specific date and time announced in advance for at least 20 days, the "community node" feature will be frozen. No more "community node" would be allowed to create, and no "community node" would be allowed to unlock and quit, until the step 2 airdrop is finished.
+2. During the frozen period, all "community nodes" will receive daily mined NEW as usual, until step 2 airdrop.
 
 
 Step 2. Migrate.
@@ -74,10 +74,11 @@ Mintability: DISABLED.
 
 2. The node owner will then submit an application to NewSwap for joining the Node Mining Area of NewSwap. The node owner would be required to transfer 100% of the issued cToken to NewSwap airdrop address, for being distributed to original node stakeholders through on-chain airdrop.
 3. All the cToken will be airdropped to each specific person who staked NEW in this "community node" via either founding/co-founding the node or voting for the node.
-4. The node owner will create a liquidity pool for the cToken paired with NEW and put the cToken and NEW (1:1) into the liquidity pool and get the LP tokens of cToken-NEW.
-5. Each who joins the liquidity pool can then put the cToken-NEW LP tokens into the Node Mining Area of NewSwap for being ready to mine NEW. Later on, the person can read the mining contract to check out the amount of LP tokens he/she owns, and withdraw them as he/she wants.
+4. The "community node" will be unfrozen, for everyone to unlock the staked NEW.
+5. The node owner will create a liquidity pool for the cToken paired with NEW and put the cToken and NEW (1:1) into the liquidity pool and get the LP tokens of cToken-NEW.
+6. Each who joins the liquidity pool can then put the cToken-NEW LP tokens into the Node Mining Area of NewSwap for being ready to mine NEW. Later on, the person can read the mining contract to check out the amount of LP tokens he/she owns, and withdraw them as he/she wants.
 
-The deadline for this step will be announced as when step 1 begins.
+The roadmap and deadline for this step will be announced before the migration begins.
 
 Step 3. Yield Farming.
 
