@@ -105,7 +105,7 @@ Step 4. Join and Leave.
 Join:
 1. Prepare a certain amount of NEW, for example, 1,000,000 NEW.
 2. Issue a token that will be used as cToken, with the same amount of the NEW in point 1, and the mintability disabled. [NewAsset Generator](https://www.newtonproject.org/newasset-generator/) could be used for this task.
-3. Create the liquidity pool with cToken:NEW = 1:1 and get all the LP tokens.
+3. Create the liquidity pool with cToken:NEW (in a reasonable ratio in your rationale and as you wish) and get all the LP tokens.
 4. Submit an application for joining the Node Mining Area.
 5. Once it is correctly configured, the applicant can then put his/her LP tokens into the mining contract to start yield farming.
 
