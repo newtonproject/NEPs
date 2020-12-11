@@ -35,7 +35,7 @@ To facilitate the NewPay "community nodes" to be migrated and resolved within th
 
 References can be found at those documents respectively:
 
-- [Current "community nodes"](https://explorer.newtonproject.org/nodes): A comprehensive list of the current "community nodes" as well as the stats.
+- [Current "community nodes"](https://legacy-explorer.newtonproject.org/nodes): A comprehensive list of the current "community nodes" as well as the stats.
 - [NewSwap](https://newswap.org): The official site of NewSwap.
 - [NewAsset Generator](https://www.newtonproject.org/newasset-generator/): The token issuance tool.
 
