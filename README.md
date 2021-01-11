@@ -36,19 +36,13 @@ node --version && yarn --version
 
 If you don't have NodeJS or Yarn installed, install them from [NodeJS Download](https://nodejs.org/en/download/) and [Yarn Installation](https://yarnpkg.com/getting-started/install).
 
-3. Clone repository and update git submodules
+3. Recursively clone this repository as it contains a submodule.
 
 ```bash
-git clone --recursive git@github.com:newtonproject/NEPs.git
+git clone --recursive https://github.com/newtonproject/NEPs.git
 ```
 
-Then go into your cloned git directory
-
-```bash
-cd NEPs
-```
-
-If not cloned with `--recursive`, update submodule to fetch the theme:
+If not cloned with `--recursive`, update submodule to fetch submodule:
 
 ```bash
 git submodule update --init --recursive
@@ -70,4 +64,22 @@ yarn dev
 
 ```bash
 yarn build
+```
+
+### Check Markdown Format Before Making A Commit
+
+We use prettier to check and format Markdown documents.
+
+It is recommended to check your format before making a commit.
+
+**Format Check**
+
+```bash
+yarn fc
+```
+
+**Format Fix:** this will help clean the format
+
+```bash
+yarn ff
 ```
