@@ -1,0 +1,26 @@
+name: Contents Check
+
+on: [push, pull_request]
+
+jobs:
+  test-contents:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+        #node-version: [12.x, 14.x]
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Modules
+        run: yarn
+      - name: Contents Check
+        run: yarn ff
