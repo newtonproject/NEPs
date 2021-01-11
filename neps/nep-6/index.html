@@ -1,0 +1,91 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Simple Summary #  A standard interface for tokens.
+Abstract #  The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party.
+Motivation #  A standard interface allows any tokens on NewChain to be re-used by other applications: from wallets to decentralized exchanges."><meta property="og:title" content="Basic Token Standard (NRC-6)"><meta property="og:description" content="Simple Summary #  A standard interface for tokens.
+Abstract #  The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party.
+Motivation #  A standard interface allows any tokens on NewChain to be re-used by other applications: from wallets to decentralized exchanges."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newton.bio/neps/nep-6/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Basic Token Standard (NRC-6) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.b0719cabe2c6df241a3cb63e8555f7411c00b448b87f31f328690de6e36c0752.css integrity="sha256-sHGcq+LG3yQaPLY+hVX3QRwAtEi4fzHzKGkN5uNsB1I="><script defer src=/en.search.min.1d22f0007c2369fbfa608d7db89ab56e0b8bbed70a597a34796a83ba0437992f.js integrity="sha256-HSLwAHwjafv6YI19uJq1bguLvtcKWXo0eWqDugQ3mS8="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
+<label class="toggle transparent" color=none><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#emoji-sunglasses"/></svg></label></div><div id=navbar-collapse><ul class=navbar-nav><li class="nav-item dropdown" style=order:100><a href=#>More</a><ul class=dropdown-menu><li class=nav-item><a href=https://github.com/newtonproject/neps>NEPs Github</a></li><li class=nav-item><a href=https://newtonproject.org>Newton Project</a></li><li class=nav-item><a href=https://explorer.newtonproject.org>Newton Explorer</a></li></ul></li><li class=nav-item><a href=/neps/>All NEPs</a></li><li class=nav-item><a href=/guides/>Guides</a></li><li class=nav-item><a href=/reviews/>Reviews</a></li></ul><div class=search-form><input type=search id=navbar-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class=search-results><ul id=navbar-search-results></ul></div></div></div></div></nav><main><div class=container><div id=breadcrumb><span><a href=https://neps.newton.bio/><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#house"/></svg></a></span><span><a href=https://neps.newton.bio/neps/>NEPs</a></span>
+<span class=active><a href=https://neps.newton.bio/neps/nep-6/>NEP-6</a></span></div></div><div class=container><div class=page-content><article class=markdown><h1>NEP-6: Basic Token Standard (NRC-6)</h1><table class=nep-table><tr><th>NEP</th><td>6</td></tr><tr><th>Title</th><td>Basic Token Standard (NRC-6)</td></tr><tr><th>Author(s)</th><td><a href=mailto:liuyong5653@163.com>Yong Liu</a>, <a href=https://github.com/i29>Qu Jianwei</a>, <a href=https://github.com/LiuChaooo>LiuChao</a></td></tr><tr><th>Discussions To</th><td><a href=https://github.com/newtonproject/NEPs/issues/6>https://github.com/newtonproject/NEPs/issues/6</a></td></tr><tr><th>Category</th><td>Technical</td></tr><tr><th>Type</th><td>NRC</td></tr><tr><th>Status</th><td><span class="nep-status draft">Draft</span></td></tr><tr><th>Created</th><td>2020-04-29</td></tr></table><h2 id=simple-summary>Simple Summary
+<a class=anchor href=#simple-summary>#</a></h2><p>A standard interface for tokens.</p><h2 id=abstract>Abstract
+<a class=anchor href=#abstract>#</a></h2><p>The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party.</p><h2 id=motivation>Motivation
+<a class=anchor href=#motivation>#</a></h2><p>A standard interface allows any tokens on NewChain to be re-used by other applications: from wallets to decentralized exchanges.</p><h2 id=specification>Specification
+<a class=anchor href=#specification>#</a></h2><h3 id=meta-data>Meta Data
+<a class=anchor href=#meta-data>#</a></h3><table><thead><tr><th style=text-align:left>Item</th><th style=text-align:left>Description</th><th style=text-align:left>Behaviors/Properties</th></tr></thead><tbody><tr><td style=text-align:left>name</td><td style=text-align:left>Name of token</td><td style=text-align:left></td></tr><tr><td style=text-align:left>symbol</td><td style=text-align:left>Symbol of token</td><td style=text-align:left></td></tr><tr><td style=text-align:left>decimals</td><td style=text-align:left>decimals of Token</td><td style=text-align:left></td></tr><tr><td style=text-align:left>totalSupply</td><td style=text-align:left>Total supply of Token</td><td style=text-align:left></td></tr></tbody></table><h3 id=interaction--functions>Interaction / Functions
+<a class=anchor href=#interaction--functions>#</a></h3><table><thead><tr><th style=text-align:left>Function</th><th style=text-align:left>Description</th><th style=text-align:left>Behaviors/Properties</th></tr></thead><tbody><tr><td style=text-align:left>transfer(recipient, amount)</td><td style=text-align:left>Moves <code>amount</code> tokens from the caller&rsquo;s account to <code>recipient</code></td><td style=text-align:left></td></tr><tr><td style=text-align:left>approve(spender, amount)</td><td style=text-align:left>Sets <code>amount</code> as the allowance of <code>spender</code> over the caller&rsquo;s tokens</td><td style=text-align:left></td></tr><tr><td style=text-align:left>transferFrom(sender, recipient, amount)</td><td style=text-align:left>Moves <code>amount</code> tokens from <code>sender</code> to <code>recipient</code></td><td style=text-align:left></td></tr><tr><td style=text-align:left><strong>Query</strong></td><td></td><td></td></tr><tr><td style=text-align:left>balanceOf(account)</td><td style=text-align:left>Returns the amount of tokens owned by <code>account</code></td><td style=text-align:left></td></tr><tr><td style=text-align:left>allowance(owner, spender)</td><td style=text-align:left>Returns the remaining number of tokens that <code>spender</code> is allowed to spend from <code>owner</code></td><td style=text-align:left></td></tr><tr><td style=text-align:left><strong>Events</strong></td><td></td><td></td></tr><tr><td style=text-align:left>Transfer(from, to, value)</td><td style=text-align:left>Emitted when <code>value</code> tokens are moved from one account (<code>from</code>) to another (<code>to</code>).</td><td style=text-align:left></td></tr><tr><td style=text-align:left>Approval(owner, spender, value)</td><td style=text-align:left>Emitted when the allowance of a <code>spender</code> for an <code>owner</code> is set by a call to {approve}</td><td style=text-align:left></td></tr></tbody></table><h2 id=rationale-optional>Rationale (optional)
+<a class=anchor href=#rationale-optional>#</a></h2><p>TBD</p><h2 id=test-cases-optional>Test Cases (optional)
+<a class=anchor href=#test-cases-optional>#</a></h2><p>TBD</p><h2 id=implementation-optional>Implementation (optional)
+<a class=anchor href=#implementation-optional>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> INRC6 {
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Returns the amount of tokens in existence.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> totalSupply() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Returns the amount of tokens owned by `account`.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> balanceOf(<span style=color:#8be9fd>address</span> account) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Moves `amount` tokens from the caller&#39;s account to `recipient`.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Returns a boolean value indicating whether the operation succeeded.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Emits a {Transfer} event.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> <span style=color:#8be9fd;font-style:italic>transfer</span>(<span style=color:#8be9fd>address</span> recipient, <span style=color:#8be9fd>uint256</span> amount) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Returns the remaining number of tokens that `spender` will be
+</span><span style=color:#6272a4>     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+</span><span style=color:#6272a4>     * zero by default.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * This value changes when {approve} or {transferFrom} are called.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> allowance(<span style=color:#8be9fd>address</span> owner, <span style=color:#8be9fd>address</span> spender) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Sets `amount` as the allowance of `spender` over the caller&#39;s tokens.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Returns a boolean value indicating whether the operation succeeded.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+</span><span style=color:#6272a4>     * that someone may use both the old and the new allowance by unfortunate
+</span><span style=color:#6272a4>     * transaction ordering. One possible solution to mitigate this race
+</span><span style=color:#6272a4>     * condition is to first reduce the spender&#39;s allowance to 0 and set the
+</span><span style=color:#6272a4>     * desired value afterwards:
+</span><span style=color:#6272a4>     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Emits an {Approval} event.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> approve(<span style=color:#8be9fd>address</span> spender, <span style=color:#8be9fd>uint256</span> amount) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+</span><span style=color:#6272a4>     * allowance mechanism. `amount` is then deducted from the caller&#39;s
+</span><span style=color:#6272a4>     * allowance.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Returns a boolean value indicating whether the operation succeeded.
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Emits a {Transfer} event.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> transferFrom(<span style=color:#8be9fd>address</span> <span style=color:#8be9fd;font-style:italic>sender</span>, <span style=color:#8be9fd>address</span> recipient, <span style=color:#8be9fd>uint256</span> amount) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+</span><span style=color:#6272a4>     * another (`to`).
+</span><span style=color:#6272a4>     *
+</span><span style=color:#6272a4>     * Note that `value` may be zero.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> Transfer(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _from, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _to, <span style=color:#8be9fd>uint256</span> _value);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+</span><span style=color:#6272a4>     * a call to {approve}. `value` is the new allowance.
+</span><span style=color:#6272a4>     */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> Approval(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _spender, <span style=color:#8be9fd>uint256</span> _value);
+}
+</code></pre></div><h2 id=references>References
+<a class=anchor href=#references>#</a></h2><ul><li>ERC-20 <a href=https://eips.ethereum.org/EIPS/eip-20>https://eips.ethereum.org/EIPS/eip-20</a></li></ul><h2 id=copyright>Copyright
+<a class=anchor href=#copyright>#</a></h2><p>Copyright and related rights waived via
+<a href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</p></article><section class=git-info><div class="item links"><a href=https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-6/index.md target=_blank title="Basic Token Standard (NRC-6) Source" rel=noopener><i class="fas fa-code"></i>Source</a>
+<a href=https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-6/index.md title="Edit Basic Token Standard (NRC-6)" target=_blank rel=noopener><i class="fas fa-edit"></i>Edit</a></div></section><div class=nav id=nav-prev-next><a class=previous href=https://neps.newton.bio/neps/nep-26/><div class=link><span>Previous</span><h4>Boom: EVM and Protocol Upgrades</h4></div></a></div></div><aside id=aside-b><section class=toc><input type=checkbox class="hidden toggle" id=toc-control>
+<label class=toggle for=toc-control id=toc-check><h3>On This Page<svg class="icon" id="toc-icon"><use xlink:href="/icons/bootstrap-icons.svg#caret-down-fill"/></svg></h3></label><nav id=TableOfContents><ul><li><ul><li><a href=#simple-summary>Simple Summary</a></li><li><a href=#abstract>Abstract</a></li><li><a href=#motivation>Motivation</a></li><li><a href=#specification>Specification</a><ul><li><a href=#meta-data>Meta Data</a></li><li><a href=#interaction--functions>Interaction / Functions</a></li></ul></li><li><a href=#rationale-optional>Rationale (optional)</a></li><li><a href=#test-cases-optional>Test Cases (optional)</a></li><li><a href=#implementation-optional>Implementation (optional)</a></li><li><a href=#references>References</a></li><li><a href=#copyright>Copyright</a></li></ul></li></ul></nav></section></aside></div></main><footer id=site-footer><div class=container><div class=brand><a class=footer-brand href=https://neps.newton.bio/><img src=https://neps.newton.bio//logo.svg class="logo invert" alt=Logo></a><p class=footer-info-text>Newton Evolution Proposals Official Website.</p><div class=social-icons><a href=https://github.com/newtonproject/NEPs target=_blank title=Github><i class="fab fa-github"></i></a><a href=https://twitter.com/newton_project target=_blank title=Twitter><i class="fab fa-twitter"></i></a><a href=https://t.me/newtonproject target=_blank title=Telegram><i class="fab fa-telegram-plane"></i></a></div></div><aside><ul><h3>Newton Project</h3><li><a href=https://www.newtonproject.org>Newton Project Website</a></li><li><a href=https://developer.newtonproject.org>Developer Website</a></li><li><a href=https://www.newtonproject.org/contact/>Contact Team</a></li></ul></aside><row><p>© 2021 Newton Project & Other Contributors</p></row></div></footer></body></html>
