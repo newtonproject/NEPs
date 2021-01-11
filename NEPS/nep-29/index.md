@@ -36,7 +36,6 @@ References can be found at those documents respectively:
 - [NewSwap](https://newswap.org): The official site of NewSwap.
 - [NewAsset Generator](https://www.newtonproject.org/newasset-generator/): The token issuance tool.
 
-
 ### Implementation
 
 Adoption of the content of this NEP requires the following phases:
@@ -44,6 +43,7 @@ Adoption of the content of this NEP requires the following phases:
 **Phase 0. Preparation.**
 
 In phase 0, several criteria for a "community node" would be lowered as follows:
+
 - the minimum amount of NEW to be staked for creating a "community node" will be lowered to 1,000,000 NEW.
 - the minimum required votes for a "community node" to be elected will be lowered to 0.
 
@@ -57,7 +57,6 @@ Step 1. Freeze.
 
 1. At a specific date and time announced in advance for at least 20 days, the "community node" feature will be frozen. No more "community node" would be allowed to create, and no "community node" would be allowed to unlock and quit, until the step 2 airdrop is finished.
 2. During the frozen period, all "community nodes" will receive daily mined NEW as usual, until step 2 airdrop.
-
 
 Step 2. Migrate.
 
@@ -87,7 +86,7 @@ Step 3. Yield Farming.
 2. Farmers, i.e. LP token owners, will receive NEW for yield farming. All farmers will share a certain amount of NEW yielded with each block. The amount of NEW received will be decided by the following formula:
 
 ```
- locked LP token amount * LP token price against NEW 
+ locked LP token amount * LP token price against NEW
 ------------------------------------------------------ * the amount of NEW yielded with a certain block
    ∑(LP token amount * LP token price against NEW)
 ```
@@ -96,10 +95,10 @@ Please note that the LP token price against NEW will be updated once a day for t
 
 3. The mined NEW are generated from NewPool daily release. For more information on the NewPool release, please refer to [NEP-27 NewChain MainNet Opening](https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-27/index.md).
 
-
 Step 4. Join and Leave.
 
 Join:
+
 1. Prepare a certain amount of NEW, for example, 1,000,000 NEW.
 2. Issue a token that will be used as cToken, with the same amount of the NEW in point 1, and the mintability disabled. [NewAsset Generator](https://www.newtonproject.org/newasset-generator/) could be used for this task.
 3. Create the liquidity pool with cToken:NEW (in a reasonable ratio in your rationale and as you wish) and get all the LP tokens.
@@ -107,15 +106,13 @@ Join:
 5. Once it is correctly configured, the applicant can then put his/her LP tokens into the mining contract to start yield farming.
 
 Leave:
-1. Just simply remove the LP tokens from the mining contract.
 
+1. Just simply remove the LP tokens from the mining contract.
 
 Step 5. End.
 
 After 1 year yield farming, the Node Mining Area will be closed.
 
-
 ## Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
-

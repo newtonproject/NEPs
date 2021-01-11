@@ -49,16 +49,17 @@ Adoption of the content of this NEP requires the following steps:
 2. Any miner who want to participate MainNet mining should create a staking "community node" in NewPay and lock in AT LEAST 10,000,000 NEW.
 3. The miner who want to participate MainNet mining should setup the MainNet ledger node first according to the document above.
 4. The miner should prepare a self-introductory information disclosure like below, and submit:
-	- node name: LEDGER-XXX (please change the XXX to your favorite words)
-	- staking "community node" name and staking amount: (as staked in the "community node" in NewPay)
-	- how you will contribute to promote Newton: (please fill the text in the description field in the "community node" in NewPay)
+   - node name: LEDGER-XXX (please change the XXX to your favorite words)
+   - staking "community node" name and staking amount: (as staked in the "community node" in NewPay)
+   - how you will contribute to promote Newton: (please fill the text in the description field in the "community node" in NewPay)
 5. The joined ledger nodes then vote for new ledger nodes to be involved into the network.
 
 **Phase 1. Sustainability**
 
-The NewPool release allocation program as well as the NewForce program will be upgraded to split the daily released NEW from NewPool to allocate to 
-1. "community nodes" ; and 
-2. ledger nodes 
+The NewPool release allocation program as well as the NewForce program will be upgraded to split the daily released NEW from NewPool to allocate to
+
+1. "community nodes" ; and
+2. ledger nodes
 
 Other "virtual" NewForce mining that are not on-chain verifiable, such as NewMall "buy to mine", will be deprecated forever.
 
@@ -67,11 +68,10 @@ Economic calculation will be detailed out later soon before phase 1 is to be kic
 **Phase 2. Self-Governance**
 
 In the first stage, the ledger nodes will be coordinated to vote for a new node to join, or a node to leave the network, by means of either
+
 1. to ask the nodes to execute a CLI command to vote; or
 2. to ask the nodes to click to vote via NewPay.
-
 
 ## Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
-

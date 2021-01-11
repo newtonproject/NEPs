@@ -19,7 +19,7 @@ NCA creates value through patterns of asset composition. By definition of compos
 
 ## Abstract
 
-Newton Composite Asset (NCA) is an asset class that defines value through a composition of more than one NEAT components. NCA is the generic data type to define "smart contracts" in Newton Infrastructure, where economical vehicles can be created out of other existing NEAT-based components. It is equivalent to a program composed of many transactional functions that already existed in the trust-worthy platform.   
+Newton Composite Asset (NCA) is an asset class that defines value through a composition of more than one NEAT components. NCA is the generic data type to define "smart contracts" in Newton Infrastructure, where economical vehicles can be created out of other existing NEAT-based components. It is equivalent to a program composed of many transactional functions that already existed in the trust-worthy platform.
 
 ## Motivation
 
@@ -32,12 +32,15 @@ It is well-known that assets have different values in different spatial and temp
 Analyzing the values of NCA requires a new breed of simulation tools. Since the market value of asset is bounded to a societal context, and the future of this realistic context always have certain uncertainty. The best possible approach is to provide a common Asset Valuation Simulation platform, so that the value of any NCA will be priced based on the simulation, with participant's private investments or insurance policies.
 
 ### User Experience Design of NCA
-NCA's user interface should have a common base-design. Since all NCA are made of other instances of NEAT-based assets, a common navigation interface must be provided for all NCA. So that user would have a consistent experience in identifying and comparing NCAs.   
+
+NCA's user interface should have a common base-design. Since all NCA are made of other instances of NEAT-based assets, a common navigation interface must be provided for all NCA. So that user would have a consistent experience in identifying and comparing NCAs.
 
 ### Immutability and irrefutability
+
 Every NCA is a unique combination of NEAT assets. So that once it is created, the compositional content cannot be changed.
 
 ### NCA's names in NEAT Namespace
+
 NCA can be represented as a registered name in NEAT's namespace. It should be a subclass of NEAT, having its sub-Namespace code segment. This unification of NCA in NEAT will significantly reduce the complexity of NCA management.
 
 ## Specification
@@ -55,25 +58,26 @@ NCA, NEAT :=
 </code></pre>
 
 ### Syntax and Semantics
+
 NCA is a composite data structure defined by NEATs or other instances of NCA. As shown above, NCA can be defined recursively. The legitimacy of NCA is defined by the temporal and logical prescription of each NEAT, for example, if certain assets requires the concurrent availability of other collateral assets, such as meat delivery must be accompanied by refrigeration service, then, relevant temporal logic conditions must be satisfied. By embedding logical and temporal conditions within each NCA, the NCA composition is the executable logic that defines whether certain contract is considered fulfilled or breached. NCA can be composed of any number of existing NEATs. For example, it can be a combination of existing NPA (Physical Assets), NBC (Newton-backed Currencies), and NPC (Newton Prepaid-Card). By specifying the asset components of an NCA, it also automatically check the temporal and logical validity of these composited asset, so that all transactions are automatically verified statitically, and dynamically, based on a common data type, NEAT.
 
 A unique feature of NCA is the creator. Since every NCA spells out a unique composition of asset content, its creator is like an artist/author, that creates a unique portfolio of assets. Therefore, the account, or accounts that create such composition, should be associated with this value creation process, and should be responsible for the rewards and possible damages of this value composition.
 
 ### Meta Data
 
-| Item | Description | Behaviors/Properties |
-|:-|:-|:-|
-| **Creation Input** |
-| Creator Accounts | The Newton Account identities that creates the said NCA | deploy/can not be changed |
-| Associated NEATs | A list of NEAT involved with this NCA | at least one NEAT |
-| Portfolio Rules | A composition that describes the quantity and sequence of NEAT/NCA | rule should be described in pi-Calculus |
-| Status | The status of NCA is can be separated into following kinds: Proposed, Tested, Verified, Executed, Decommissioned | a finite set of status classes |
+| Item                    | Description                                                                                                      | Behaviors/Properties                     |
+| :---------------------- | :--------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| **Creation Input**      |
+| Creator Accounts        | The Newton Account identities that creates the said NCA                                                          | deploy/can not be changed                |
+| Associated NEATs        | A list of NEAT involved with this NCA                                                                            | at least one NEAT                        |
+| Portfolio Rules         | A composition that describes the quantity and sequence of NEAT/NCA                                               | rule should be described in pi-Calculus  |
+| Status                  | The status of NCA is can be separated into following kinds: Proposed, Tested, Verified, Executed, Decommissioned | a finite set of status classes           |
 | ** Evolution History ** |
-| Developmental History | A list of time points when NCA is created and modified | new timestamps are added as changes made |
-| Execution History | A list of NCA execution time points, including reference to executed NCAs | immutable data records |
-
+| Developmental History   | A list of time points when NCA is created and modified                                                           | new timestamps are added as changes made |
+| Execution History       | A list of NCA execution time points, including reference to executed NCAs                                        | immutable data records                   |
 
 ## Rationale
+
 NCA is a way to leverage compositional efforts to create value. Such compositional value creation can be best illustrated by Bitcoin as a currency. Since Bitcoin as a system creates market value through a composition of three communities, they are:
 
 1. A community of Miners: a large number of administratively independent machines, that agrees on a common transaction ledger.
@@ -88,19 +92,16 @@ NCA is essentially a composed NEAT contract that needs the widest possible reach
 
 ![A diagram of how NCA can be created](NCA_Creation.png)
 
- It can be thought of as a typical exchange matching engine, when the ask/bid combinations are matched, the transaction would take place. In short, it can be simply considered as a marketplace of NCAs, and they can be bought and sold as if they are listed entries of stock or futures in current market practice. Knowing the transactional nature of NCA, the design of NCA exchange marketplace can be implemented using the existing exchange engine that is commonly designed to execute stock or virtual currency trades. As mentioned earlier, the buyer/seller matching algorithm should be based on some automated algorithms. These algorithms should following the Behavioral Equivalence<sup>[1](#ref-1)</sup> properties. One way to defining such property is to classify NCAs that are ready to be exchanged in terms of Behavioral Equivalences. So that all transactions can automatically take place based on the pre-processed classification.
+It can be thought of as a typical exchange matching engine, when the ask/bid combinations are matched, the transaction would take place. In short, it can be simply considered as a marketplace of NCAs, and they can be bought and sold as if they are listed entries of stock or futures in current market practice. Knowing the transactional nature of NCA, the design of NCA exchange marketplace can be implemented using the existing exchange engine that is commonly designed to execute stock or virtual currency trades. As mentioned earlier, the buyer/seller matching algorithm should be based on some automated algorithms. These algorithms should following the Behavioral Equivalence<sup>[1](#ref-1)</sup> properties. One way to defining such property is to classify NCAs that are ready to be exchanged in terms of Behavioral Equivalences. So that all transactions can automatically take place based on the pre-processed classification.
 
- A rather complete architectural diagram based on CQRS-architectural pattern could be referenced to implement the overall system. The diagram was originally created to explain the CQRS-Event Sourcing concept by [Daniel Whittaker](https://danielwhittaker.me/2020/02/20/cqrs-step-step-guide-flow-typical-application/).
- ![A diagram of how NCA can be created](cqrs-es-flowwhite.png)
-
-
+A rather complete architectural diagram based on CQRS-architectural pattern could be referenced to implement the overall system. The diagram was originally created to explain the CQRS-Event Sourcing concept by [Daniel Whittaker](https://danielwhittaker.me/2020/02/20/cqrs-step-step-guide-flow-typical-application/).
+![A diagram of how NCA can be created](cqrs-es-flowwhite.png)
 
 ## Implementation
 
 There are two aspects of NCA implementation. The first one is NCA creation by combining NEATs. The second one is to release NCAs into a public marketplace to be traded. The first one should be an exercise of user interface design and automated testing. As mentioned in the High Level Architecture, the automated testing should follow priniciples prescribed by [1] Behaviral Equivalence of said NCAs. The testing can be conducted using formal model checking tools such as TLA+ or to be implemented in Coq.
 
 The second one is a matching engine that allows traders to quickly search for their desirable NCAs and allow buyers and sellers to easily find their targets. The implementation of matching and transactional engine can be implemented using Event Sourcing and CQRS-based implementation models. For the choice of software stack, Apache-Kafka is a high performance platform that can execute up to millions of transactions per second.
-
 
 ## References
 
@@ -112,6 +113,6 @@ The second one is a matching engine that allows traders to quickly search for th
 
 2. [Alex Pentland, Alexander Lipton, and Thomas Hardjono, Building the New Economy](https://wip.mitpress.mit.edu/new-economy), [MIT Press]
 
-
 ## Copyright
+
 Copyright and related rights waived via [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

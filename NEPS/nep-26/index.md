@@ -1,4 +1,3 @@
-
 ---
 NEP: 26
 Title: "Boom: EVM and Protocol Upgrades"
@@ -64,4 +63,3 @@ The [newchain](https://github.com/newtonproject/newchain) implement this feature
 ## Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
-

@@ -17,6 +17,7 @@ NewOrg template standard represents the living organization in newton ecosystem 
 ## Abstract
 
 NewOrg methods and standard based on NewChain and smart contract technologies are defined as is:
+
 1. based on NewChain and its smart contract technologies.
 2. to replace the traditional limited corporation with new governance paradigm based on blockchain technologies.
 3. to define a set of meta rules for organization governance, and clarify the separation of these rules between NewChain layer and contract layer to implement: (1) business irrelative meta rules; (2) flexibility of neworg governance token; (3) anchoring all neworg to NewChain.
@@ -33,22 +34,23 @@ To replace the traditional limited corporation with new governance paradigm base
 
 ### Meta Data
 
-The meta data functions are constant methods that returns information. Parameters all have a leading _.
+The meta data functions are constant methods that returns information. Parameters all have a leading \_.
 
 #### orgInfo
 
 returns the informaiton of the Org:
-- _name, the name of the Org 
-- _type, the type of the Org
-	* 1 - Commercial Instituation
-	* 2 - Community Group
-	* 3 - Government Sector
-	* 4 - Non-profit Organization
-	* 5 - Developer Community
-- _description
-- _countryRegion
-- _url, the website of the Org
-- _managementFee, %, ranging 0-100, of mining profits that would be attributed to the Org owner
+
+- \_name, the name of the Org
+- \_type, the type of the Org
+  - 1 - Commercial Instituation
+  - 2 - Community Group
+  - 3 - Government Sector
+  - 4 - Non-profit Organization
+  - 5 - Developer Community
+- \_description
+- \_countryRegion
+- \_url, the website of the Org
+- \_managementFee, %, ranging 0-100, of mining profits that would be attributed to the Org owner
 
 ```js
 function orgInfo() public view returns (string _name, uint8 _type, string _description, string _contryRegion, string _url, uint8 _managementFee)
@@ -147,6 +149,7 @@ function joinOrg()
 ```
 
 #### exitOrg
+
 exits the Org (as the caller).
 
 ```js
@@ -164,9 +167,11 @@ Possible asset tokens could be formulated with the following Boston matrix:
 ![asset_token_matrix](asset_token_matrix.png)
 
 ## Test Cases
+
 TBD
 
 ## Implementation
+
 TBD
 
 ## TBD
@@ -175,8 +180,8 @@ Org token is removed from the original version and it should be considered later
 
 ## References
 
-* ERC-20 https://eips.ethereum.org/EIPS/eip-20 
+- ERC-20 https://eips.ethereum.org/EIPS/eip-20
 
 ## Copyright
-Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
+Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

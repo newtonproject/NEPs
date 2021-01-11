@@ -29,39 +29,40 @@ This standard is inspired by the ERC-721 token standard.
 
 ### Meta Data
 
-| Item | Description | Behaviors/Properties |
-|:-|:-|:-|
-| name | A descriptive name for a collection of NFTs in this contract | can not be changed |
-| symbol | An abbreviated name for NFTs in this contract | can not be changed |
-| tokenURI | A distinct Uniform Resource Identifier (URI) for a given asset  |  |
-| owner | contract deployer, mint NFTs |  |
+| Item     | Description                                                    | Behaviors/Properties |
+| :------- | :------------------------------------------------------------- | :------------------- |
+| name     | A descriptive name for a collection of NFTs in this contract   | can not be changed   |
+| symbol   | An abbreviated name for NFTs in this contract                  | can not be changed   |
+| tokenURI | A distinct Uniform Resource Identifier (URI) for a given asset |                      |
+| owner    | contract deployer, mint NFTs                                   |                      |
 
 ### Interaction / Functions / Event
 
-| Function | Description | Behaviors/Properties |
-|:-|:-|:-|
-| mint |  mint a new token | permission: owner |
-| transferOwnership |  Transfers ownership of the contract to a new account (`newOwner`) | permission: owner |
-| transferFrom | Transfer ownership of an NFTs | permission: current owner, an authorized operator, or the approved address for this NFT |
-| safeTransferFrom | Transfers the ownership of an NFT from one address to another address | permission: current owner, an authorized operator, or the approved address for this NFT |
-| approve | Change or reaffirm the approved address for an NFT | permission: NFT owner |
-| setApprovalForAll | Enable or disable approval for a third party ("operator") to manage all of `msg.sender`'s assets| |
-|**Query**|
-| balanceOf | Count all NFTs assigned to an owner |  |
-| ownerOf | Find the owner of an NFT | |
-| getApproved | Get the approved address for a single NFT | |
-| isApprovedForAll | Query if an address is an authorized operator for another address | |
-|**Event**|
-| OwnershipTransferred | ownership of the contract to a new account |  |
-| Transfer | This emits when ownership of any NFT changes by any mechanism |  |
-| Approval | This emits when the approved address for an NFT is changed or reaffirmed |  |
-| ApprovalForAll | This emits when an operator is enabled or disabled for an owner |  |
+| Function             | Description                                                                                      | Behaviors/Properties                                                                    |
+| :------------------- | :----------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
+| mint                 | mint a new token                                                                                 | permission: owner                                                                       |
+| transferOwnership    | Transfers ownership of the contract to a new account (`newOwner`)                                | permission: owner                                                                       |
+| transferFrom         | Transfer ownership of an NFTs                                                                    | permission: current owner, an authorized operator, or the approved address for this NFT |
+| safeTransferFrom     | Transfers the ownership of an NFT from one address to another address                            | permission: current owner, an authorized operator, or the approved address for this NFT |
+| approve              | Change or reaffirm the approved address for an NFT                                               | permission: NFT owner                                                                   |
+| setApprovalForAll    | Enable or disable approval for a third party ("operator") to manage all of `msg.sender`'s assets |                                                                                         |
+| **Query**            |
+| balanceOf            | Count all NFTs assigned to an owner                                                              |                                                                                         |
+| ownerOf              | Find the owner of an NFT                                                                         |                                                                                         |
+| getApproved          | Get the approved address for a single NFT                                                        |                                                                                         |
+| isApprovedForAll     | Query if an address is an authorized operator for another address                                |                                                                                         |
+| **Event**            |
+| OwnershipTransferred | ownership of the contract to a new account                                                       |                                                                                         |
+| Transfer             | This emits when ownership of any NFT changes by any mechanism                                    |                                                                                         |
+| Approval             | This emits when the approved address for an NFT is changed or reaffirmed                         |                                                                                         |
+| ApprovalForAll       | This emits when an operator is enabled or disabled for an owner                                  |                                                                                         |
 
 ## Test Cases
 
 TBD
 
 ## Implementation
+
 ```solidity
 
 interface INRC7 {
@@ -185,7 +186,7 @@ interface INRC7 {
       * Emits a {Transfer} event.
       */
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
-    
+
     /**
      * @dev Transfers ownership of the contract to a new account (`newOwner`).
      * Can only be called by the current owner.
@@ -194,6 +195,7 @@ interface INRC7 {
 }
 
 ```
+
 ```solidity
 /**
  * @title NRC7 token receiver interface
@@ -221,7 +223,9 @@ interface INRC7Receiver {
 ```
 
 ## References
+
 1. ERC-721 Token Standard. https://eips.ethereum.org/EIPS/eip-721
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
