@@ -53,4 +53,4 @@ More details covered in:
 This document was derived heavily from [Ethereum's EIP-1](https://github.com/ethereum/EIPs) which was derived [Bitcoin's BIP-0001](https://github.com/bitcoin/bips) written by Amir Taaki which in turn was derived from [Python's PEP-0001](https://www.python.org/dev/peps/) In many places text was simply copied and modified. The authors in the documents mentioned above are not responsible for its use in the Newton Evolution Proposal, and should not be bothered with questions specific to Newton or the NEP. Please direct all comments to the NEP editors.
 
 - **2020-04-24**: This NEP Guideline was created and released with [e6a58cb](https://github.com/newtonproject/NEPs/commit/e6a58cb33e60d194f927c7ebe50e3b183f29e30c#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5)
-- **2021-XX-XX**: This NEP Guideline was updated with [#######](#) and will accept furthur edits on NEPs repo from now on.
+- **2021-01-11**: This NEP Guideline was updated with [bf4dc74](https://github.com/newtonproject/NEPs/commit/bf4dc7446237ea1ba2db37bb814496e51251de2e) and will accept furthur edits on NEPs repo from now on.
