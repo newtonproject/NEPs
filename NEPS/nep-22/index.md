@@ -15,7 +15,7 @@ Newton Composite Asset (NCA) is the base pattern of asset combination that defin
 
 NCA creates value through patterns of asset composition. By definition of composition, every NCA is a combination of two or more than two NEATs. The required engineering of how combined NEATs can generate more value than their independent existence, a package that is more than the sum of its parts, is a major source for its value creation. Economically speaking, if components of an NCA can be bought or sold separately as independent NEATs, there would be little necessity to bundle them together as an NCA. Therefore, it is the compositional pattern that defines the unique value of the system as a collective makes an NCA more valuable than the sum of its parts. Effectively, NCA is the programmable device to define NEAT Portfolios. From a practical standpoint, NCA is where value can be created via combinatorial possibilities, when validated by marketplace, is a true form of productivity. In general, all NCA are uniquely prescribed by the content of its portfolio. When the portfolio contains any one item that is non-fungible, the portfolio are considered to be a Non-Fungible NCA. If the NCA are composed of assets that are all replaceable, then, the NCA is considered to be Fungible NCA. Furthermore, when NCA can be broken up to divisible portions, they are considered to be Divisible NCA. When they must be sold in complete packages, they are considered to be Non-Divisible.
 
-![A diagram of NEAT architecture](../assets/nep-22/NCA.png)
+![A diagram of NEAT architecture](NCA.png)
 
 ## Abstract
 
@@ -42,7 +42,7 @@ NCA can be represented as a registered name in NEAT's namespace. It should be a 
 
 ## Specification
 
-As mentioned in [NEAT](nep-20.md), the foundational building blocks of NCA is NEAT. The composition of NEAT into NCA is based on pi-Calculus. Every NCA is defined as follows:
+As mentioned in [NEAT](../nep-20/index.md), the foundational building blocks of NCA is NEAT. The composition of NEAT into NCA is based on pi-Calculus. Every NCA is defined as follows:
 
 <pre><code>
 NCA, NEAT :=   
@@ -86,12 +86,12 @@ The value of NCA comes from its composition of complementary functions. Separate
 
 NCA is essentially a composed NEAT contract that needs the widest possible reachability to the marketplace. For NCA to exists, it must first be created. The creation process should follow the typical DevOps/CI/CD type development cycle. The DevOps/CICD workflow is often associated with the idea of Event Sourcing, short handed as ES. For trivial combination of NEATs, simple user interface that allows users to combine NEATs into portfolio of NEATs would be a starting point. Once any NCA is created with existing NEATs, a sequence of testing and validation procedure must be applied, so that programmatically detectable conflicts can be first conducted before the created NCA is released to the marketplace.
 
-![A diagram of how NCA can be created](../assets/nep-22/NCA_Creation.png)
+![A diagram of how NCA can be created](NCA_Creation.png)
 
  It can be thought of as a typical exchange matching engine, when the ask/bid combinations are matched, the transaction would take place. In short, it can be simply considered as a marketplace of NCAs, and they can be bought and sold as if they are listed entries of stock or futures in current market practice. Knowing the transactional nature of NCA, the design of NCA exchange marketplace can be implemented using the existing exchange engine that is commonly designed to execute stock or virtual currency trades. As mentioned earlier, the buyer/seller matching algorithm should be based on some automated algorithms. These algorithms should following the Behavioral Equivalence<sup>[1](#ref-1)</sup> properties. One way to defining such property is to classify NCAs that are ready to be exchanged in terms of Behavioral Equivalences. So that all transactions can automatically take place based on the pre-processed classification.
 
  A rather complete architectural diagram based on CQRS-architectural pattern could be referenced to implement the overall system. The diagram was originally created to explain the CQRS-Event Sourcing concept by [Daniel Whittaker](https://danielwhittaker.me/2020/02/20/cqrs-step-step-guide-flow-typical-application/).
- ![A diagram of how NCA can be created](../assets/nep-22/cqrs-es-flowwhite.png)
+ ![A diagram of how NCA can be created](cqrs-es-flowwhite.png)
 
 
 

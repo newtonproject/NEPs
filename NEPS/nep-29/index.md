@@ -94,7 +94,7 @@ Step 3. Yield Farming.
 
 Please note that the LP token price against NEW will be updated once a day for the performance consideration on the smart contract execution.
 
-3. The mined NEW are generated from NewPool daily release. For more information on the NewPool release, please refer to [NEP-27 NewChain MainNet Opening](https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-27.md).
+3. The mined NEW are generated from NewPool daily release. For more information on the NewPool release, please refer to [NEP-27 NewChain MainNet Opening](https://github.com/newtonproject/NEPs/blob/master/NEPS/nep-27/index.md).
 
 
 Step 4. Join and Leave.

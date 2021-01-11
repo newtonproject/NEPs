@@ -18,9 +18,9 @@ Newton Encoded Asset Transaction(NEAT) defines the root data type for all asset 
  3. non-repudiable agreement actions,
  4. deposited collaterals.
 
- NEAT can be seen as a Domain Specific Language (DSL) that is dedicated to represent transactional accountability. The domain represented by DSL is the domain of transactions, since all subsequent transactions are reprented by the root data class, NEAT. More importantly, only NEAT and its subclasses will be recorded on Newchain, which will become durable and accountable in the history of NEAT execution. As a DSL, NEAT provides a small, yet expressive vocabulary of asset types, so that practical business transactions can be composed of NEAT to represent a broad range of economic activities with computable risk profiles with a common field: Bounded Acountability. NEAT presents a small set of asset types as its linguistic primitives. For instance,  NewID/NewKYC accounts, [NEP-21: Newton Physical Asset](nep-21.md), [NEP-22: Newton Composite Asset](nep-22.md). It is based on these primitives, applications such as [NEP-23: NEAT-backed Currency](nep-23.md), [NEP-24: Newton Prepaid-Card](nep-24.md) can be defined for practical use. The notion of Buy, Sell, Borrow, and Bid, are the actions or verb primitives of NEAT. The runtime execution of NEAT is carried out by NewKernel, and all transactional records will be immutably stored on Newchain. The following diagram outlines the architecture of the NEAT execution environment.
+ NEAT can be seen as a Domain Specific Language (DSL) that is dedicated to represent transactional accountability. The domain represented by DSL is the domain of transactions, since all subsequent transactions are reprented by the root data class, NEAT. More importantly, only NEAT and its subclasses will be recorded on Newchain, which will become durable and accountable in the history of NEAT execution. As a DSL, NEAT provides a small, yet expressive vocabulary of asset types, so that practical business transactions can be composed of NEAT to represent a broad range of economic activities with computable risk profiles with a common field: Bounded Acountability. NEAT presents a small set of asset types as its linguistic primitives. For instance,  NewID/NewKYC accounts, [NEP-21: Newton Physical Asset](../nep-21/index.md), [NEP-22: Newton Composite Asset](../nep-22/index.md). It is based on these primitives, applications such as [NEP-23: NEAT-backed Currency](../nep-23/index.md), [NEP-24: Newton Prepaid-Card](../nep-24/index.md) can be defined for practical use. The notion of Buy, Sell, Borrow, and Bid, are the actions or verb primitives of NEAT. The runtime execution of NEAT is carried out by NewKernel, and all transactional records will be immutably stored on Newchain. The following diagram outlines the architecture of the NEAT execution environment.
 
-![A diagram of NEAT architecture](../assets/nep-20/NEAT.png)
+![A diagram of NEAT architecture](NEAT.png)
 
 
 ## Abstract
@@ -37,7 +37,7 @@ Newton Encoded Asset Transaction (NEAT) is a Domain Specific Language (DSL) that
 
 From the highest abstraction level, all transactions are composed of three main types of operations, Selling, Buying and Matching of Buyer/Sellers. These three operations are to be recorded into an immutable transactional datastore, as shown in the following diagram:
 
-![A State Transition diagram of NEAT Transaction](../assets/nep-20/NEATStateTransitions.png)
+![A State Transition diagram of NEAT Transaction](NEATStateTransitions.png)
 
 The most common states are listed in the following table:
 
@@ -98,7 +98,7 @@ NCA, NEAT :=
                 Terminate all NCA transactions;
 ```
 
-More detail of NEAT syntax will be explained in [NEP-22: Newton Composite Asset](nep-22.md), because data asset is compositional in nature, and the data content of a NEAT is almost always composed of other data types.
+More detail of NEAT syntax will be explained in [NEP-22: Newton Composite Asset](../nep-22/index.md), because data asset is compositional in nature, and the data content of a NEAT is almost always composed of other data types.
 
 
 ### NEAT Semantics
@@ -167,7 +167,7 @@ The focus of NEAT is all about secure real-time transactions, that means perform
 
 To manage data at scale, NEAT will follow an architectural guideline that separates the overall system into two planes, namelythe Control Plane and Data Plane. The purpose of separating data from the controlling mechanism is to embrace the convention in the Cloud Native movement. Separating systems into composable modules made of meshed services. The origin of this idea of Control Plane vs. Data Plane was popularized by Istio's Service Mesh architecture. However, this high level division of responsibilities is a useful guideline. The matching classification to NEAT and Newton's namespace is shown as below.
 
-![Istio Architecture Diagram](../assets/nep-20/IstioArchitecture.png)
+![Istio Architecture Diagram](IstioArchitecture.png)
 
 ### Continuous Workflow in evolving NEAT
 
@@ -180,7 +180,7 @@ Newton Community's Infrastructure will carry the responsibility of offering the 
 
 #### Data Plane (Ops)
 
-The role of NEAT data type is to provide a typing classification scheme for ongoing implementation of specific asset types. Therefore, the focus of NEAT is to become a template, the unifying implementation to ensure the subsequent classes of application specific asset type could enjoy the same level of data security. From an practioner's viewpoint, overtime, NEAT should have a significant number of application specific subtypes, such as the initally planned [NEP-23: NEAT-Backed Currency](nep-23.md) and [NEP-24: Newton Pre-paid Card](nep-24.md) . As the specific sub-types grow in number, more specific applications will have their own tailor-made data types. However, as the sub-type grow in number, the possible errors and potential redundancy will naturally dissipate attention and therefore increase the cost of source code quality maintenance. Therefore, the idea here is to design NEAT as the unifying data type for a programming language. A language specific dedicated to distributed transaction processing engine. Then, the vocabular adopted overtime, could be reused throughout the community, and even over the entire Internet. This way, we can encourage reuse of the high-level architecture. In other words, the Data Plane of NEAT is a dictionary for other implementation. We will design NEAT as a Domain Specific Language that can be customized and extended to other application specific languages. Then, the likelihood of having patterns in NEAT, such as NEAT-backed Currency (NBC) and NPC to be reused could be hidden in the implementation, so that the technical properties can be preserved. It is expected that implementers will add features within their own applications, and by managing the vocabulary as the Data Plane for a service system, we can alleviate some risks in being drawn to serve many design goals. Thereshould be only one unifying set of design goals in NEAT, that is to ensure system correctness, via safety and liveness concerns. Data security represent safety, and Performance features enables liveness possibilities.
+The role of NEAT data type is to provide a typing classification scheme for ongoing implementation of specific asset types. Therefore, the focus of NEAT is to become a template, the unifying implementation to ensure the subsequent classes of application specific asset type could enjoy the same level of data security. From an practioner's viewpoint, overtime, NEAT should have a significant number of application specific subtypes, such as the initally planned [NEP-23: NEAT-Backed Currency](../nep-23/index.md) and [NEP-24: Newton Pre-paid Card](../nep-24/index.md) . As the specific sub-types grow in number, more specific applications will have their own tailor-made data types. However, as the sub-type grow in number, the possible errors and potential redundancy will naturally dissipate attention and therefore increase the cost of source code quality maintenance. Therefore, the idea here is to design NEAT as the unifying data type for a programming language. A language specific dedicated to distributed transaction processing engine. Then, the vocabular adopted overtime, could be reused throughout the community, and even over the entire Internet. This way, we can encourage reuse of the high-level architecture. In other words, the Data Plane of NEAT is a dictionary for other implementation. We will design NEAT as a Domain Specific Language that can be customized and extended to other application specific languages. Then, the likelihood of having patterns in NEAT, such as NEAT-backed Currency (NBC) and NPC to be reused could be hidden in the implementation, so that the technical properties can be preserved. It is expected that implementers will add features within their own applications, and by managing the vocabulary as the Data Plane for a service system, we can alleviate some risks in being drawn to serve many design goals. Thereshould be only one unifying set of design goals in NEAT, that is to ensure system correctness, via safety and liveness concerns. Data security represent safety, and Performance features enables liveness possibilities.
 
 
 ###  Namespace Management with Formal Methods and Industry Practices

@@ -13,14 +13,14 @@ Created: 2020-05-07
 
 Newton Pre-paid Card (NPC) is a cryptographically insured asset that works with exchangeable assets within the Newton Community. It can be extended to issue Membership Card, Score Cards, or even Balanced Score Cards. It can also possess negotiating powers in attaining tangible goods. For example, one may pre-pay for editable goods, such as vegetable, milk, or beef, or other kinds of commercially viable goods. The basic assumptions about NPC is that it provides a classification scheme to define goods. The two immediate categories are Membership Cards and Tangible Goods. These two classes are both sub-classes of Pre-Paid Card. The remaining subdivisions can be visualized in the following Class Diagram.
 
-![A diagram of NPC Class Diagram](../assets/nep-24/NPC.png)
+![A diagram of NPC Class Diagram](NPC.png)
 
 
 ## Abstract
 
 Newtoin Pre-paid Card (NPC), is a divisible asset type that can be used to claim rights to group membership, or to claim ownership to tangible goods. The classification of rights should follow certain programmable contracts. NPC as an asset type is to serve as a template for many other classes of assets. Therefore, the development of NPC is not about operating a particular membership or selling tangible goods, it is about providing a general asset classification guideline to use a smaller common base classes to handle many cases of asset transaction for its sub-classes of goods and services. On the other hand, the purpose of NPC is to help Newton Community to best reuse data management technologies and mechanisms for asset transactions. For example, due to practical needs and regulatory concerns, there should be a certain difference in managing edible goods vs. non-edible goods. Therefore, there should be a publicized set of asset classes, encoded as two subclass branches. By explicitly managing the types of various contracts, Newton Infrastructure can better support the whole community to share knowledge in using Newton Community's trust-worthy computing infrastructure. Initially, NPC assumes a single-inherentance class structure. Common interfaces between two non-directly inheritance branches can share APIs through the "interface" mechanism.
 
-The collateral asset to guarantee values of NPC follows the original policies of [NEAT](nep-20.md). All Pre-paid Card should not only accept payment from buyers who want to own Newton Pre-paid Card, every NPC should come with an insurance policy that have a significant amount of collateral asset locked in a re-imbursement pool in case of contract breach conditions.
+The collateral asset to guarantee values of NPC follows the original policies of [NEAT](../nep-20/index.md). All Pre-paid Card should not only accept payment from buyers who want to own Newton Pre-paid Card, every NPC should come with an insurance policy that have a significant amount of collateral asset locked in a re-imbursement pool in case of contract breach conditions.
 
 ## Motivation
 
@@ -63,7 +63,7 @@ NPC being a financial instrument, it must have some grounding rule to be accepta
 
 ### Univalent Foundation
 
-[Univalent Foundation](https://en.wikipedia.org/wiki/Univalent_foundations) is a type-based mechanism to identify equivalence. Since data security and system integrity is achieved under a common transaction processing language [NEAT](nep-20.md), every NPC here is a type of transaction, and every instance of transaction should follow the same set of constraining rules. That gives a "equivalent" kind of fairness to all transaction. Having said that, it means all NPCs must strive to demonstrate certain objective fairness and security through its design. A starting point is to deposit certain amount of asset that reaches publicly agreements, then, all transactions can happen given that insurance asset is available to guarantee fairness. Other forms of fairness should be provided and tested prior to a release of any NPC. The reason being that any breached contract could cause significant social and economical damage to the system, therefore, a unifying safety procedure must be presented and followed for all systems.
+[Univalent Foundation](https://en.wikipedia.org/wiki/Univalent_foundations) is a type-based mechanism to identify equivalence. Since data security and system integrity is achieved under a common transaction processing language [NEAT](../nep-20/index.md), every NPC here is a type of transaction, and every instance of transaction should follow the same set of constraining rules. That gives a "equivalent" kind of fairness to all transaction. Having said that, it means all NPCs must strive to demonstrate certain objective fairness and security through its design. A starting point is to deposit certain amount of asset that reaches publicly agreements, then, all transactions can happen given that insurance asset is available to guarantee fairness. Other forms of fairness should be provided and tested prior to a release of any NPC. The reason being that any breached contract could cause significant social and economical damage to the system, therefore, a unifying safety procedure must be presented and followed for all systems.
 
 #### NPC's unique functions
 
@@ -76,7 +76,7 @@ Therefore NPC must offer the following guarantee to its customers:
 4. Testing cycle will collect operational data, and this data must be revealed to its potential customers.
 5. NPC should have a screening procedure for its customers. Customers who is willing to participate must demonstrate certain level of data literacy before they are allowed to issue the initial down payment.
 6. Customers who enter the NPC agreements should agree to the reimbursement strategies prior to participation, so that potential conflicts can be minimized.
-7. All subtypes of NPC should strictly follow this agreement, otherwise, we will not be able to achieve Univalence, therefore breaching the system correctness assumptions as shown in [NEAT](nep-20.md).
+7. All subtypes of NPC should strictly follow this agreement, otherwise, we will not be able to achieve Univalence, therefore breaching the system correctness assumptions as shown in [NEAT](../nep-20/index.md).
 
 
 ### Deployment Concerns

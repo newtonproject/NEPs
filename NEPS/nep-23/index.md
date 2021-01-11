@@ -11,9 +11,9 @@ Created: 2020-05-07
 
 ## Simple Summary
 
-[NEAT](nep-20.md) Backed Currency (NBC) is a kind of cryptographically secured currency following the design protocol of NEAT. The goal of this creation is the allow anyone to create a set of exchangeable, and divisible asset that can be securely exchanged using the platform provided by Newton Community. We used the term community, because the distributed security, must be backed by a community of infrastructure providers and a rather healthy exchange community. By sharing the same set of features and capabilities developed by the entire Newton Community (NC), the quality and functionalities of the "currency" of interest could leverage the engineering and community support that has been developed over the years.
+[NEAT](../nep-20/index.md) Backed Currency (NBC) is a kind of cryptographically secured currency following the design protocol of NEAT. The goal of this creation is the allow anyone to create a set of exchangeable, and divisible asset that can be securely exchanged using the platform provided by Newton Community. We used the term community, because the distributed security, must be backed by a community of infrastructure providers and a rather healthy exchange community. By sharing the same set of features and capabilities developed by the entire Newton Community (NC), the quality and functionalities of the "currency" of interest could leverage the engineering and community support that has been developed over the years.
 
-![A diagram of NBC Class Diagram](../assets/nep-23/NBC.png)
+![A diagram of NBC Class Diagram](NBC.png)
 
 
 ## Abstract

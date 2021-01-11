@@ -18,7 +18,7 @@ Newton Physical Asset (NPA) is the base class of physical asset classes. NPA req
 
 Besides the notion of Existence and Ownership, physical assets are further divided into two broad categories, often called: [Movable/Personal](https://en.wikipedia.org/wiki/Movable_property) and [Immovable/Real Estate](https://en.wikipedia.org/wiki/Immovable_property) Properties. These asset terms are commonly used in legal and accounting practice, and will be adopted by NPA's namespace management. However, under the accounting classification of Movable Properties, a special category called [Intangible Property](https://en.wikipedia.org/wiki/Intangible_property) such as copyrights, brand names, or patents, are not considered a subclass of NPA. Intangible Property is to be classified as subclasses of Named Asset in the inheritance hierarchy of NEAT data types.
 
-![A diagram of NPA inheritance structures](../assets/nep-21/NPA.png)
+![A diagram of NPA inheritance structures](NPA.png)
 
 
 ## Abstract
@@ -27,7 +27,7 @@ Newton Physical Asset (NPA) is the base asset class that uses executable contrac
 
 ## Motivation
 
-The key idea in NPA is to establish provable relationships between accounts and the physical piece of assets. NPA's main design motivation is to leverage the cryptographically-protected account system with a trust-worthy timestamp data service and existing proof of stake insurance policies to secure NPA related transactions. In other words, the key idea of NPA is to unify the overarching framework rooted in [NEAT](nep-20.md). NPA helps to reduce costs of negotiation by introducing automated reasoning mechanisms about the claims of existence and ownership through Soundness Proofs, Precision Assessment[4], and Newton's secure timestamp system.
+The key idea in NPA is to establish provable relationships between accounts and the physical piece of assets. NPA's main design motivation is to leverage the cryptographically-protected account system with a trust-worthy timestamp data service and existing proof of stake insurance policies to secure NPA related transactions. In other words, the key idea of NPA is to unify the overarching framework rooted in [NEAT](../nep-20/index.md). NPA helps to reduce costs of negotiation by introducing automated reasoning mechanisms about the claims of existence and ownership through Soundness Proofs, Precision Assessment[4], and Newton's secure timestamp system.
 
 ### Reuse Code by Sharing Expertise across the Supply Chain Management Industry
 
@@ -48,7 +48,7 @@ Any vendors or buyers submitting bug reports or prescribe solutions to any of th
 
 ## Specification
 
-NPA should use [NEAT](nep-20.md) as the basis of transaction model, which implicitly leverages secure timestamping services built-in Newton Infrastructure. Then, all physical goods must work with Newton Asset Namespace (NAM), so that a unifying namespace could be leveraged to reference known types of physical goods.
+NPA should use [NEAT](../nep-20/index.md) as the basis of transaction model, which implicitly leverages secure timestamping services built-in Newton Infrastructure. Then, all physical goods must work with Newton Asset Namespace (NAM), so that a unifying namespace could be leveraged to reference known types of physical goods.
 
 The existence and ownership status of physical items, should be bounded to existing industry standards or publicly verifiable data sources. Each of these existence and data precision qualities should be bounded to version controlled automatic analytical algorithms that defines the soundness and precision claims. Unless these self-administrating features are provided, no NPA should be issued.
 
