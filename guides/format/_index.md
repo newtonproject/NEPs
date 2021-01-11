@@ -50,19 +50,21 @@ If your NEP requires images, the image files should be included in the same dire
 // NEP Template Directory
 ./
 └─ NEPS/
-|  └─ nep-template/    // this is the NEP Template Folder
-|  |  └─ index.md      // this is the NEP Template Document
-|  └─ nep-x/           // your NEP-X Folder
-|  |  └─ index.md      // your NEP-X Document
+|  └─ nep-template/       // this is the General NEP Template Folder
+|  |  └─ index.md         // this is the General NEP Template Document
+|  └─ nep-template-nrc/   // this is the NRC Type NEP Template Folder
+|  |  └─ index.md         // this is the NRC Type NEP Template Document
+|  └─ nep-x/              // your NEP-X Folder
+|  |  └─ index.md         // your NEP-X Document
 ```
 
 To use the NEP Template, copy `nep-template` folder to `nep-x` folder and start your NEP with `nep-x/index.md`.
 
 Current available templates:
 
-- General NEP Template `./NEPS/nep-template/`
+- General NEP Template `/NEPS/nep-template/`
 
-- NEP Template for Token (NRC) `./NEPS/nep-template-nrc/`
+- NEP Template for Token (NRC) `/NEPS/nep-template-nrc/`
 
 ## III. NEP Header Preamble
 
