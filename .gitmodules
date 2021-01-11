@@ -1,0 +1,3 @@
+[submodule ".web/themes/newdocs"]
+	path = .web/themes/newdocs
+	url = https://github.com/newtonproject/newdocs-hugo.git
