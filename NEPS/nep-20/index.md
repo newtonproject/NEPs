@@ -1,16 +1,13 @@
-# NEP 20: Newton Encoded Asset Transaction (NEAT)
-
-| Item | Description |
-|:-|:-|
-| NEP | 20 |
-| Title | Newton Encoded Asset Transaction|
-| Authors | [Ben Koo](mailto:koo0905@gmail.com), [Evan Liu](https://github.com/evanliuchina), [Xia Wu](https://github.com/xiawu), [Jiang Tao](https://github.com/jiangtao-tang) |
-| Discussions to | https://github.com/newtonproject/NEPs/pull/20 |
-| Status | Draft |
-| Type | Standard |
-| Category | Technical |
-| Created | 2020-04-24 |
-| Updated |  |
+---
+NEP: 20
+Title: "Newton Encoded Asset Transaction (NEAT)"
+Authors: "[Ben Koo](mailto:koo0905@gmail.com), [Evan Liu](https://github.com/evanliuchina), [Xia Wu](https://github.com/xiawu), [Jiang Tao](https://github.com/jiangtao-tang)"
+Discussions: https://github.com/newtonproject/NEPs/pull/20
+Status: Draft
+Categories: Technical
+Types: Standard
+Created: 2020-04-24
+---
 
 ## Simple Summary
 

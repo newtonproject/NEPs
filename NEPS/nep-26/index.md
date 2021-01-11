@@ -1,17 +1,14 @@
 
-# NEP 26: Boom: EVM and Protocol Upgrades
-
-| Item | Description |
-|:-|:-|
-| NEP | 26 |
-| Title | Boom: EVM and Protocol Upgrades |
-| Author | newchain |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/26 |
-| Status | Implemented |
-| Type | Process |
-| Category | Technical |
-| Created | 2020-08-03 |
-
+---
+NEP: 26
+Title: "Boom: EVM and Protocol Upgrades"
+Authors: "newchain"
+Discussions: https://github.com/newtonproject/NEPs/issues/26
+Status: Implemented
+Categories: Technical
+Types: Process
+Created: 2020-08-03
+---
 
 ### Simple Summary
 

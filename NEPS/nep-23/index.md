@@ -1,16 +1,13 @@
-# NEP 23: NEAT Backed Currency (NBC)
-
-| Item | Description |
-|:-|:-|
-| NEP | 23 |
-| Title | NEAT Backed Currency|
-| Author | [Ben Koo](mailto:koo0905@gmail.com) |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/23 |
-| Status | Draft |
-| Type | Standard |
-| Category | Technical |
-| Created | 2020-05-07 |
-| Updated |  |
+---
+NEP: 23
+Title: "NEAT Backed Currency (NBC)"
+Authors: "[Ben Koo](mailto:koo0905@gmail.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/23
+Status: Draft
+Categories: Technical
+Types: Standard
+Created: 2020-05-07
+---
 
 ## Simple Summary
 

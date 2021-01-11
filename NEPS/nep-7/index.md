@@ -1,16 +1,13 @@
-# NEP 7:Non-Fungible Token Standard (NRC-7)
-
-| Item | Description |
-|:-|:-|
-| NEP | 7 |
-| Title | Non-Fungible Token Standard (NRC-7) |
-| Author | [Yong Liu](mailto:liuyong5653@163.com) |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/7 |
-| Status | Draft |
-| Type | NRC |
-| Category | Technical |
-| Created | 2020-04-29 |
-| Updated |  |
+---
+NEP: 7
+Title: "Non-Fungible Token Standard (NRC-7)"
+Authors: "[Yong Liu](mailto:liuyong5653@163.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/7
+Status: Draft
+Categories: Technical
+Types: NRC
+Created: 2020-04-29
+---
 
 ## Simple Summary
 

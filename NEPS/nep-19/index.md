@@ -1,17 +1,13 @@
-## NEP 19: Physical Commodity Standard (NRC-19)
-
-| Item | Description |
-|:-|:-|
-| NEP | 19 |
-| Title | Physical Commodity Token Standard (NRC-19) |
-| Author | [Wenyan Chen](https://github.com/wenyan8082000),[Tao Jiang](https://github.com/jiangtao-tang),[Yong Liu](mailto:liuyong5653@163.com) |
-| Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/4 |
-| Status | Draft |
-| Type | NRC |
-| Category | Technical |
-| Created | 2020-05-28 |
-| Updated |  |
-
+---
+NEP: 19
+Title: "Physical Commodity Standard (NRC-19)"
+Authors: "[Wenyan Chen](https://github.com/wenyan8082000), [Tao Jiang](https://github.com/jiangtao-tang), [Yong Liu](mailto:liuyong5653@163.com)"
+Discussions: https://github.com/NewORG-Standard-Group/NEPs/issues/4
+Status: Draft
+Categories: Technical
+Types: NRC
+Created: 2020-05-28
+---
 
 ## Simple Summary
 

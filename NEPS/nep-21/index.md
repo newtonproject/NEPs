@@ -1,16 +1,13 @@
-# NEP 21: Newton Physical Asset (NPA)
-
-| Item | Description |
-|:-|:-|
-| NEP | 21 |
-| Title | Newton Physical Asset|
-| Author | [Ben Koo](mailto:koo0905@gmail.com)|
-| Discussions to | https://github.com/newtonproject/NEPs/issues/21 |
-| Status | Draft |
-| Type | Standard |
-| Category | Technical |
-| Created | 2020-05-09 |
-| Updated |  |
+---
+NEP: 21
+Title: "Newton Physical Asset (NPA)"
+Authors: "[Ben Koo](mailto:koo0905@gmail.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/21
+Status: Draft
+Categories: Technical
+Types: Standard
+Created: 2020-05-09
+---
 
 ## Simple Summary
 

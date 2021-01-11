@@ -1,17 +1,14 @@
-# NEP 29: NewPay Community Node Migration
-
-| Item | Description |
-|:-|:-|
-| NEP | 29 |
-| Title | NewPay Community Node Migration |
-| Author | X-Team |
-| Discussions to | https://github.com/newtonproject/NEPs/pull/29 |
-| Status | Draft |
-| Type | Process |
-| Category | Community Governance |
-| Created | 2020-11-04 |
-| Updated | 2020-12-09 |
-
+---
+NEP: 29
+Title: "NewPay Community Node Migration"
+Authors: "X-Team"
+Discussions: https://github.com/newtonproject/NEPs/pull/29
+Status: Draft
+Categories: Community Governance
+Types: Process
+Created: 2020-11-04
+Updated: 2020-12-09
+---
 
 ### Simple Summary
 

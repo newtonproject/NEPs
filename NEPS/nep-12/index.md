@@ -1,17 +1,14 @@
-# NEP 12: NewORG Standard (NRC-12)
-
-| Item | Description |
-|:-|:-|
-| NEP | 12 |
-| Title | NewORG Standard (NRC-12) |
-| Author |  [Evan Liu](mailto:evanliuchina@gmail.com), [Xia Wu](https://github.com/xiawu), [Lee Willson](https://github.com/leewillson), [Zhou Xiqiao](https://github.com/zhouxiqiao), [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29) |
-| Discussions to | https://github.com/NewORG-Standard-Group/NEPs/issues/1 |
-| Status | Draft |
-| Type | NRC |
-| Category | Technical |
-| Created | 2020-04-23 |
-| Updated | 2020-06-16 |
-
+---
+NEP: 12
+Title: "NewORG Standard (NRC-12)"
+Authors: "[Evan Liu](mailto:evanliuchina@gmail.com), [Xia Wu](https://github.com/xiawu), [Lee Willson](https://github.com/leewillson), [Zhou Xiqiao](https://github.com/zhouxiqiao), [Yong Liu](mailto:liuyong5653@163.com), [Qu Jianwei](https://github.com/i29)"
+Discussions: https://github.com/NewORG-Standard-Group/NEPs/issues/1
+Status: Draft
+Categories: Technical
+Types: NRC
+Created: 2020-04-23
+Updated: 2020-06-16
+---
 
 ## Simple Summary
 

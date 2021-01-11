@@ -1,15 +1,13 @@
-# NEP 10: Invoice Token Standard (NRC-10)
-| Item | Description |
-|:-|:-|
-| NEP | 10 |
-| Title | Invoice Token Standard (NRC-10) |
-| Author | [Yong Liu](mailto:liuyong5653@163.com), [Evan Liu](mailto:evanliuchina@gmail.com) |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/10 |
-| Status | Draft |
-| Type | NRC |
-| Category | Technical |
-| Created | 2020-04-29 |
-| Updated |  |
+---
+NEP: 10
+Title: "Invoice Token Standard (NRC-10)"
+Authors: "[Yong Liu](mailto:liuyong5653@163.com), [Evan Liu](mailto:evanliuchina@gmail.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/10
+Status: Draft
+Categories: Technical
+Types: NRC
+Created: 2020-04-29
+---
 
 ## Simple Summary
 

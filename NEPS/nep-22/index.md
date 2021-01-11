@@ -1,16 +1,13 @@
-# NEP 22: Newton Composite Asset (NCA)
-
-| Item | Description |
-|:-|:-|
-| NEP | 22 |
-| Title | Newton Composite Asset|
-| Author | [Ben Koo](mailto:koo0905@gmail.com) |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/22 |
-| Status | Draft |
-| Type | Standard |
-| Category | Technical |
-| Created | 2020-04-24 |
-| Updated |  |
+---
+NEP: 22
+Title: "Newton Composite Asset (NCA)"
+Authors: "[Ben Koo](mailto:koo0905@gmail.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/22
+Status: Draft
+Categories: Technical
+Types: Standard
+Created: 2020-04-24
+---
 
 ## Simple Summary
 

@@ -1,14 +1,11 @@
-# NEP-0: NEP Genesis
-
-| Item | Description |
-|:-|:-|
-| NEP | 0 |
-| Title | NEP Genesis |
-| Author | [Xu Jizhe](xujizhe@newtonproject.org) |
-| Status | Implemented |
-| Category | Community governance |
-| Created | 2018-11-15 |
-| Updated |  |
+---
+NEP: "0"
+Title: "NEP Genesis"
+Authors: "[Xu Jizhe](mailto:xujizhe@newtonproject.org)"
+Status: Implemented
+Categories: Community Governance
+Created: 2018-11-15
+---
 
 ## Summary:
 

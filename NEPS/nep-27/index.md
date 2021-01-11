@@ -1,17 +1,14 @@
-# NEP 27: NewChain MainNet Opening
-
-| Item | Description |
-|:-|:-|
-| NEP | 27 |
-| Title | NewChain MainNet Opening |
-| Author | X-Team |
-| Discussions to | https://github.com/newtonproject/NEPs/pull/27 |
-| Status | Draft |
-| Type | Process |
-| Category | Community Governance |
-| Created | 2020-11-03 |
-| Updated | 2020-12-07 |
-
+---
+NEP: 27
+Title: "NewChain MainNet Opening"
+Authors: "X-Team"
+Discussions: https://github.com/newtonproject/NEPs/pull/27
+Status: Draft
+Categories: Community Governance
+Types: Process
+Created: 2020-11-03
+Updated: 2020-12-07
+---
 
 ### Simple Summary
 

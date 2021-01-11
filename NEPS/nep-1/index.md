@@ -1,14 +1,11 @@
-# NEP-1: Improvement to Newton Foundation reserved token release rules
-
-| Item | Description |
-|:-|:-|
-| NEP | 1 |
-| Title | Improvement to Newton Foundation reserved token release rules |
-| Author | [Xu Jizhe](xujizhe@newtonproject.org) |
-| Status | Implemented |
-| Category | Economic model |
-| Created | 2018-11-19 |
-| Updated |  |
+---
+NEP: 1
+Title: "Improvement to Newton Foundation Reserved Token Release Rules"
+Authors: "[Xu Jizhe](mailto:xujizhe@newtonproject.org)"
+Status: Implemented
+Categories: Economic Model
+Created: 2018-11-19
+---
 
 ## Summary:
 

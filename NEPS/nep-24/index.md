@@ -1,16 +1,13 @@
-# NEP 24: Newton Pre-paid Card (NPC)
-
-| Item | Description |
-|:-|:-|
-| NEP | 24 |
-| Title | Newton Pre-paid Card|
-| Author | [Ben Koo](mailto:koo0905@gmail.com) |
-| Discussions to | https://github.com/newtonproject/NEPs/issues/24 |
-| Status | Draft |
-| Type | Standard |
-| Category | Technical |
-| Created | 2020-05-07 |
-| Updated |  |
+---
+NEP: 24
+Title: "Newton Pre-paid Card (NPC)"
+Authors: "[Ben Koo](mailto:koo0905@gmail.com)"
+Discussions: https://github.com/newtonproject/NEPs/issues/24
+Status: Draft
+Categories: Technical
+Types: Standard
+Created: 2020-05-07
+---
 
 ## Simple Summary
 
