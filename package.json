@@ -1,0 +1,26 @@
+{
+  "name": "NEPS",
+  "version": "0.0.0",
+  "description": "NewBridge Network Project Website",
+  "scripts": {
+    "dev": "cd .web && npx hugo server",
+    "fc": "npx prettier --check .web/contents",
+    "ff": "npx prettier --write .web/contents",
+    "build": "cd .web && npx hugo --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newtonproject/NEPs.git"
+  },
+  "author": "Newton Project Core Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/newtonproject/NEPs/issues"
+  },
+  "homepage": "https://github.com/newtonproject/NEPs#readme",
+  "devDependencies": {
+    "hugo-bin": "^0.67.0",
+    "hugo-bin-extended": "^0.79.0",
+    "prettier": "2.2.1"
+  }
+}

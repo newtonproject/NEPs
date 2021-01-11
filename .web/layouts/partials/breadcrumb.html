@@ -1,0 +1,27 @@
+<div id="breadcrumb">
+  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+</div>
+{{ define "breadcrumbnav" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+  {{ else if not .p1.IsHome }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+  {{ end }}
+  {{ if .p1.IsHome }}
+  <span {{ if eq .p1 .p2 }} class="active"{{ end }}>
+    <a href="{{ .p1.Permalink }}"><svg class='icon' ><use xlink:href='/icons/bootstrap-icons.svg#house'/></svg></a> 
+  </span>
+  {{ else }}
+  <span {{ if eq .p1 .p2 }} class="active"{{ end }}>
+    
+    
+    <a href="{{ .p1.Permalink }}">
+      {{ if .p1.Params.nep }}
+        NEP-{{ .p1.Params.nep }}
+      {{ else }}
+        {{ .p1.Title }}
+      {{ end }}
+    </a> 
+  </span>
+  {{ end }}
+{{ end }}

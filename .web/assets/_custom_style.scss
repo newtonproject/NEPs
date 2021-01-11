@@ -1,0 +1,276 @@
+.nep-list-item {
+  padding: $as-md $as-sm;
+  @extend .rounded-sm;
+  &:hover {
+    background: var(--fbg-200);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .nep-no {
+    font-weight: 500;
+    margin-right: $as-xs;
+    a {
+      color: var(--body-content);
+    }
+  }
+  .authors {
+    font-size: smaller;
+    &,
+    & a,
+    & a:hover {
+      color: var(--secondary);
+    }
+  }
+  h4 {
+    margin: $as-xs 0;
+    font-size: large;
+    font-weight: 600;
+    a {
+      color: var(--body-content);
+    }
+  }
+  .nep-status {
+    font-size: smaller;
+  }
+}
+
+.nep-status {
+  padding: 0 $as-xs;
+  text-transform: uppercase;
+  border: solid 1px var(--secondary);
+  @extend .rounded-xxs;
+
+  &.draft,
+  &.deferred {
+    $color: $color-orange;
+    border-color: #{$color};
+    color: #{$color};
+  }
+  &.call,
+  &.public-call {
+    $color: $color-blue;
+    border-color: #{$color};
+    color: #{$color};
+  }
+  &.wip,
+  &.superseded {
+    $color: $color-info;
+    border-color: #{$color};
+    color: #{$color};
+  }
+  &.implemented,
+  &.active,
+  &.final {
+    $color: $color-green;
+    border-color: #{$color};
+    color: #{$color};
+  }
+  &.abandoned,
+  &.rejected,
+  &.withdrawn {
+    $color: $color-red;
+    border-color: #{$color};
+    color: #{$color};
+  }
+  &.home {
+    a {
+      color: unset;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.nep-table {
+  font-size: small;
+  border-collapse: collapse;
+  th {
+    text-align: right;
+    font-weight: 600;
+  }
+  & th,
+  & td {
+    border: solid 1px var(--fbg-300) !important;
+    border-radius: 0 !important;
+    border-collapse: collapse;
+    padding: 0.5rem !important;
+  }
+}
+
+.markdown {
+  > h2 {
+    border-bottom: solid 1px var(--fbg-300);
+  }
+}
+
+.homecard {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+
+    display: flex;
+    padding: $as-lg;
+    overflow: hidden;
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      padding: $as-lg;
+      width: unset;
+    }
+    @extend .rounded-xl;
+    @extend .box-shadow;
+
+    background: black;
+
+    // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    // background-size: 400% 400%;
+    // animation: home-card-gradient 15s ease infinite;
+    .vanta-canvas {
+      @extend .rounded-xl;
+    }
+
+    > .cardlayout {
+      flex-grow: 1;
+      width: 50%;
+      padding: $as-xl;
+      @media screen and (max-width: $mobile-breakpoint) {
+        padding: $as-md;
+        width: unset;
+      }
+    }
+    .heading {
+      .title {
+        font-size: 48px;
+        display: block;
+        color: white;
+        @media screen and (max-width: $mobile-breakpoint) {
+          font-size: 36px;
+          text-align: center;
+        }
+        > span {
+          display: flex;
+          @media screen and (max-width: $mobile-breakpoint) {
+            display: inline;
+          }
+        }
+      }
+    }
+    .stats {
+      width: 40%;
+      @media screen and (max-width: $mobile-breakpoint) {
+        width: unset;
+      }
+      background: var(--body-background);
+      @extend .rounded-lg;
+      @extend .box-shadow;
+      .heading {
+        font-size: x-large;
+        @media screen and (max-width: $mobile-breakpoint) {
+          font-size: large;
+        }
+        a {
+          color: var(--body-content);
+        }
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+        > div {
+          margin: $as-xxs 0;
+        }
+      }
+      p {
+        font-size: small;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@keyframes home-card-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.nep-quick-list,
+.nep-public-call-list {
+  width: 80%;
+  margin: $as-lg auto;
+  padding: $as-md $as-lg;
+  @extend .rounded-xl;
+  @extend .box-shadow;
+  h3 {
+  }
+}
+
+.nep-public-call-list {
+  background: var(--fbg-100);
+  h3 {
+    color: var(--color-link);
+  }
+  h3 span {
+    font-weight: 300;
+  }
+  article {
+    border: solid 1px var(--fbg-300);
+    margin-bottom: $as-sm;
+  }
+}
+
+.nep-quick-list {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: home-card-gradient 15s ease infinite;
+  padding: $as-lg;
+
+  h3 {
+    color: white;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+  }
+  a {
+    font-weight: 600;
+    padding: $as-sm $as-sm;
+    margin: 0 $as-xs $as-xs 0;
+    width: $as-lg;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    @extend .rounded-md;
+    @extend .box-shadow;
+    @media screen and (max-width: $mobile-breakpoint) {
+      margin: 0 $as-xxs $as-xxs 0;
+    }
+    &:hover {
+      color: white;
+      background: var(--color-link);
+    }
+  }
+}
+
+.home-card {
+  width: 80%;
+  margin: $as-md auto;
+  padding: $as-md $as-lg;
+  @extend .rounded-md;
+  @extend .box-shadow;
+}
+
+.home-card-container {
+  width: 80%;
+  margin: $as-lg auto;
+  padding: $as-md $as-lg;
+}

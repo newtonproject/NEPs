@@ -1,0 +1,12 @@
+{{ define "main-content" }}
+  {{/* range sort .Paginator.Pages ".Params.nep" "ASC" */}}
+
+  {{ range .Pages.ByParam "nep" }}
+    {{ partial "nep-list-item" . }}
+  {{ end }}
+
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "taxonomy" . }}
+{{ end }}

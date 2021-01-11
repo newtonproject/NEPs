@@ -1,0 +1,150 @@
+baseURL: https://neps.newton.bio/
+title: Newton Evolution Proposals (NEPs)
+theme: newdocs
+
+##########
+# NewDocs configuration
+# ------
+disablePathToLower: fales
+enableGitInfo: true
+
+##########
+# Needed for mermaid/katex shortcodes
+# ------
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: "code-line-no"
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: dracula
+    tabWidth: 2
+    # Styles To Choose From:
+    # api, dracula, monokai, paraiso-dark, native, solarized-dark, solarized-dark-256, vim
+
+##########
+# Multi-lingual mode config
+# There are different options to translate files
+# See https://gohugo.io/content-management/multilingual/#translation-by-filename
+# And https://gohugo.io/content-management/multilingual/#translation-by-content-directory
+# ------
+languages:
+  en:
+    languageName: English
+    contentDir: contents
+    title: Newton Evolution Proposals (NEPs)
+    weight: 1
+    languagedirection: ltr
+
+ignoreFiles:
+  - contents*/menu
+  - contents*/NEPS/nep-template*
+
+taxonomies:
+  status: status
+  category: categories
+  types: types
+
+##########
+# Google Analytics
+# ------
+# googleAnalytics: UA-123-45
+
+##########
+# Extra Configs
+# ------
+params:
+  # Theme Color
+  # (Optional, default 'auto') Sets color theme: light, dark or auto.
+  # Theme 'auto' switches between dark and light modes based on browser/os preferences
+  # ------
+  NewDocsTheme: "auto"
+
+  # Table of Contents
+  # (Optional, default true) Controls table of contents visibility on right side of pages.
+  # Start and end levels can be controlled with markup.tableOfContents setting.
+  # You can also specify this parameter per page in front matter.
+  # ------
+  NewDocsToC: true
+
+  # Site Logo
+  # (Optional, default none) Set the path to a logo for the site. If the logo is '/static/logo.png' then the path would be logo.png
+  # ------
+  NewDocsLogo: /logo.svg
+
+  # Site Nav Bundle
+  # (Optional, default none) Set leaf bundle to render as side menu
+  # When not specified file structure and weights will be used
+  NewDocsMenuBundle: /menu/nav
+
+  # Site Section
+  # (Optional, default docs) Specify root page to render child pages as menu.
+  # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
+  # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
+  NewDocsSection: /
+
+  # Social Icons
+  # This theme uses icons by https://fontawesome.com
+  social:
+    - title: Github
+      url: 'https://github.com/newtonproject/NEPs'
+      icon: github
+      icon_pack: fab
+    - title: Twitter
+      url: 'https://twitter.com/newton_project'
+      icon: twitter
+      icon_pack: fab
+    - title: Telegram
+      url: 'https://t.me/newtonproject'
+      icon: telegram-plane
+      icon_pack: fab
+    
+  # Git repository location
+  # Set source repository location.
+  # Used for 'Last Modified' and 'Edit this page' links.
+  NewDocsRepo: https://github.com/newtonproject/NEPs
+
+  # Enable "Edit this page" links for 'doc' page type.
+  # Disabled by default. Uncomment to enable. Requires 'NewDocsRepo' param.
+  # Edit path must point to root directory of repo.
+  NewDocsEditPath: edit/main/
+  NewDocsViewPath: blob/main/
+
+  # Configure the date format used on the pages
+  # - In git information
+  # - In blog posts
+  NewDocsDateFormat: "2006-01-02"
+
+  # (Optional, default true) Enables search function with flexsearch,
+  # Index is built on fly, therefore it might slowdown your website.
+  # Configuration for indexing can be adjusted in i18n folder per language.
+  NewDocsSearch: true
+
+  # (Optional, default true) Enables comments template on pages
+  # By default partals/docs/comments.html includes Disqus template
+  # See https://gohugo.io/content-management/comments/#configure-disqus
+  # Can be overwritten by same param in page frontmatter
+  # NewDocsComments: true
+
+  # /!\ This is an experimental feature, might be removed or changed at any time
+  # (Optional, experimental, default false) Enables portable links and link checks in markdown pages.
+  # Portable links meant to work with text editors and let you write markdown without {{< relref >}} shortcode
+  # Theme will print warning if page referenced in markdown does not exists.
+  NewDocsPortableLinks: true
+
+  # /!\ This is an experimental feature, might be removed or changed at any time
+  # (Optional, experimental, default false) Enables service worker that caches visited pages and resources for offline use.
+  # ------
+  # Don't know why feature failed in Safari of current version, should fix later  
+  # ------
+  NewDocsServiceWorker: false

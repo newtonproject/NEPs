@@ -1,0 +1,10 @@
+<div class="nep-quick-list">
+  <h3>NEP Index</h3>
+  <div class="list">
+    {{ range where .Site.Pages "Section" "NEPS" }}
+      {{ range .Pages.ByParam "nep" }}
+        <a href="{{ .RelPermalink }}" title="{{ .Page.Title }}">{{ .Params.nep }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>

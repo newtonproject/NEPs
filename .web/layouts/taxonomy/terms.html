@@ -1,0 +1,13 @@
+{{ define "main-content" }}
+  {{/* range sort .Paginator.Pages ".Params.xindex" "ASC" */}}
+  {{ range .Pages.ByParam "nep" }}
+    <article class="nep-list-item">
+      <h4><a href="{{ .RelPermalink }}">{{ .Page.Title }}</a></h4>
+    </article>
+  {{ end }}
+
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "taxonomy" . }}
+{{ end }}

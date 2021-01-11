@@ -1,0 +1,41 @@
+<div class="post-meta">
+  {{ if or .Date .Params.authors }}
+    <div class="date-authors">
+      {{ with .Date }}
+        <span class="date">
+          <i class="far fa-calendar-alt"></i>
+          {{ partial "date" (dict "Date" . "Format" $.Site.Params.NewDocsDateFormat) }}
+        </span>
+      {{ end }}
+
+      {{ if .Params.authors }}
+      {{/* printf "%T" .Params.authors */}}
+        <span class="authors">
+          <i class="far fa-user"></i>
+          {{ if eq (printf "%T" .Params.authors) "[]string" }}
+            {{ range $n, $author := .Params.authors }}
+              {{ if $n }}, {{ end }}
+              {{ $author | markdownify }}
+            {{- end }}
+            {{ else if eq (printf "%T" .Params.authors) "string" }}
+            {{ .Params.authors | markdownify }}
+          {{- end }}
+        </span>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <div class="taxonomies">
+    {{ range $taxonomy, $_ := .Site.Taxonomies }}
+      {{ with $terms := $.GetTerms $taxonomy }}
+        <span class="{{ $taxonomy }}">
+          {{/*  {{ $taxonomy }}: */}}
+          {{ range $n, $term := $terms }}
+            {{/*  {{ if $n }}, {{ end }} */}}
+            <a href="{{ $term.RelPermalink }}">{{ $term.Title }}</a>
+          {{ end }}
+        </span>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>

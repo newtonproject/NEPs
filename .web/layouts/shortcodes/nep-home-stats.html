@@ -1,0 +1,41 @@
+<div class="homecard ">
+  <div class="container">
+    <div class="cardlayout heading">
+      <div class="title">
+        <span>Newton </span>
+        <span>Evolution </span>
+        <span>Proposals </span>
+      </div>
+    </div>
+    <div class="cardlayout stats">
+      <p class="heading"><a href="/neps">Total NEPs: {{ add (len (where .Site.Pages "Section" "NEPS")) -1 }}</a></p>
+      <div>
+        {{ range $name, $taxonomy := .Site.Taxonomies.status }}
+        <div>
+          <span class="nep-status {{ lower $name }} home"><a href="/status/{{ $name | urlize }}"><span class="count">{{ $taxonomy.Count }}</span> {{ $name | humanize }}</a></span>
+        </div>  
+        {{end}}
+      </div>
+      <p>Stats Updated on {{ now.Format "Jan 02, 2006 @ 3:04PM UTC"}}</p>
+    </div>
+  </div>
+</div>
+<script src="/js/three.r119.min.js"></script>
+<script src="/js/vanta.fog.min.js"></script>
+<script>
+VANTA.FOG({
+  el: ".homecard .container",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 100.00,
+  minWidth: 100.00,
+  highlightColor: 0xe3bf,
+  midtoneColor: 0xff00b4,
+  lowlightColor: 0xafff,
+  baseColor: 0x0,
+  blurFactor: 0.9,
+  speed: 3.00,
+  zoom: 0.5
+})
+</script>

@@ -1,0 +1,18 @@
+<div class="nep-public-call-list">
+  {{ $hasPublicCall := false }}
+  {{ range .Site.Pages }}
+    {{ if in .Params.Status "Public Call" }}
+      {{ $hasPublicCall = true }}
+    {{ end }}
+  {{ end }}
+  <h3>Current <span class="nep-status public-call">Public Calls</span></h3>
+  {{ if $hasPublicCall }}
+    {{ range .Site.Pages }}
+      {{ if in .Params.Status "Public Call" }}
+        {{ partial "nep-list-item" . }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    <p>No NEP is currently for Public Call</p>
+  {{ end }}
+</div>
