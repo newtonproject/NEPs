@@ -15,8 +15,8 @@ This is the standard template for new NEP.
 Start edit by copy this template folder to /NEPS/nep-x/
 
 Note: the NEP number will be assigned by an editor when opening a pull request to submit your NEP.
-Guides: https://neps.newton.bio/guides/
-Format & Front Matter: https://neps.newton.bio/guides/format/
+Guides: https://neps.newtonproject.org/guides/
+Format & Front Matter: https://neps.newtonproject.org/guides/format/
 
 -->
 

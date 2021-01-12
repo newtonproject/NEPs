@@ -8,17 +8,17 @@ We welcome anyone with suggestions related to Newton Project to compile a NEP.
 
 This repository tracks the ongoing status of NEPs.
 
-- [NEPs Official Website](https://neps.newton.bio/) are build from NEPs and Docs from this repository.
+- [NEPs Official Website](https://neps.newtonproject.org/) are build from NEPs and Docs from this repository.
 
-- [All NEPs](https://neps.newton.bio/neps/) of all NEPs merged in to this repository.
+- [All NEPs](https://neps.newtonproject.org/neps/) of all NEPs merged in to this repository.
 
-- [NEP Process](https://neps.newton.bio/guides/nep-process/) that governs the NEPs repository.
+- [NEP Process](https://neps.newtonproject.org/guides/nep-process/) that governs the NEPs repository.
 
 ## Contributing to NEPs
 
 Newton Evolution Proposals (NEPs) repository exists as a place to share concrete proposals with potential users of the proposal and the Newton community at large.
 
-Visit [NEP Guidelines](https://neps.newton.bio/guides/) to learn how to contribute to NEPs.
+Visit [NEP Guidelines](https://neps.newtonproject.org/guides/) to learn how to contribute to NEPs.
 
 Docs for Guides are located in `./guides` directory in this repository.
 
