@@ -1,3 +1,12 @@
+> This file has been moved to
+> https://github.com/newtonproject/NEPs/blob/main/reviews/nep-review-0002.md
+> 
+> **`master` branch** is archived and no longer in use.
+>
+> **`main` branch** is current default branch.
+>
+> learn more about this change on https://github.com/newtonproject/NEPs/issues/38
+
 # NEP Board Review 0002
 
 ## Results

@@ -1,3 +1,12 @@
+> This file has been moved to
+> https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-20/index.md
+> 
+> **`master` branch** is archived and no longer in use.
+>
+> **`main` branch** is current default branch.
+>
+> learn more about this change on https://github.com/newtonproject/NEPs/issues/38
+
 # NEP 20: Newton Encoded Asset Transaction (NEAT)
 
 | Item | Description |

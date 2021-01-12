@@ -1,3 +1,10 @@
+> You are viewing README on **`master` branch** which is archived and no longer in use.
+>
+> Please move to the current default branch at 
+> https://github.com/newtonproject/NEPs
+>
+> learn more about this change on https://github.com/newtonproject/NEPs/issues/38
+
 # Newton Evolution Proposals (NEPs)
 
 [![Join the chat at https://gitter.im/newtonproject/NEPs](https://badges.gitter.im/newtonproject/NEPs.svg)](https://gitter.im/newtonproject/NEPs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

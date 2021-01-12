@@ -1,3 +1,12 @@
+> This file has been moved to
+> https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-1/index.md
+> 
+> **`master` branch** is archived and no longer in use.
+>
+> **`main` branch** is current default branch.
+>
+> learn more about this change on https://github.com/newtonproject/NEPs/issues/38
+
 # NEP-1: Improvement to Newton Foundation reserved token release rules
 
 | Item | Description |

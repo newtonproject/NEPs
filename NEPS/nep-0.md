@@ -1,3 +1,12 @@
+> This file has been moved to
+> https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-0/index.md
+> 
+> **`master` branch** is archived and no longer in use.
+>
+> **`main` branch** is current default branch.
+>
+> learn more about this change on https://github.com/newtonproject/NEPs/issues/38
+
 # NEP-0: NEP Genesis
 
 | Item | Description |
