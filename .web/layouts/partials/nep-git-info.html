@@ -6,7 +6,7 @@
     <div class="item links">
       {{ if .Site.Params.NewDocsViewPath }}
         <a href="{{ .Site.Params.NewDocsRepo }}/{{ .Site.Params.NewDocsViewPath }}{{ replace .File.Path "\\" "/" }}" target="_blank" title="{{ .Page.Title }} {{ i18n "git-source" }}" rel="noopener" >
-            <i class="fas fa-code"></i> {{ i18n "git-source" }}
+          <i class="nf nf-fa-code"></i> {{ i18n "git-source" }}
           </a>
       {{ end }}
       {{ if .Site.Params.NewDocsEditPath }}
@@ -16,7 +16,7 @@
           target="_blank"
           rel="noopener"
           >
-            <i class="fas fa-edit"></i> {{ i18n "git-edit" }}
+          <i class="nf nf-fa-edit"></i> {{ i18n "git-edit" }}
           </a>
       {{ end }}
     </div>

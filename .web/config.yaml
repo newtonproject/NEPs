@@ -97,17 +97,21 @@ params:
   # This theme uses icons by https://fontawesome.com
   social:
     - title: Github
-      url: 'https://github.com/newtonproject/NEPs'
-      icon: github
-      icon_pack: fab
+      url: 'https://github.com/newtonproject/newbridge.network'
+      icon: nf-oct-mark_github
+      icon_pack: nf
     - title: Twitter
       url: 'https://twitter.com/newton_project'
-      icon: twitter
-      icon_pack: fab
+      icon: nf-fa-twitter
+      icon_pack: nf
+    - title: Facebook
+      url: 'https://www.facebook.com/newtonproject'
+      icon: nf-fa-facebook_square
+      icon_pack: nf
     - title: Telegram
       url: 'https://t.me/newtonproject'
-      icon: telegram-plane
-      icon_pack: fab
+      icon: nf-mdi-telegram
+      icon_pack: nf
     
   # Git repository location
   # Set source repository location.

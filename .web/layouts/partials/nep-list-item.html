@@ -1,5 +1,5 @@
 <article class="nep-list-item">
   <span class="nep-no"><a href="{{ .RelPermalink }}">NEP-{{ .Params.nep }}</a></span> <span class="nep-status {{ lower .Params.status }}">{{ .Params.status }}</span>
   <h4><a href="{{ .RelPermalink }}">{{ .Page.Title }}</a></h4>
-  <span class="authors"><i class="far fa-user"></i> {{ .Params.authors | markdownify | safeHTML }}</span>
+  <span class="authors"><i class="nf nf-fa-user_o"></i> {{ .Params.authors | markdownify | safeHTML }}</span>
 </article>

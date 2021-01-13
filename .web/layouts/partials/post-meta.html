@@ -3,7 +3,7 @@
     <div class="date-authors">
       {{ with .Date }}
         <span class="date">
-          <i class="far fa-calendar-alt"></i>
+          <i class="nf nf-fa-calendar"></i>
           {{ partial "date" (dict "Date" . "Format" $.Site.Params.NewDocsDateFormat) }}
         </span>
       {{ end }}
@@ -11,7 +11,7 @@
       {{ if .Params.authors }}
       {{/* printf "%T" .Params.authors */}}
         <span class="authors">
-          <i class="far fa-user"></i>
+          <span class="authors">
           {{ if eq (printf "%T" .Params.authors) "[]string" }}
             {{ range $n, $author := .Params.authors }}
               {{ if $n }}, {{ end }}

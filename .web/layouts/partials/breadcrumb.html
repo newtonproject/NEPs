@@ -9,7 +9,7 @@
   {{ end }}
   {{ if .p1.IsHome }}
   <span {{ if eq .p1 .p2 }} class="active"{{ end }}>
-    <a href="{{ .p1.Permalink }}"><svg class='icon' ><use xlink:href='/icons/bootstrap-icons.svg#house'/></svg></a> 
+    <a href="{{ .p1.Permalink }}"><i class="nf nf-oct-home"></i></a> 
   </span>
   {{ else }}
   <span {{ if eq .p1 .p2 }} class="active"{{ end }}>
