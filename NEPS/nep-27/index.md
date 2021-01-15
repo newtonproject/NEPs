@@ -10,11 +10,11 @@ Created: 2020-11-03
 Updated: 2020-12-07
 ---
 
-### Simple Summary
+## Simple Summary
 
 After NewChain TestNet successful opening, NewChain MainNet is going to be opened by inviting the community to setup, run and maintain the ledger nodes.
 
-### Abstract
+## Abstract
 
 In current stage, NewChain MainNet would still run with PoA (Proof-of-Authority) consensus mechanism for producing blocks.
 Hence a certain amount of staking would be required for keeping the ledger nodes honest and not be malicious to harm the network.
@@ -29,17 +29,17 @@ The left part of the daily release of the NewPool will be still allocated to rew
 
 According to the nature of the PoA consensus, all the ledger nodes, including that are run by the community, can vote to include or exclude a certain ledger node to join or leave the newtork, by means of a CLI command or relative NewPay function.
 
-### Motivation
+## Motivation
 
 To improve the openness of NewChain MainNet, involve the community to run the network and benefit from it, create more solid consensus of the whole Newton ecosystem as well as enhance the decentralization of the newtork, this proposal is drafted for the whole Newton community to review and going to implement once reviewed.
 
-### Specification
+## Specification
 
 Technical specifications can be found at those documents respectively:
 
 - [newchain-nodes](https://github.com/newtonproject/newchain-nodes): Deployment manual for setting up a NewChain node.
 
-### Implementation
+## Implementation
 
 Adoption of the content of this NEP requires the following steps:
 

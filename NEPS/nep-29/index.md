@@ -10,13 +10,13 @@ Created: 2020-11-04
 Updated: 2020-12-09
 ---
 
-### Simple Summary
+## Simple Summary
 
 As part of the NewChain MainNet opening strategy and upgrading plan, the current "community nodes" in NewPay for virtual mining would be migrated and resolved for paving the way of NewChain to embrace a more bright future.
 
 This proposal will illustrate a possible solution for migrating them to be integrated into the NewSwap mining framework to also benefit the development of NewSwap.
 
-### Abstract
+## Abstract
 
 The current "community nodes" in NewPay are doing "virtual mining" nowadays for daily released NEW from NewPool. The allocation of NEW are propotional to NewForce gained by each node.
 
@@ -24,11 +24,11 @@ With the NewChain opening strategy, ledger nodes run by the community will be in
 
 NewPay "community nodes" should be migrated and resolved with regard to a smooth transition plan.
 
-### Motivation
+## Motivation
 
 To facilitate the NewPay "community nodes" to be migrated and resolved within the planned transition period, this proposal is drafted for the whole Newton community to review and going to implement once reviewed.
 
-### References
+## References
 
 References can be found at those documents respectively:
 
@@ -36,7 +36,7 @@ References can be found at those documents respectively:
 - [NewSwap](https://newswap.org): The official site of NewSwap.
 - [NewAsset Generator](https://www.newtonproject.org/newasset-generator/): The token issuance tool.
 
-### Implementation
+## Implementation
 
 Adoption of the content of this NEP requires the following phases:
 
