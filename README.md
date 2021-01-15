@@ -8,9 +8,9 @@ We welcome anyone with suggestions related to Newton Project to compile a NEP.
 
 This repository tracks the ongoing status of NEPs.
 
-- [NEPs Official Website](https://neps.newtonproject.org/) are build from NEPs and Docs from this repository.
+- [NEPs Website](https://neps.newtonproject.org/) is built from NEPs and Docs from this repository.
 
-- [All NEPs](https://neps.newtonproject.org/neps/) of all NEPs merged in to this repository.
+- [All NEPs](https://neps.newtonproject.org/neps/) displays all NEPs merged into this repository, source files are located under `NEPS` directory.
 
 - [NEP Process](https://neps.newtonproject.org/guides/nep-process/) that governs the NEPs repository.
 
@@ -83,3 +83,12 @@ yarn fc
 ```bash
 yarn ff
 ```
+
+## License
+
+- The NEPs and Docs  in this repostitory are licensed under the [CC0 1.0 Universal (CC0 1.0)
+Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+
+- The underlying program used to build the website is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+- Individule files may contains seperated License, those files should use their own Licenses.
