@@ -1,6 +1,6 @@
 # Newton Evolution Proposals (NEPs)
 
-[![Join the chat at https://gitter.im/newtonproject/NEPs](https://badges.gitter.im/newtonproject/NEPs.svg)](https://gitter.im/newtonproject/NEPs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/newtonproject/NEPs](https://badges.gitter.im/newtonproject/NEPs.svg)](https://gitter.im/newtonproject/NEPs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![Deploy Status](https://img.shields.io/github/workflow/status/newtonproject/NEPs/Deploy%20Github%20Pages/main)
 
 Newton Evolution Proposals (NEPs) describe Proposals for the Newton Project including _Economic Model_, _Personnel_, _Technical_, _Community Governance_ and _Business_.
 
