@@ -34,7 +34,6 @@ The editors don't pass judgment on NEPs. We merely do the administrative & edito
 
 | GitHub ID                                      | NEW Address                             |
 | ---------------------------------------------- | --------------------------------------- |
-| [@arisac](https://github.com/arisac)           | NEW182LTNoiufc9tiveZdno3HXH5yEmUURKUiac |
 | [@liuyong5653](https://github.com/liuyong5653) | NEW182VbmZs3TyC268wz7Kq4Cznssv7WzRPDq7j |
 | [@weixuefeng](https://github.com/weixuefeng)   | NEW182PdJBJoMnGAub6KJ6YrhSPHWrFE9RSBmGE |
 | [@zhouxiqiao](https://github.com/zhouxiqiao)   | NEW182Vzd7pgjGjNCKVB7831yFCT5yuhSfRnfgA |
