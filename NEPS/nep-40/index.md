@@ -12,7 +12,7 @@ Updated:
 
 ## Simple Summary
 
-To advance the NewChain development, the original NEW release plan of the community (60% of 100B total supply) will be changed
+To advance the NewChain development, the original NEW release plan of the community (60% of 100B total supply) will be changed as described below.
 
 ## Abstract
 
@@ -22,7 +22,7 @@ It can be divided into three parts as below:
 
 1. already released: 1545232707.3505096555 NEW
 2. 2021/2/1-2022/1/31 for incentives: 875130267.8946381786 NEW
-3. the rest: 57579637024.7548521659 NEW
+3. the rest: 57579637024.7548521659 NEW (will be decided by the future community governance)
 
 The seconds part will be used for supporting the Newton Incentive Program.
 
