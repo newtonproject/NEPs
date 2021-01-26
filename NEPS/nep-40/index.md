@@ -28,7 +28,7 @@ The seconds part will be used for supporting the Newton Incentive Program.
 
 ## Newton Incentive Program
 
-The current NewPay node stake mining will be ended by 2020/2, then a Newton Incentive Program will be initiated:
+The current NewPay node stake mining will be smoothly transitioned since 2021/2, then a Newton Incentive Program will be initiated:
 
 Program budget: the same as above, No. 2
 
@@ -39,6 +39,8 @@ Themes:
 | 2 | LP of mainstream assets, such as NEW/NUSDT | Providing liquidity | 250M NEW |
 | 3 | Community node mining (Node token/NEW)  | Issuing tokens | 150M NEW |
 | 4 | Swap mining | Swapping | 400M NEW |
+
+The concrete allocation of the above budget will be laterly announced by each different implementation projects.
 
 ## Implementation
 
