@@ -7,7 +7,7 @@ Status: Draft
 Categories: Community Governance
 Types: Process
 Created: 2021-01-22
-Updated: 2021-01-28
+Updated: 2021-01-29
 ---
 
 ## Simple Summary
@@ -46,9 +46,9 @@ Themes:
 | *No* | *Mining Theme* | *Incentivized Behavior* | *Budget Cap* |
 |-|-|-|-|
 | 1 | Machine node | Ledgering | 20% (175026053.57892763572 NEW) |
-| 2 | LP of mainstream assets, such as NEW/NUSDT | Providing liquidity | 30% (262539080.36839145358 NEW) |
-| 3 | Community Token mining (cToken/NEW)  | Issuing tokens | 25% (218782566.973659544650 NEW) |
-| 4 | Pre-existing NewPay Community Node mining | Maintaining community | no less than 25% (218782566.973659544650 NEW)* |
+| 2 | Pre-existing NewPay Community Node mining | Maintaining community | no less than 20% (175026053.57892763572 NEW)* |
+| 3 | Liquidity mining for Community Token (cToken/NEW)  | Issuing tokens | 30% (262539080.36839145358 NEW) |
+| 4 | Liquidity minining for mainstream assets, such as NEW/NUSDT | Providing liquidity | 30% (262539080.36839145358 NEW) |
 
 The concrete allocation of the above budget will be laterly announced by each different implementation projects.
 
