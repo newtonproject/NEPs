@@ -3,7 +3,7 @@ NEP: 40
 Title: "Change On Community NEW Budget Plan"
 Authors: "X-Team"
 Discussions: https://github.com/newtonproject/NEPs/issues/40
-Status: Draft
+Status: Accepted
 Categories: Community Governance
 Types: Process
 Created: 2021-01-22
