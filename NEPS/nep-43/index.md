@@ -3,7 +3,7 @@ NEP: 43
 Title: Change On Community Node NEW Unlocking Period
 Authors: "[Xu Jizhe](mailto:xujizhe@newtonproject.org), [Aris AC](mailto:hi@aris.ac)"
 Discussions: "https://github.com/newtonproject/NEPs/issues/43"
-Status: Draft
+Status: Implemented
 Categories: Community Governance
 Created: 2021-03-15
 ---
