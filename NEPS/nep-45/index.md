@@ -3,7 +3,7 @@ NEP: 45
 Title: NewChain Ledger Node Incentive Program
 Authors: "[Xu Jizhe](mailto:xujizhe@newtonproject.org), [Aris AC](mailto:hi@aris.ac), [Vie Yang](mailto:mailto:yangchenzhong@gmail.com)"
 Discussions: "https://github.com/newtonproject/NEPs/issues/45"
-Status: Draft
+Status: Implemented
 Categories: Community Governance
 Created: 2021-03-19
 ---
