@@ -361,7 +361,27 @@ fr.json:
 
 ## Rationale
 
+### Metadata Choices
+The symbol function (found in the NRC-6 and NRC-7 standards) was not included as we do not believe this is a globally useful piece of data to identify a generic virtual item / asset and are also prone to collisions. Short-hand symbols are used in tickers and currency trading, but they aren’t as useful outside of that space.
 
+The name function (for human-readable asset names, on-chain) was removed from the standard to allow the Metadata JSON to be the definitive asset name and reduce duplication of data. This also allows localization for names, which would otherwise be prohibitively expensive if each language string was stored on-chain, not to mention bloating the standard interface. While this decision may add a small burden on implementers to host a JSON file containing metadata, we believe any serious implementation of NRC-50 will already utilize JSON Metadata.
+
+### Upgrades
+The requirement to emit TransferSingle or TransferBatch on balance change implies that a valid implementation of NRC-50 redeploying to a new contract address MUST emit events from the new contract address to replicate the deprecated contract final state. It is valid to only emit a minimal number of events to reflect only the final balance and omit all the transactions that led to that state. The event emit requirement is to ensure that the current state of the contract can always be traced only through events. To alleviate the need to emit events when changing contract address, consider using the proxy pattern, such as described in EIP-2535. This will also have the added benefit of providing a stable contract address for users.
+
+### Design decision: Supporting non-batch
+The standard supports safeTransferFrom and onERC1155Received functions because they are significantly cheaper for single token-type transfers, which is arguably a common use case.
+
+### Design decision: Safe transfers only
+The standard only supports safe-style transfers, making it possible for receiver contracts to depend on onERC1155Received or onERC1155BatchReceived function to be always called at the end of a transfer.
+
+### Guaranteed log trace
+As the Ethereum ecosystem continues to grow, many dapps are relying on traditional databases and explorer API services to retrieve and categorize data. The NRC-50 standard guarantees that event logs emitted by the smart contract will provide enough data to create an accurate record of all current token balances. A database or explorer may listen to events and be able to provide indexed and categorized searches of every NRC-50 token in the contract.
+
+### Approval
+The function setApprovalForAll allows an operator to manage one’s entire set of tokens on behalf of the approver. It enables frictionless interaction with exchange and trade contracts.
+
+Restricting approval to a certain set of token IDs, quantities or other rules MAY be done with an additional interface or an external contract. The rationale is to keep the NRC-50 standard as generic as possible for all use-cases without imposing a specific approval scheme on implementations that may not need it. Standard token approval interfaces can be used, such as the suggested ERC-1761 Scoped Approval Interface which is compatible with NRC-50.
 
 ## Test Cases
 
