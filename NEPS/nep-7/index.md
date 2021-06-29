@@ -235,6 +235,49 @@ interface NRC7Enumerable /* is NRC7 */ {
     function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);
 }
 ```
+### Caveats
+The 0.4.20 Solidity interface grammar is not expressive enough to document the NRC-7 standard. A contract which complies with NRC-7 MUST also abide by the following:
+- Solidity issue #3412: The above interfaces include explicit mutability guarantees for each function. Mutability guarantees are, in order weak to strong: payable, implicit nonpayable, view, and pure. Your implementation MUST meet the mutability guarantee in this interface and you MAY meet a stronger guarantee. For example, a payable function in this interface may be implemented as nonpayble (no state mutability specified) in your contract. We expect a later Solidity release will allow your stricter contract to inherit from this interface, but a workaround for version 0.4.20 is that you can edit this interface to add stricter mutability before inheriting from your contract.
+- Solidity issue #3419: A contract that implements NRC7Metadata or NRC7Enumerable SHALL also implement NRC7. NRC-7 implements the requirements of interface ERC-165.
+- Solidity issue #2330: If a function is shown in this specification as external then a contract will be compliant if it uses public visibility. As a workaround for version 0.4.20, you can edit this interface to switch to public before inheriting from your contract.
+- Solidity issues #3494, #3544: Use of this.*.selector is marked as a warning by Solidity, a future version of Solidity will not mark this as an error.
+
+### Rationale
+There are many proposed uses of Ethereum smart contracts that depend on tracking distinguishable assets. Examples of existing or planned NFTs are LAND in Decentraland, the eponymous punks in CryptoPunks, and in-game items using systems like DMarket or EnjinCoin. Future uses include tracking real-world assets, like real-estate (as envisioned by companies like Ubitquity or Propy). It is critical in each of these cases that these items are not “lumped together” as numbers in a ledger, but instead each asset must have its ownership individually and atomically tracked. Regardless of the nature of these assets, the ecosystem will be stronger if we have a standardized interface that allows for cross-functional asset management and sales platforms.
+
+### “NFT” Word Choice
+“NFT” was satisfactory to nearly everyone surveyed and is widely applicable to a broad universe of distinguishable digital assets. We recognize that “deed” is very descriptive for certain applications of this standard (notably, physical property).
+
+Alternatives considered: distinguishable asset, title, token, asset, equity, ticket
+
+### NFT Identifiers
+Every NFT is identified by a unique uint256 ID inside the NRC-7 smart contract. This identifying number SHALL NOT change for the life of the contract. The pair (contract address, uint256 tokenId) will then be a globally unique and fully-qualified identifier for a specific asset on an Ethereum chain. While some NRC-7 smart contracts may find it convenient to start with ID 0 and simply increment by one for each new NFT, callers SHALL NOT assume that ID numbers have any specific pattern to them, and MUST treat the ID as a “black box”. Also note that a NFTs MAY become invalid (be destroyed). Please see the enumerations functions for a supported enumeration interface.
+
+The choice of uint256 allows a wide variety of applications because UUIDs and sha3 hashes are directly convertible to uint256.
+
+### Transfer Mechanism
+NRC-7 standardizes a safe transfer function safeTransferFrom (overloaded with and without a bytes parameter) and an unsafe function transferFrom. Transfers may be initiated by:
+- The owner of an NFT
+- The approved address of an NFT
+- An authorized operator of the current owner of an NFT
+
+Additionally, an authorized operator may set the approved address for an NFT. This provides a powerful set of tools for wallet, broker and auction applications to quickly use a large number of NFTs.
+
+The transfer and accept functions’ documentation only specify conditions when the transaction MUST throw. Your implementation MAY also throw in other situations. This allows implementations to achieve interesting results:
+- Disallow transfers if the contract is paused — prior art, CryptoKitties deployed contract, line 611
+- Blacklist certain address from receiving NFTs — prior art, CryptoKitties deployed contract, lines 565, 566
+- Disallow unsafe transfers — transferFrom throws unless _to equals msg.sender or countOf(_to) is non-zero or was non-zero previously (because such cases are safe)
+- Charge a fee to both parties of a transaction — require payment when calling approve with a non-zero _approved if it was previously the zero address, refund payment if calling approve with the zero address if it was previously a non-zero address, require payment when calling any transfer function, require transfer parameter _to to equal msg.sender, require transfer parameter _to to be the approved address for the NFT
+- Read only NFT registry — always throw from unsafeTransfer, transferFrom, approve and setApprovalForAll
+
+Failed transactions will throw, a best practice identified in ERC-223, ERC-677, ERC-827 and OpenZeppelin’s implementation of SafeERC20.sol. ERC-20 defined an allowance feature, this caused a problem when called and then later modified to a different amount, as on OpenZeppelin issue #438. In NRC-7, there is no allowance because every NFT is unique, the quantity is none or one. Therefore we receive the benefits of ERC-20’s original design without problems that have been later discovered.
+
+Creating of NFTs (“minting”) and destruction NFTs (“burning”) is not included in the specification. Your contract may implement these by other means. Please see the event documentation for your responsibilities when creating or destroying NFTs.
+
+We questioned if the operator parameter on onERC721Received was necessary. In all cases we could imagine, if the operator was important then that operator could transfer the token to themself and then send it – then they would be the from address. This seems contrived because we consider the operator to be a temporary owner of the token (and transferring to themself is redundant). When the operator sends the token, it is the operator acting on their own accord, NOT the operator acting on behalf of the token holder. This is why the operator and the previous token owner are both significant to the token recipient.
+
+Alternatives considered: only allow two-step NERC-6 style transaction, require that transfer functions never throw, require all functions to return a boolean indicating the success of the operation.
+
 ### ERC-165 Interface
 
 We chose Standard Interface Detection (ERC-165) to expose the interfaces that a NRC-7 smart contract supports.
