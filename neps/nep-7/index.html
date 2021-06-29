@@ -2,172 +2,199 @@
 Abstract #  The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track and transfer NFTs.
 We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets."><meta property="og:title" content="Non-Fungible Token Standard (NRC-7)"><meta property="og:description" content="Simple Summary #  A standard interface for non-fungible tokens, also known as deeds.
 Abstract #  The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track and transfer NFTs.
-We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-7/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Non-Fungible Token Standard (NRC-7) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.a00afd03bf20d7bb19dc995a7a56f8c12b71d0c63cda35937a9abbdb73368673.js integrity="sha256-oAr9A78g17sZ3Jlaelb4wStx0MY82jWTepq723M2hnM="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
+We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-7/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Non-Fungible Token Standard (NRC-7) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.c962875f1be1dd503b57d74026579aa0b55fa487654c31ec6c1e048565bbfc7d.js integrity="sha256-yWKHXxvh3VA7V9dAJleaoLVfpIdlTDHsbB4EhWW7/H0="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
 <label class="toggle transparent" color=none><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#emoji-sunglasses"/></svg></label></div><div id=navbar-collapse><ul class=navbar-nav><li class="nav-item dropdown" style=order:100><a href=#>More</a><ul class=dropdown-menu><li class=nav-item><a href=https://github.com/newtonproject/neps>NEPs Github</a></li><li class=nav-item><a href=https://newtonproject.org>Newton Project</a></li><li class=nav-item><a href=https://explorer.newtonproject.org>Newton Explorer</a></li></ul></li><li class=nav-item><a href=/neps/>All NEPs</a></li><li class=nav-item><a href=/guides/>Guides</a></li><li class=nav-item><a href=/reviews/>Reviews</a></li></ul><div class=search-form><input type=search id=navbar-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class=search-results><ul id=navbar-search-results></ul></div></div></div></div></nav><main><div class=container><div id=breadcrumb><span><a href=https://neps.newtonproject.org/><i class="nf nf-oct-home"></i></a></span><span><a href=https://neps.newtonproject.org/neps/>NEPs</a></span>
 <span class=active><a href=https://neps.newtonproject.org/neps/nep-7/>NEP-7</a></span></div></div><div class=container><div class=page-content><article class=markdown><h1>NEP-7: Non-Fungible Token Standard (NRC-7)</h1><table class=nep-table><tr><th>NEP</th><td>7</td></tr><tr><th>Title</th><td>Non-Fungible Token Standard (NRC-7)</td></tr><tr><th>Author(s)</th><td><a href=mailto:liuyong5653@163.com>Yong Liu</a></td></tr><tr><th>Discussions To</th><td><a href=https://github.com/newtonproject/NEPs/issues/7>https://github.com/newtonproject/NEPs/issues/7</a></td></tr><tr><th>Category</th><td>Technical</td></tr><tr><th>Type</th><td>NRC</td></tr><tr><th>Status</th><td><span class="nep-status draft">Draft</span></td></tr><tr><th>Created</th><td>2020-04-29</td></tr></table><h2 id=simple-summary>Simple Summary
 <a class=anchor href=#simple-summary>#</a></h2><p>A standard interface for non-fungible tokens, also known as deeds.</p><h2 id=abstract>Abstract
-<a class=anchor href=#abstract>#</a></h2><p>The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track and transfer NFTs.</p><p>We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets. We considered a diverse universe of assets, and we know you will dream up many more.</p><h2 id=motivation>Motivation
-<a class=anchor href=#motivation>#</a></h2><p>A standard interface allows wallet/broker/auction applications to work with any NFT on Ethereum. We provide for simple smart contracts as well as contracts that track an arbitrarily large number of NFTs. Additional applications are discussed below.</p><p>This standard is inspired by the ERC-721 token standard.</p><h2 id=specification>Specification
-<a class=anchor href=#specification>#</a></h2><h3 id=meta-data>Meta Data
-<a class=anchor href=#meta-data>#</a></h3><table><thead><tr><th style=text-align:left>Item</th><th style=text-align:left>Description</th><th style=text-align:left>Behaviors/Properties</th></tr></thead><tbody><tr><td style=text-align:left>name</td><td style=text-align:left>A descriptive name for a collection of NFTs in this contract</td><td style=text-align:left>can not be changed</td></tr><tr><td style=text-align:left>symbol</td><td style=text-align:left>An abbreviated name for NFTs in this contract</td><td style=text-align:left>can not be changed</td></tr><tr><td style=text-align:left>tokenURI</td><td style=text-align:left>A distinct Uniform Resource Identifier (URI) for a given asset</td><td style=text-align:left></td></tr><tr><td style=text-align:left>owner</td><td style=text-align:left>contract deployer, mint NFTs</td><td style=text-align:left></td></tr></tbody></table><h3 id=interaction--functions--event>Interaction / Functions / Event
-<a class=anchor href=#interaction--functions--event>#</a></h3><table><thead><tr><th style=text-align:left>Function</th><th style=text-align:left>Description</th><th style=text-align:left>Behaviors/Properties</th></tr></thead><tbody><tr><td style=text-align:left>mint</td><td style=text-align:left>mint a new token</td><td style=text-align:left>permission: owner</td></tr><tr><td style=text-align:left>transferOwnership</td><td style=text-align:left>Transfers ownership of the contract to a new account (<code>newOwner</code>)</td><td style=text-align:left>permission: owner</td></tr><tr><td style=text-align:left>transferFrom</td><td style=text-align:left>Transfer ownership of an NFTs</td><td style=text-align:left>permission: current owner, an authorized operator, or the approved address for this NFT</td></tr><tr><td style=text-align:left>safeTransferFrom</td><td style=text-align:left>Transfers the ownership of an NFT from one address to another address</td><td style=text-align:left>permission: current owner, an authorized operator, or the approved address for this NFT</td></tr><tr><td style=text-align:left>approve</td><td style=text-align:left>Change or reaffirm the approved address for an NFT</td><td style=text-align:left>permission: NFT owner</td></tr><tr><td style=text-align:left>setApprovalForAll</td><td style=text-align:left>Enable or disable approval for a third party (&ldquo;operator&rdquo;) to manage all of <code>msg.sender</code>&rsquo;s assets</td><td style=text-align:left></td></tr><tr><td style=text-align:left><strong>Query</strong></td><td></td><td></td></tr><tr><td style=text-align:left>balanceOf</td><td style=text-align:left>Count all NFTs assigned to an owner</td><td style=text-align:left></td></tr><tr><td style=text-align:left>ownerOf</td><td style=text-align:left>Find the owner of an NFT</td><td style=text-align:left></td></tr><tr><td style=text-align:left>getApproved</td><td style=text-align:left>Get the approved address for a single NFT</td><td style=text-align:left></td></tr><tr><td style=text-align:left>isApprovedForAll</td><td style=text-align:left>Query if an address is an authorized operator for another address</td><td style=text-align:left></td></tr><tr><td style=text-align:left><strong>Event</strong></td><td></td><td></td></tr><tr><td style=text-align:left>OwnershipTransferred</td><td style=text-align:left>ownership of the contract to a new account</td><td style=text-align:left></td></tr><tr><td style=text-align:left>Transfer</td><td style=text-align:left>This emits when ownership of any NFT changes by any mechanism</td><td style=text-align:left></td></tr><tr><td style=text-align:left>Approval</td><td style=text-align:left>This emits when the approved address for an NFT is changed or reaffirmed</td><td style=text-align:left></td></tr><tr><td style=text-align:left>ApprovalForAll</td><td style=text-align:left>This emits when an operator is enabled or disabled for an owner</td><td style=text-align:left></td></tr></tbody></table><h2 id=test-cases>Test Cases
-<a class=anchor href=#test-cases>#</a></h2><p>TBD</p><h2 id=implementation>Implementation
-<a class=anchor href=#implementation>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity>
-<span style=color:#8be9fd;font-style:italic>interface</span> INRC7 {
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Emitted when `tokenId` token is transfered from `from` to `to`.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>event</span> Transfer(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> to, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId);
+<a class=anchor href=#abstract>#</a></h2><p>The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track and transfer NFTs.</p><p>We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets. We considered a diverse universe of assets, and we know you will dream up many more:</p><ul><li>Physical property — houses, unique artwork</li><li>Virtual collectables — unique pictures of kittens, collectable cards</li><li>“Negative value” assets — loans, burdens and other responsibilities</li></ul><p>In general, all houses are distinct and no two kittens are alike. NFTs are distinguishable and you must track the ownership of each one separately.</p><h2 id=motivation>Motivation
+<a class=anchor href=#motivation>#</a></h2><p>A standard interface allows wallet/broker/auction applications to work with any NFT on Ethereum. We provide for simple NRC-7 smart contracts as well as contracts that track an arbitrarily large number of NFTs. Additional applications are discussed below.</p><p>This standard is inspired by the NRC-6 token standard and builds on two years of experience since NEP-6 was created. NEP-6 is insufficient for tracking NFTs because each asset is distinct (non-fungible) whereas each of a quantity of tokens is identical (fungible).</p><p>Differences between this standard and NEP-6 are examined below.</p><h2 id=specification>Specification
+<a class=anchor href=#specification>#</a></h2><p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in RFC 2119.</p><p>Every NRC-7 compliant contract must implement the NRC7 and ERC165 interfaces (subject to “caveats” below):</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#ff79c6>pragma solidity</span> <span style=color:#ff79c6>^</span><span style=color:#bd93f9>0</span>.<span style=color:#bd93f9>4</span>.<span style=color:#bd93f9>20</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>event</span> Approval(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> approved, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId);
+<span style=color:#6272a4>/// @title NRC-7 Non-Fungible Token Standard
+</span><span style=color:#6272a4>///  Note: the ERC-165 identifier for this interface is 0x80ac58cd.
+</span><span style=color:#6272a4></span><span style=color:#8be9fd;font-style:italic>interface</span> NRC7 <span style=color:#6272a4>/* is ERC165 */</span> {
+    <span style=color:#6272a4>/// @dev This emits when ownership of any NFT changes by any mechanism.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  This event emits when NFTs are created (`from` == 0) and destroyed
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  (`to` == 0). Exception: during contract creation, any number of NFTs
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  may be created and assigned without emitting Transfer. At the time of
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  any transfer, the approved address for that NFT (if any) is reset to none.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> Transfer(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _from, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _to, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> _tokenId);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>event</span> ApprovalForAll(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> operator, <span style=color:#8be9fd>bool</span> approved);
+    <span style=color:#6272a4>/// @dev This emits when the approved address for an NFT is changed or
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  reaffirmed. The zero address indicates there is no approved address.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  When a Transfer event emits, this also indicates that the approved
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  address for that NFT (if any) is reset to none.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> Approval(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _approved, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> _tokenId);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Emitted when ownership of the contract to a new account (`newOwner`).
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>event</span> OwnershipTransferred(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> previousOwner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> newOwner);
+    <span style=color:#6272a4>/// @dev This emits when an operator is enabled or disabled for an owner.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  The operator can manage all NFTs of the owner.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> ApprovalForAll(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _operator, <span style=color:#8be9fd>bool</span> _approved);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Returns the number of tokens in ``owner``&#39;s account.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> balanceOf(<span style=color:#8be9fd>address</span> owner) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span> <span style=color:#8be9fd;font-style:italic>balance</span>);
+    <span style=color:#6272a4>/// @notice Count all NFTs assigned to an owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev NFTs assigned to the zero address are considered invalid, and this
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  function throws for queries about the zero address.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _owner An address for whom to query the balance
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The number of NFTs owned by `_owner`, possibly zero
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> balanceOf(<span style=color:#8be9fd>address</span> _owner) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Returns the owner of the `tokenId` token.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - `tokenId` must exist.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> ownerOf(<span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span> owner);
+    <span style=color:#6272a4>/// @notice Find the owner of an NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev NFTs assigned to zero address are considered invalid, and queries
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  about them do throw.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The identifier for an NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The address of the owner of the NFT
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> ownerOf(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span>);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
-</span><span style=color:#6272a4>     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - `from`, `to` cannot be zero.
-</span><span style=color:#6272a4>     * - `tokenId` token must exist and be owned by `from`.
-</span><span style=color:#6272a4>     * - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}.
-</span><span style=color:#6272a4>     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Emits a {Transfer} event.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> to, <span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @notice Transfers the ownership of an NFT from one address to another address
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws unless `msg.sender` is the current owner, an authorized
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  operator, or the approved address for this NFT. Throws if `_from` is
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  not the current owner. Throws if `_to` is the zero address. Throws if
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `_tokenId` is not a valid NFT. When transfer is complete, this function
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  checks if `_to` is a smart contract (code size &gt; 0). If so, it calls
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `onERC721Received` on `_to` and throws if the return value is not
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `bytes4(keccak256(&#34;onERC721Received(address,address,uint256,bytes)&#34;))`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _from The current owner of the NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _to The new owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT to transfer
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param data Additional data with no specified format, sent in call to `_to`
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(<span style=color:#8be9fd>address</span> _from, <span style=color:#8be9fd>address</span> _to, <span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes</span> data) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Transfers `tokenId` token from `from` to `to`.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - `from`, `to` cannot be zero.
-</span><span style=color:#6272a4>     * - `tokenId` token must be owned by `from`.
-</span><span style=color:#6272a4>     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Emits a {Transfer} event.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> transferFrom(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> to, <span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @notice Transfers the ownership of an NFT from one address to another address
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This works identically to the other function with an extra data parameter,
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  except this function just sets data to &#34;&#34;.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _from The current owner of the NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _to The new owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT to transfer
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(<span style=color:#8be9fd>address</span> _from, <span style=color:#8be9fd>address</span> _to, <span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Gives permission to `to` to transfer `tokenId` token to another account.
-</span><span style=color:#6272a4>     * The approval is cleared when the token is transferred.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - The caller must own the token or be an approved operator.
-</span><span style=color:#6272a4>     * - `tokenId` must exist.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Emits an {Approval} event.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> approve(<span style=color:#8be9fd>address</span> to, <span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @notice Transfer ownership of an NFT -- THE CALLER IS RESPONSIBLE
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  TO CONFIRM THAT `_to` IS CAPABLE OF RECEIVING NFTS OR ELSE
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  THEY MAY BE PERMANENTLY LOST
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws unless `msg.sender` is the current owner, an authorized
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  operator, or the approved address for this NFT. Throws if `_from` is
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  not the current owner. Throws if `_to` is the zero address. Throws if
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `_tokenId` is not a valid NFT.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _from The current owner of the NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _to The new owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT to transfer
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> transferFrom(<span style=color:#8be9fd>address</span> _from, <span style=color:#8be9fd>address</span> _to, <span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Returns the account approved for `tokenId` token.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - `tokenId` must exist.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> getApproved(<span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span> operator);
+    <span style=color:#6272a4>/// @notice Change or reaffirm the approved address for an NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev The zero address indicates there is no approved address.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  Throws unless `msg.sender` is the current NFT owner, or an authorized
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  operator of the current owner.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _approved The new approved NFT controller
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT to approve
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> approve(<span style=color:#8be9fd>address</span> _approved, <span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Approve or remove `operator` as an operator for the caller.
-</span><span style=color:#6272a4>     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Requirements:
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * - The `operator` cannot be the caller.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * Emits an {ApprovalForAll} event.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> setApprovalForAll(<span style=color:#8be9fd>address</span> operator, <span style=color:#8be9fd>bool</span> _approved) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @notice Enable or disable approval for a third party (&#34;operator&#34;) to manage
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  all of `msg.sender`&#39;s assets
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Emits the ApprovalForAll event. The contract MUST allow
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  multiple operators per owner.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _operator Address to add to the set of authorized operators
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _approved True if the operator is approved, false to revoke approval
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> setApprovalForAll(<span style=color:#8be9fd>address</span> _operator, <span style=color:#8be9fd>bool</span> _approved) <span style=color:#ff79c6>external</span>;
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
-</span><span style=color:#6272a4>     *
-</span><span style=color:#6272a4>     * See {setApprovalForAll}
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> isApprovedForAll(<span style=color:#8be9fd>address</span> owner, <span style=color:#8be9fd>address</span> operator) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+    <span style=color:#6272a4>/// @notice Get the approved address for a single NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_tokenId` is not a valid NFT.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT to find the approved address for
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The approved address for this NFT, or the zero address if there is none
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getApproved(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span>);
 
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>      * @dev Safely transfers `tokenId` token from `from` to `to`.
-</span><span style=color:#6272a4>      *
-</span><span style=color:#6272a4>      * Requirements:
-</span><span style=color:#6272a4>      *
-</span><span style=color:#6272a4>      * - `from`, `to` cannot be zero.
-</span><span style=color:#6272a4>      * - `tokenId` token must exist and be owned by `from`.
-</span><span style=color:#6272a4>      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
-</span><span style=color:#6272a4>      * - If `to` refers to a smart contract, it must implement {INRC7Receiver-onNRC7Received}, which is called upon a safe transfer.
-</span><span style=color:#6272a4>      *
-</span><span style=color:#6272a4>      * Emits a {Transfer} event.
-</span><span style=color:#6272a4>      */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> to, <span style=color:#8be9fd>uint256</span> tokenId, <span style=color:#8be9fd>bytes</span> calldata data) <span style=color:#ff79c6>external</span>;
-
-    <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @dev Transfers ownership of the contract to a new account (`newOwner`).
-</span><span style=color:#6272a4>     * Can only be called by the current owner.
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> transferOwnership(<span style=color:#8be9fd>address</span> newOwner) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @notice Query if an address is an authorized operator for another address
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _owner The address that owns the NFTs
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _operator The address that acts on behalf of the owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return True if `_operator` is an approved operator for `_owner`, false otherwise
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> isApprovedForAll(<span style=color:#8be9fd>address</span> _owner, <span style=color:#8be9fd>address</span> _operator) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
 }
 
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#6272a4>/**
-</span><span style=color:#6272a4> * @title NRC7 token receiver interface
-</span><span style=color:#6272a4> * @dev Interface for any contract that wants to support safeTransfers
-</span><span style=color:#6272a4> * from NRC7 asset contracts.
-</span><span style=color:#6272a4> */</span>
-<span style=color:#8be9fd;font-style:italic>interface</span> INRC7Receiver {
-
-  <span style=color:#6272a4>/**
-</span><span style=color:#6272a4>     * @notice Handle the receipt of an NFT
-</span><span style=color:#6272a4>     * @dev The NRC7 smart contract calls this function on the recipient
-</span><span style=color:#6272a4>     * after a {INRC7-safeTransferFrom}. This function MUST return the function selector,
-</span><span style=color:#6272a4>     * otherwise the caller will revert the transaction. The selector to be
-</span><span style=color:#6272a4>     * returned can be obtained as `this.onNRC7Received.selector`. This
-</span><span style=color:#6272a4>     * function MAY throw to revert and reject the transfer.
-</span><span style=color:#6272a4>     * Note: the NRC7 contract address is always the message sender.
-</span><span style=color:#6272a4>     * @param operator The address which called `safeTransferFrom` function
-</span><span style=color:#6272a4>     * @param from The address which previously owned the token
-</span><span style=color:#6272a4>     * @param tokenId The NFT identifier which is being transferred
-</span><span style=color:#6272a4>     * @param data Additional data with no specified format
-</span><span style=color:#6272a4>     * @return bytes4 `bytes4(keccak256(&#34;onNRC7Received(address,address,uint256,bytes)&#34;))`
-</span><span style=color:#6272a4>     */</span>
-    <span style=color:#8be9fd;font-style:italic>function</span> onNRC7Received(<span style=color:#8be9fd>address</span> operator, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>uint256</span> tokenId, <span style=color:#8be9fd>bytes</span> <span style=color:#ff79c6>memory</span> data) <span style=color:#ff79c6>public</span> <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bytes4</span>);
+<span style=color:#8be9fd;font-style:italic>interface</span> ERC165 {
+    <span style=color:#6272a4>/// @notice Query if a contract implements an interface
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param interfaceID The interface identifier, as specified in ERC-165
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Interface identification is specified in ERC-165. This function
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  uses less than 30,000 gas.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return `true` if the contract implements `interfaceID` and
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `interfaceID` is not 0xffffffff, `false` otherwise
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> supportsInterface(<span style=color:#8be9fd>bytes4</span> interfaceID) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
 }
-</code></pre></div><h2 id=references>References
-<a class=anchor href=#references>#</a></h2><ol><li>ERC-721 Token Standard. <a href=https://eips.ethereum.org/EIPS/eip-721>https://eips.ethereum.org/EIPS/eip-721</a></li></ol><h2 id=copyright>Copyright
+</code></pre></div><p>A wallet/broker/auction application MUST implement the wallet interface if it will accept safe transfers.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#6272a4>/// @dev Note: the ERC-165 identifier for this interface is 0x150b7a02.
+</span><span style=color:#6272a4></span><span style=color:#8be9fd;font-style:italic>interface</span> NRC7TokenReceiver {
+    <span style=color:#6272a4>/// @notice Handle the receipt of an NFT
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev The NRC7 smart contract calls this function on the recipient
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  after a `transfer`. This function MAY throw to revert and reject the
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  transfer. Return of other than the magic value MUST result in the
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  transaction being reverted.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  Note: the contract address is always the message sender.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _operator The address which called `safeTransferFrom` function
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _from The address which previously owned the token
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId The NFT identifier which is being transferred
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _data Additional data with no specified format
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return `bytes4(keccak256(&#34;onERC721Received(address,address,uint256,bytes)&#34;))`
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  unless throwing
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> onERC721Received(<span style=color:#8be9fd>address</span> _operator, <span style=color:#8be9fd>address</span> _from, <span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes</span> _data) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>returns</span>(<span style=color:#8be9fd>bytes4</span>);
+}
+</code></pre></div><p>The metadata extension is OPTIONAL for NRC-7 smart contracts (see “caveats”, below). This allows your smart contract to be interrogated for its name and for details about the assets which your NFTs represent.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#6272a4>/// @title NRC-7 Non-Fungible Token Standard, optional metadata extension
+</span><span style=color:#6272a4>///  Note: the ERC-165 identifier for this interface is 0x5b5e139f.
+</span><span style=color:#6272a4></span><span style=color:#8be9fd;font-style:italic>interface</span> NRC7Metadata <span style=color:#6272a4>/* is NRC7 */</span> {
+    <span style=color:#6272a4>/// @notice A descriptive name for a collection of NFTs in this contract
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> name() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> _name);
+
+    <span style=color:#6272a4>/// @notice An abbreviated name for NFTs in this contract
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> symbol() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> _symbol);
+
+    <span style=color:#6272a4>/// @notice A distinct Uniform Resource Identifier (URI) for a given asset.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  3986. The URI may point to a JSON file that conforms to the &#34;ERC721
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  Metadata JSON Schema&#34;.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> tokenURI(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span>);
+}
+</code></pre></div><p>This is the “NRC7 Metadata JSON Schema” referenced above.</p><pre><code>{
+    &quot;title&quot;: &quot;Asset Metadata&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Identifies the asset to which this NFT represents&quot;
+        },
+        &quot;description&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Describes the asset to which this NFT represents&quot;
+        },
+        &quot;image&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive.&quot;
+        }
+    }
+}
+</code></pre><p>The enumeration extension is OPTIONAL for NRC-7 smart contracts (see “caveats”, below). This allows your contract to publish its full list of NFTs and make them discoverable.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#6272a4>/// @title NRC-7 Non-Fungible Token Standard, optional enumeration extension
+</span><span style=color:#6272a4>///  Note: the ERC-165 identifier for this interface is 0x780e9d63.
+</span><span style=color:#6272a4></span><span style=color:#8be9fd;font-style:italic>interface</span> NRC7Enumerable <span style=color:#6272a4>/* is NRC7 */</span> {
+    <span style=color:#6272a4>/// @notice Count NFTs tracked by this contract
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return A count of valid NFTs tracked by this contract, where each one of
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  them has an assigned and queryable owner not equal to the zero address
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> totalSupply() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/// @notice Enumerate valid NFTs
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_index` &gt;= `totalSupply()`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _index A counter less than `totalSupply()`
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The token identifier for the `_index`th NFT,
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  (sort order not specified)
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> tokenByIndex(<span style=color:#8be9fd>uint256</span> _index) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/// @notice Enumerate NFTs assigned to an owner
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_index` &gt;= `balanceOf(_owner)` or if
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  `_owner` is the zero address, representing invalid NFTs.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _owner An address where we are interested in NFTs owned by them
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _index A counter less than `balanceOf(_owner)`
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The token identifier for the `_index`th NFT assigned to `_owner`,
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///   (sort order not specified)
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> tokenOfOwnerByIndex(<span style=color:#8be9fd>address</span> _owner, <span style=color:#8be9fd>uint256</span> _index) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+}
+</code></pre></div><h3 id=erc-165-interface>ERC-165 Interface
+<a class=anchor href=#erc-165-interface>#</a></h3><p>We chose Standard Interface Detection (ERC-165) to expose the interfaces that a NRC-7 smart contract supports.</p><p>A future EIP may create a global registry of interfaces for contracts. We strongly support such an EIP and it would allow your NRC-7 implementation to implement NRC7Enumerable, NRC7Metadata, or other interfaces by delegating to a separate contract.</p><h2 id=test-cases>Test Cases
+<a class=anchor href=#test-cases>#</a></h2><p>TBD</p><h2 id=implementations>Implementations
+<a class=anchor href=#implementations>#</a></h2><p>TBD</p><h2 id=references>References
+<a class=anchor href=#references>#</a></h2><ol><li>ERC-721 Non-fungible Token Standard. <a href=https://eips.ethereum.org/EIPS/eip-721>https://eips.ethereum.org/EIPS/eip-721</a></li><li>ERC-165 Standard Interface Detection. <a href=https://eips.ethereum.org/EIPS/eip-165>https://eips.ethereum.org/EIPS/eip-165</a></li><li>NRC6 Token Standard. <a href=https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-6/index.md>https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-6/index.md</a></li></ol><h2 id=copyright>Copyright
 <a class=anchor href=#copyright>#</a></h2><p>Copyright and related rights waived via
 <a href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</p></article><section class=git-info><div class="item links"><a href=https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-7/index.md target=_blank title="Non-Fungible Token Standard (NRC-7) Source" rel=noopener><i class="nf nf-fa-code"></i>Source</a>
 <a href=https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-7/index.md title="Edit Non-Fungible Token Standard (NRC-7)" target=_blank rel=noopener><i class="nf nf-fa-edit"></i>Edit</a></div></section><div class=nav id=nav-prev-next><a class=previous href=https://neps.newtonproject.org/neps/nep-47/><div class=link><span>Previous</span><h4>Parameter Updates on Community Node and vote</h4></div></a><a class=next href=https://neps.newtonproject.org/neps/nep-24/><div class=link><span>Next</span><h4>Newton Pre-paid Card (NPC)</h4></div></a></div></div><aside id=aside-b><section class=toc><input type=checkbox class="hidden toggle" id=toc-control>
-<label class=toggle for=toc-control id=toc-check><h3>On This Page<svg class="icon" id="toc-icon"><use xlink:href="/icons/bootstrap-icons.svg#caret-down-fill"/></svg></h3></label><nav id=TableOfContents><ul><li><a href=#simple-summary>Simple Summary</a></li><li><a href=#abstract>Abstract</a></li><li><a href=#motivation>Motivation</a></li><li><a href=#specification>Specification</a><ul><li><a href=#meta-data>Meta Data</a></li><li><a href=#interaction--functions--event>Interaction / Functions / Event</a></li></ul></li><li><a href=#test-cases>Test Cases</a></li><li><a href=#implementation>Implementation</a></li><li><a href=#references>References</a></li><li><a href=#copyright>Copyright</a></li></ul></nav></section></aside></div></main><footer id=site-footer><div class=container><div class=brand><a class=footer-brand href=https://neps.newtonproject.org/><img src=https://neps.newtonproject.org//logo.svg class="logo invert" alt=Logo></a><p class=footer-info-text>Newton Evolution Proposals Website.</p><div class=social-icons><a href=https://github.com/newtonproject/newbridge.network target=_blank title=Github><i class="nf nf-oct-mark_github"></i></a><a href=https://twitter.com/newton_project target=_blank title=Twitter><i class="nf nf-fa-twitter"></i></a><a href=https://www.facebook.com/newtonproject target=_blank title=Facebook><i class="nf nf-fa-facebook_square"></i></a><a href=https://t.me/newtonproject target=_blank title=Telegram><i class="nf nf-mdi-telegram"></i></a></div></div><aside><ul><h3>Newton Project</h3><li><a href=https://www.newtonproject.org>Newton Project Website</a></li><li><a href=https://developer.newtonproject.org>Developer Website</a></li><li><a href=https://www.newtonproject.org/contact/>Contact Team</a></li></ul></aside><row><p>© 2021 Newton Project & Other Contributors</p></row></div></footer></body></html>
+<label class=toggle for=toc-control id=toc-check><h3>On This Page<svg class="icon" id="toc-icon"><use xlink:href="/icons/bootstrap-icons.svg#caret-down-fill"/></svg></h3></label><nav id=TableOfContents><ul><li><a href=#simple-summary>Simple Summary</a></li><li><a href=#abstract>Abstract</a></li><li><a href=#motivation>Motivation</a></li><li><a href=#specification>Specification</a><ul><li><a href=#erc-165-interface>ERC-165 Interface</a></li></ul></li><li><a href=#test-cases>Test Cases</a></li><li><a href=#implementations>Implementations</a></li><li><a href=#references>References</a></li><li><a href=#copyright>Copyright</a></li></ul></nav></section></aside></div></main><footer id=site-footer><div class=container><div class=brand><a class=footer-brand href=https://neps.newtonproject.org/><img src=https://neps.newtonproject.org//logo.svg class="logo invert" alt=Logo></a><p class=footer-info-text>Newton Evolution Proposals Website.</p><div class=social-icons><a href=https://github.com/newtonproject/newbridge.network target=_blank title=Github><i class="nf nf-oct-mark_github"></i></a><a href=https://twitter.com/newton_project target=_blank title=Twitter><i class="nf nf-fa-twitter"></i></a><a href=https://www.facebook.com/newtonproject target=_blank title=Facebook><i class="nf nf-fa-facebook_square"></i></a><a href=https://t.me/newtonproject target=_blank title=Telegram><i class="nf nf-mdi-telegram"></i></a></div></div><aside><ul><h3>Newton Project</h3><li><a href=https://www.newtonproject.org>Newton Project Website</a></li><li><a href=https://developer.newtonproject.org>Developer Website</a></li><li><a href=https://www.newtonproject.org/contact/>Contact Team</a></li></ul></aside><row><p>© 2021 Newton Project & Other Contributors</p></row></div></footer></body></html>
