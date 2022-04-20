@@ -1,5 +1,5 @@
 ---
-NEP: X
+NEP: 52
 Title: "Fee market change for NewChain"
 Authors: "newchain"
 Discussions: https://github.com/newtonproject/NEPs/issues/x
