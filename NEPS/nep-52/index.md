@@ -39,11 +39,12 @@ Finally, ensuring the miner of a block does not receive the base fee is importan
 
 ### Specification
 
-As of `FORK_BLOCK_NUMBER`, the `BaseFee` of per block *MUST* not less than `BaseFeeMin` where:
+As of `FORK_BLOCK_NUMBER`, the `BaseFee` of per block _MUST_ not less than `BaseFeeMin` where:
 
 - `BaseFeeMin` is the minimum BaseFee and the value is `250000000000000`
 
-*Note: `//` is integer division, round down.*
+_Note: `//` is integer division, round down._
+
 ```python
 from typing import Union, Dict, Sequence, List, Tuple, Literal
 from dataclasses import dataclass, field
