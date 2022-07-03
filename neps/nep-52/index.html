@@ -1,0 +1,288 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Simple Summary #  This proposal proposes a transaction pricing mechanism, based on Ether EIP-1559, for NewChain that forces to burn a minimum amount per block, while exempting the consensus layer transactions from network fee.
+Abstract #  As described in EIP-1559, we introduce a new EIP-2718 transaction type, with the format 0x02 || rlp([chain_id, nonce, max_priority_fee_per_gas, max_fee_per_gas, gas_limit, destination, amount, data, access_list, signature_y_parity, signature_r, signature_s]).
+There is a base fee per gas in protocol, which can move up or down each block according to a formula which is a function of gas used in parent block and gas target (block gas limit divided by elasticity multiplier) of parent block."><meta property="og:title" content="Fee market change for NewChain"><meta property="og:description" content="Simple Summary #  This proposal proposes a transaction pricing mechanism, based on Ether EIP-1559, for NewChain that forces to burn a minimum amount per block, while exempting the consensus layer transactions from network fee.
+Abstract #  As described in EIP-1559, we introduce a new EIP-2718 transaction type, with the format 0x02 || rlp([chain_id, nonce, max_priority_fee_per_gas, max_fee_per_gas, gas_limit, destination, amount, data, access_list, signature_y_parity, signature_r, signature_s]).
+There is a base fee per gas in protocol, which can move up or down each block according to a formula which is a function of gas used in parent block and gas target (block gas limit divided by elasticity multiplier) of parent block."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-52/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Fee market change for NewChain | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.d68e54dd0a562bb2471a9eb0bf912d5fb5c0623df33ca6c1029d022f6d851c49.js integrity="sha256-1o5U3QpWK7JHGp6wv5EtX7XAYj3zPKbBAp0CL22FHEk="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
+<label class="toggle transparent" color=none><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#emoji-sunglasses"/></svg></label></div><div id=navbar-collapse><ul class=navbar-nav><li class="nav-item dropdown" style=order:100><a href=#>More</a><ul class=dropdown-menu><li class=nav-item><a href=https://github.com/newtonproject/neps>NEPs Github</a></li><li class=nav-item><a href=https://newtonproject.org>Newton Project</a></li><li class=nav-item><a href=https://explorer.newtonproject.org>Newton Explorer</a></li></ul></li><li class=nav-item><a href=/neps/>All NEPs</a></li><li class=nav-item><a href=/guides/>Guides</a></li><li class=nav-item><a href=/reviews/>Reviews</a></li></ul><div class=search-form><input type=search id=navbar-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class=search-results><ul id=navbar-search-results></ul></div></div></div></div></nav><main><div class=container><div id=breadcrumb><span><a href=https://neps.newtonproject.org/><i class="nf nf-oct-home"></i></a></span><span><a href=https://neps.newtonproject.org/neps/>NEPs</a></span>
+<span class=active><a href=https://neps.newtonproject.org/neps/nep-52/>NEP-52</a></span></div></div><div class=container><div class=page-content><article class=markdown><h1>NEP-52: Fee market change for NewChain</h1><table class=nep-table><tr><th>NEP</th><td>52</td></tr><tr><th>Title</th><td>Fee market change for NewChain</td></tr><tr><th>Author(s)</th><td>newchain</td></tr><tr><th>Discussions To</th><td><a href=https://github.com/newtonproject/NEPs/issues/x>https://github.com/newtonproject/NEPs/issues/x</a></td></tr><tr><th>Category</th><td>Technical</td></tr><tr><th>Type</th><td>Process</td></tr><tr><th>Status</th><td><span class="nep-status draft">Draft</span></td></tr><tr><th>Created</th><td>2022-03-03</td></tr></table><h3 id=simple-summary>Simple Summary
+<a class=anchor href=#simple-summary>#</a></h3><p>This proposal proposes a transaction pricing mechanism, based on Ether
+<a href=https://eips.ethereum.org/EIPS/eip-1559>EIP-1559</a>, for NewChain that forces to burn a minimum amount per block, while exempting the consensus layer transactions from network fee.</p><h3 id=abstract>Abstract
+<a class=anchor href=#abstract>#</a></h3><p>As described in
+<a href=https://eips.ethereum.org/EIPS/eip-1559>EIP-1559</a>, we introduce a new
+<a href=https://eips.ethereum.org/EIPS/eip-2718>EIP-2718</a> transaction type,
+with the format <code>0x02 || rlp([chain_id, nonce, max_priority_fee_per_gas, max_fee_per_gas, gas_limit, destination, amount, data, access_list, signature_y_parity, signature_r, signature_s])</code>.</p><p>There is a base fee per gas in protocol, which can move up or down each block according to a formula which is a function of gas used in parent block and gas target (block gas limit divided by elasticity multiplier) of parent block.
+The algorithm results in the base fee per gas increasing when blocks are above the gas target, and decreasing when blocks are below the gas target.
+The base fee per gas is burned.
+Transactions specify the maximum fee per gas they are willing to give to miners to incentivize them to include their transaction (aka: priority fee).
+Transactions also specify the maximum fee per gas they are willing to pay total (aka: max fee), which covers both the priority fee and the block&rsquo;s network fee per gas (aka: base fee).
+The transaction will always pay the base fee per gas of the block it was included in, and they will pay the priority fee per gas set in the transaction, as long as the combined amount of the two fees doesn&rsquo;t exceed the transaction&rsquo;s maximum fee per gas.</p><p>Newton makes a unique improvement on this basis by setting a minimum value of BaseFee, that each gas has a minimum burn fee, to avoid the problem of low minimum burn value of each gas due to low network transaction volume.
+At the same time, the network fee for consensus layer transactions is exempted in order to be compatible with the characteristics of Newton consensus.</p><h3 id=motivation>Motivation
+<a class=anchor href=#motivation>#</a></h3><p>Newton historically priced transaction fees using a simple auction mechanism, where users send transactions with bids (“gasprices”) and miners choose transactions with the highest bids, and transactions that get included pay the bid that they specify. At the same time, Newton node miners functioning normally are able to receive consensus layer rewards NEWNEW so that miners receive both the user&rsquo;s transaction fee and the consensus layer rewards.</p><p>An important aspect of this fee system is that miners only get to keep the priority fee. The base fee is always burned (i.e. it is destroyed by the protocol).This ensures that only NEW can ever be used to pay for transactions on Newton, cementing the economic value of NEW within the Newton platform.
+Additionally, this burn counterbalances Newton inflation while still giving the block reward and priority fee to miners.
+Finally, ensuring the miner of a block does not receive the base fee is important because it removes miner incentive to manipulate the fee in order to extract more fees from users.</p><h3 id=specification>Specification
+<a class=anchor href=#specification>#</a></h3><p>As of <code>FORK_BLOCK_NUMBER</code>, the <code>BaseFee</code> of per block <em>MUST</em> not less than <code>BaseFeeMin</code> where:</p><ul><li><code>BaseFeeMin</code> is the minimum BaseFee and the value is <code>250000000000000</code></li></ul><p><em>Note: <code>//</code> is integer division, round down.</em></p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=color:#ff79c6>from</span> typing <span style=color:#ff79c6>import</span> Union, Dict, Sequence, List, Tuple, Literal
+<span style=color:#ff79c6>from</span> dataclasses <span style=color:#ff79c6>import</span> dataclass, field
+<span style=color:#ff79c6>from</span> abc <span style=color:#ff79c6>import</span> ABC, abstractmethod
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>TransactionLegacy</span>:
+	signer_nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_price: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_limit: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	destination: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	amount: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	payload: <span style=color:#8be9fd;font-style:italic>bytes</span> <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>bytes</span>()
+	v: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	r: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	s: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Transaction2930Payload</span>:
+	chain_id: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	signer_nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_price: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_limit: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	destination: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	amount: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	payload: <span style=color:#8be9fd;font-style:italic>bytes</span> <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>bytes</span>()
+	access_list: List[Tuple[<span style=color:#8be9fd;font-style:italic>int</span>, List[<span style=color:#8be9fd;font-style:italic>int</span>]]] <span style=color:#ff79c6>=</span> field(default_factory<span style=color:#ff79c6>=</span><span style=color:#8be9fd;font-style:italic>list</span>)
+	signature_y_parity: <span style=color:#8be9fd;font-style:italic>bool</span> <span style=color:#ff79c6>=</span> False
+	signature_r: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	signature_s: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Transaction2930Envelope</span>:
+	<span style=color:#8be9fd;font-style:italic>type</span>: Literal[<span style=color:#bd93f9>1</span>] <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>1</span>
+	payload: Transaction2930Payload <span style=color:#ff79c6>=</span> Transaction2930Payload()
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Transaction1559Payload</span>:
+	chain_id: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	signer_nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	max_priority_fee_per_gas: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	max_fee_per_gas: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_limit: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	destination: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	amount: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	payload: <span style=color:#8be9fd;font-style:italic>bytes</span> <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>bytes</span>()
+	access_list: List[Tuple[<span style=color:#8be9fd;font-style:italic>int</span>, List[<span style=color:#8be9fd;font-style:italic>int</span>]]] <span style=color:#ff79c6>=</span> field(default_factory<span style=color:#ff79c6>=</span><span style=color:#8be9fd;font-style:italic>list</span>)
+	signature_y_parity: <span style=color:#8be9fd;font-style:italic>bool</span> <span style=color:#ff79c6>=</span> False
+	signature_r: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	signature_s: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Transaction1559Envelope</span>:
+	<span style=color:#8be9fd;font-style:italic>type</span>: Literal[<span style=color:#bd93f9>2</span>] <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>2</span>
+	payload: Transaction1559Payload <span style=color:#ff79c6>=</span> Transaction1559Payload()
+
+Transaction2718 <span style=color:#ff79c6>=</span> Union[Transaction1559Envelope, Transaction2930Envelope]
+
+Transaction <span style=color:#ff79c6>=</span> Union[TransactionLegacy, Transaction2718]
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>NormalizedTransaction</span>:
+	signer_address: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	signer_nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	max_priority_fee_per_gas: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	max_fee_per_gas: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_limit: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	destination: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	amount: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	payload: <span style=color:#8be9fd;font-style:italic>bytes</span> <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>bytes</span>()
+	access_list: List[Tuple[<span style=color:#8be9fd;font-style:italic>int</span>, List[<span style=color:#8be9fd;font-style:italic>int</span>]]] <span style=color:#ff79c6>=</span> field(default_factory<span style=color:#ff79c6>=</span><span style=color:#8be9fd;font-style:italic>list</span>)
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Block</span>:
+	parent_hash: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	uncle_hashes: Sequence[<span style=color:#8be9fd;font-style:italic>int</span>] <span style=color:#ff79c6>=</span> field(default_factory<span style=color:#ff79c6>=</span><span style=color:#8be9fd;font-style:italic>list</span>)
+	author: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	state_root: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	transaction_root: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	transaction_receipt_root: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	logs_bloom: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	difficulty: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	number: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	gas_limit: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span> <span style=color:#6272a4># note the gas_limit is the gas_target * ELASTICITY_MULTIPLIER</span>
+	gas_used: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	timestamp: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	extra_data: <span style=color:#8be9fd;font-style:italic>bytes</span> <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>bytes</span>()
+	proof_of_work: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	base_fee_per_gas: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+
+@dataclass
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>Account</span>:
+	address: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	nonce: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	balance: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	storage_root: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+	code_hash: <span style=color:#8be9fd;font-style:italic>int</span> <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+
+INITIAL_BASE_FEE <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>1000000000</span>
+INITIAL_FORK_BLOCK_NUMBER <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>10</span> <span style=color:#6272a4># TBD</span>
+BASE_FEE_MAX_CHANGE_DENOMINATOR <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>8</span>
+ELASTICITY_MULTIPLIER <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>2</span>
+BASE_FEE_MIN <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>250000000000000</span> <span style=color:#6272a4># Newton</span>
+
+<span style=color:#ff79c6>class</span> <span style=color:#50fa7b>World</span>(ABC):
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>validate_block</span>(self, block: Block) <span style=color:#ff79c6>-&gt;</span> None:
+		parent_gas_target <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>//</span> ELASTICITY_MULTIPLIER
+		parent_gas_limit <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>gas_limit
+
+		<span style=color:#6272a4># on the fork block, don&#39;t account for the ELASTICITY_MULTIPLIER to avoid</span>
+		<span style=color:#6272a4># unduly halving the gas target.</span>
+		<span style=color:#ff79c6>if</span> INITIAL_FORK_BLOCK_NUMBER <span style=color:#ff79c6>==</span> block<span style=color:#ff79c6>.</span>number:
+			parent_gas_target <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>gas_limit
+			parent_gas_limit <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>*</span> ELASTICITY_MULTIPLIER
+
+		parent_base_fee_per_gas <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>base_fee_per_gas
+		parent_gas_used <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>parent(block)<span style=color:#ff79c6>.</span>gas_used
+		transactions <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>transactions(block)
+
+		<span style=color:#6272a4># check if the block used too much gas</span>
+		<span style=color:#ff79c6>assert</span> block<span style=color:#ff79c6>.</span>gas_used <span style=color:#ff79c6>&lt;=</span> block<span style=color:#ff79c6>.</span>gas_limit, <span style=color:#f1fa8c>&#39;invalid block: too much gas used&#39;</span>
+
+		<span style=color:#6272a4># check if the block changed the gas limit too much</span>
+		<span style=color:#ff79c6>assert</span> block<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>&lt;</span> parent_gas_limit <span style=color:#ff79c6>+</span> parent_gas_limit <span style=color:#ff79c6>//</span> <span style=color:#bd93f9>1024</span>, <span style=color:#f1fa8c>&#39;invalid block: gas limit increased too much&#39;</span>
+		<span style=color:#ff79c6>assert</span> block<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>&gt;</span> parent_gas_limit <span style=color:#ff79c6>-</span> parent_gas_limit <span style=color:#ff79c6>//</span> <span style=color:#bd93f9>1024</span>, <span style=color:#f1fa8c>&#39;invalid block: gas limit decreased too much&#39;</span>
+
+		<span style=color:#6272a4># check if the gas limit is at least the minimum gas limit</span>
+		<span style=color:#ff79c6>assert</span> block<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>&gt;=</span> <span style=color:#bd93f9>5000</span>
+
+		<span style=color:#6272a4># check if the base fee is correct</span>
+		<span style=color:#ff79c6>if</span> INITIAL_FORK_BLOCK_NUMBER <span style=color:#ff79c6>==</span> block<span style=color:#ff79c6>.</span>number:
+			expected_base_fee_per_gas <span style=color:#ff79c6>=</span> INITIAL_BASE_FEE
+		<span style=color:#ff79c6>elif</span> parent_gas_used <span style=color:#ff79c6>==</span> parent_gas_target:
+			expected_base_fee_per_gas <span style=color:#ff79c6>=</span> parent_base_fee_per_gas
+		<span style=color:#ff79c6>elif</span> parent_gas_used <span style=color:#ff79c6>&gt;</span> parent_gas_target:
+			gas_used_delta <span style=color:#ff79c6>=</span> parent_gas_used <span style=color:#ff79c6>-</span> parent_gas_target
+			base_fee_per_gas_delta <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(parent_base_fee_per_gas <span style=color:#ff79c6>*</span> gas_used_delta <span style=color:#ff79c6>//</span> parent_gas_target <span style=color:#ff79c6>//</span> BASE_FEE_MAX_CHANGE_DENOMINATOR, <span style=color:#bd93f9>1</span>)
+			expected_base_fee_per_gas <span style=color:#ff79c6>=</span> parent_base_fee_per_gas <span style=color:#ff79c6>+</span> base_fee_per_gas_delta
+      expected_base_fee_per_gas <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(expected_base_fee_per_gas, BASE_FEE_MIN) <span style=color:#6272a4># Newton</span>
+		<span style=color:#ff79c6>else</span>:
+			gas_used_delta <span style=color:#ff79c6>=</span> parent_gas_target <span style=color:#ff79c6>-</span> parent_gas_used
+			base_fee_per_gas_delta <span style=color:#ff79c6>=</span> parent_base_fee_per_gas <span style=color:#ff79c6>*</span> gas_used_delta <span style=color:#ff79c6>//</span> parent_gas_target <span style=color:#ff79c6>//</span> BASE_FEE_MAX_CHANGE_DENOMINATOR
+			expected_base_fee_per_gas <span style=color:#ff79c6>=</span> parent_base_fee_per_gas <span style=color:#ff79c6>-</span> base_fee_per_gas_delta
+      expected_base_fee_per_gas <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(expected_base_fee_per_gas, BASE_FEE_MIN) <span style=color:#6272a4># Newton</span>
+		<span style=color:#ff79c6>assert</span> expected_base_fee_per_gas <span style=color:#ff79c6>==</span> block<span style=color:#ff79c6>.</span>base_fee_per_gas, <span style=color:#f1fa8c>&#39;invalid block: base fee not correct&#39;</span>
+
+		<span style=color:#6272a4># execute transactions and do gas accounting</span>
+		cumulative_transaction_gas_used <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+		<span style=color:#ff79c6>for</span> unnormalized_transaction <span style=color:#ff79c6>in</span> transactions:
+			<span style=color:#6272a4># Note: this validates transaction signature and chain ID which must happen before we normalize below since normalized transactions don&#39;t include signature or chain ID</span>
+			signer_address <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>validate_and_recover_signer_address(unnormalized_transaction)
+			transaction <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>normalize_transaction(unnormalized_transaction, signer_address)
+
+			signer <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>account(signer_address)
+
+			signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>-=</span> transaction<span style=color:#ff79c6>.</span>amount
+			<span style=color:#ff79c6>assert</span> signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>&gt;=</span> <span style=color:#bd93f9>0</span>, <span style=color:#f1fa8c>&#39;invalid transaction: signer does not have enough ETH to cover attached value&#39;</span>
+			<span style=color:#6272a4># the signer must be able to afford the transaction</span>
+			<span style=color:#ff79c6>assert</span> signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>&gt;=</span> transaction<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>*</span> transaction<span style=color:#ff79c6>.</span>max_fee_per_gas
+
+      <span style=color:#6272a4># Newton: consensus layer transactions exemptions</span>
+      <span style=color:#ff79c6>if</span> <span style=color:#ff79c6>not</span> is_consensus_layer_transaction(transaction):
+  			<span style=color:#6272a4># ensure that the user was willing to at least pay the base fee</span>
+  			<span style=color:#ff79c6>assert</span> transaction<span style=color:#ff79c6>.</span>max_fee_per_gas <span style=color:#ff79c6>&gt;=</span> block<span style=color:#ff79c6>.</span>base_fee_per_gas
+
+			<span style=color:#6272a4># Prevent impossibly large numbers</span>
+			<span style=color:#ff79c6>assert</span> transaction<span style=color:#ff79c6>.</span>max_fee_per_gas <span style=color:#ff79c6>&lt;</span> <span style=color:#bd93f9>2</span><span style=color:#ff79c6>**</span><span style=color:#bd93f9>256</span>
+			<span style=color:#6272a4># Prevent impossibly large numbers</span>
+			<span style=color:#ff79c6>assert</span> transaction<span style=color:#ff79c6>.</span>max_priority_fee_per_gas <span style=color:#ff79c6>&lt;</span> <span style=color:#bd93f9>2</span><span style=color:#ff79c6>**</span><span style=color:#bd93f9>256</span>
+			<span style=color:#6272a4># The total must be the larger of the two</span>
+			<span style=color:#ff79c6>assert</span> transaction<span style=color:#ff79c6>.</span>max_fee_per_gas <span style=color:#ff79c6>&gt;=</span> transaction<span style=color:#ff79c6>.</span>max_priority_fee_per_gas
+
+			<span style=color:#6272a4># priority fee is capped because the base fee is filled first</span>
+			priority_fee_per_gas <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>min</span>(transaction<span style=color:#ff79c6>.</span>max_priority_fee_per_gas, transaction<span style=color:#ff79c6>.</span>max_fee_per_gas <span style=color:#ff79c6>-</span> block<span style=color:#ff79c6>.</span>base_fee_per_gas)
+			<span style=color:#6272a4># signer pays both the priority fee and the base fee</span>
+			effective_gas_price <span style=color:#ff79c6>=</span> priority_fee_per_gas <span style=color:#ff79c6>+</span> block<span style=color:#ff79c6>.</span>base_fee_per_gas
+      <span style=color:#6272a4># Newton: consensus layer transactions exemptions</span>
+      <span style=color:#ff79c6>if</span> is_consensus_layer_transaction(transaction):
+        priority_fee_per_gas <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+        effective_gas_price <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0</span>
+			signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>-=</span> transaction<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>*</span> effective_gas_price
+			<span style=color:#ff79c6>assert</span> signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>&gt;=</span> <span style=color:#bd93f9>0</span>, <span style=color:#f1fa8c>&#39;invalid transaction: signer does not have enough ETH to cover gas&#39;</span>
+			gas_used <span style=color:#ff79c6>=</span> self<span style=color:#ff79c6>.</span>execute_transaction(transaction, effective_gas_price)
+			gas_refund <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>gas_limit <span style=color:#ff79c6>-</span> gas_used
+			cumulative_transaction_gas_used <span style=color:#ff79c6>+=</span> gas_used
+			<span style=color:#6272a4># signer gets refunded for unused gas</span>
+			signer<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>+=</span> gas_refund <span style=color:#ff79c6>*</span> effective_gas_price
+			<span style=color:#6272a4># miner only receives the priority fee; note that the base fee is not given to anyone (it is burned)</span>
+			self<span style=color:#ff79c6>.</span>account(block<span style=color:#ff79c6>.</span>author)<span style=color:#ff79c6>.</span>balance <span style=color:#ff79c6>+=</span> gas_used <span style=color:#ff79c6>*</span> priority_fee_per_gas
+
+		<span style=color:#6272a4># check if the block spent too much gas transactions</span>
+		<span style=color:#ff79c6>assert</span> cumulative_transaction_gas_used <span style=color:#ff79c6>==</span> block<span style=color:#ff79c6>.</span>gas_used, <span style=color:#f1fa8c>&#39;invalid block: gas_used does not equal total gas used in all transactions&#39;</span>
+
+		<span style=color:#6272a4># TODO: verify account balances match block&#39;s account balances (via state root comparison)</span>
+		<span style=color:#6272a4># TODO: validate the rest of the block</span>
+
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>normalize_transaction</span>(self, transaction: Transaction, signer_address: <span style=color:#8be9fd;font-style:italic>int</span>) <span style=color:#ff79c6>-&gt;</span> NormalizedTransaction:
+		<span style=color:#6272a4># legacy transactions</span>
+		<span style=color:#ff79c6>if</span> <span style=color:#8be9fd;font-style:italic>isinstance</span>(transaction, TransactionLegacy):
+			<span style=color:#ff79c6>return</span> NormalizedTransaction(
+				signer_address <span style=color:#ff79c6>=</span> signer_address,
+				signer_nonce <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>signer_nonce,
+				gas_limit <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>gas_limit,
+				max_priority_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>gas_price,
+				max_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>gas_price,
+				destination <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>destination,
+				amount <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>amount,
+				payload <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload,
+				access_list <span style=color:#ff79c6>=</span> [],
+			)
+		<span style=color:#6272a4># 2930 transactions</span>
+		<span style=color:#ff79c6>elif</span> <span style=color:#8be9fd;font-style:italic>isinstance</span>(transaction, Transaction2930Envelope):
+			<span style=color:#ff79c6>return</span> NormalizedTransaction(
+				signer_address <span style=color:#ff79c6>=</span> signer_address,
+				signer_nonce <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>signer_nonce,
+				gas_limit <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>gas_limit,
+				max_priority_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>gas_price,
+				max_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>gas_price,
+				destination <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>destination,
+				amount <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>amount,
+				payload <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>payload,
+				access_list <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>access_list,
+			)
+		<span style=color:#6272a4># 1559 transactions</span>
+		<span style=color:#ff79c6>elif</span> <span style=color:#8be9fd;font-style:italic>isinstance</span>(transaction, Transaction1559Envelope):
+			<span style=color:#ff79c6>return</span> NormalizedTransaction(
+				signer_address <span style=color:#ff79c6>=</span> signer_address,
+				signer_nonce <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>signer_nonce,
+				gas_limit <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>gas_limit,
+				max_priority_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>max_priority_fee_per_gas,
+				max_fee_per_gas <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>max_fee_per_gas,
+				destination <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>destination,
+				amount <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>amount,
+				payload <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>payload,
+				access_list <span style=color:#ff79c6>=</span> transaction<span style=color:#ff79c6>.</span>payload<span style=color:#ff79c6>.</span>access_list,
+			)
+		<span style=color:#ff79c6>else</span>:
+			<span style=color:#ff79c6>raise</span> Exception(<span style=color:#f1fa8c>&#39;invalid transaction: unexpected number of items&#39;</span>)
+
+	<span style=color:#6272a4># Newton: consensus layer transactions</span>
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>is_consensus_layer_transaction</span>(self, transaction: Transaction) <span style=color:#ff79c6>-&gt;</span> <span style=color:#8be9fd;font-style:italic>bool</span>: <span style=color:#ff79c6>pass</span>
+
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>parent</span>(self, block: Block) <span style=color:#ff79c6>-&gt;</span> Block: <span style=color:#ff79c6>pass</span>
+
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>block_hash</span>(self, block: Block) <span style=color:#ff79c6>-&gt;</span> <span style=color:#8be9fd;font-style:italic>int</span>: <span style=color:#ff79c6>pass</span>
+
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>transactions</span>(self, block: Block) <span style=color:#ff79c6>-&gt;</span> Sequence[Transaction]: <span style=color:#ff79c6>pass</span>
+
+	<span style=color:#6272a4># effective_gas_price is the value returned by the GASPRICE (0x3a) opcode</span>
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>execute_transaction</span>(self, transaction: NormalizedTransaction, effective_gas_price: <span style=color:#8be9fd;font-style:italic>int</span>) <span style=color:#ff79c6>-&gt;</span> <span style=color:#8be9fd;font-style:italic>int</span>: <span style=color:#ff79c6>pass</span>
+
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>validate_and_recover_signer_address</span>(self, transaction: Transaction) <span style=color:#ff79c6>-&gt;</span> <span style=color:#8be9fd;font-style:italic>int</span>: <span style=color:#ff79c6>pass</span>
+
+	@abstractmethod
+	<span style=color:#ff79c6>def</span> <span style=color:#50fa7b>account</span>(self, address: <span style=color:#8be9fd;font-style:italic>int</span>) <span style=color:#ff79c6>-&gt;</span> Account: <span style=color:#ff79c6>pass</span>
+</code></pre></div><h2 id=copyright>Copyright
+<a class=anchor href=#copyright>#</a></h2><p>Copyright and related rights waived via
+<a href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</p></article><section class=git-info><div class="item links"><a href=https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-52/index.md target=_blank title="Fee market change for NewChain Source" rel=noopener><i class="nf nf-fa-code"></i>Source</a>
+<a href=https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-52/index.md title="Edit Fee market change for NewChain" target=_blank rel=noopener><i class="nf nf-fa-edit"></i>Edit</a></div></section><div class=nav id=nav-prev-next><a class=previous href=https://neps.newtonproject.org/neps/nep-1/><div class=link><span>Previous</span><h4>Improvement to Newton Foundation Reserved Token Release Rules</h4></div></a><a class=next href=https://neps.newtonproject.org/neps/nep-51/><div class=link><span>Next</span><h4>Changes On Community NEW Budget Plan for 2022</h4></div></a></div></div><aside id=aside-b><section class=toc><input type=checkbox class="hidden toggle" id=toc-control>
+<label class=toggle for=toc-control id=toc-check><h3>On This Page<svg class="icon" id="toc-icon"><use xlink:href="/icons/bootstrap-icons.svg#caret-down-fill"/></svg></h3></label><nav id=TableOfContents><ul><li><ul><li><a href=#simple-summary>Simple Summary</a></li><li><a href=#abstract>Abstract</a></li><li><a href=#motivation>Motivation</a></li><li><a href=#specification>Specification</a></li></ul></li><li><a href=#copyright>Copyright</a></li></ul></nav></section></aside></div></main><footer id=site-footer><div class=container><div class=brand><a class=footer-brand href=https://neps.newtonproject.org/><img src=https://neps.newtonproject.org//logo.svg class="logo invert" alt=Logo></a><p class=footer-info-text>Newton Evolution Proposals Website.</p><div class=social-icons><a href=https://github.com/newtonproject/newbridge.network target=_blank title=Github><i class="nf nf-oct-mark_github"></i></a><a href=https://twitter.com/newton_project target=_blank title=Twitter><i class="nf nf-fa-twitter"></i></a><a href=https://www.facebook.com/newtonproject target=_blank title=Facebook><i class="nf nf-fa-facebook_square"></i></a><a href=https://t.me/newtonproject target=_blank title=Telegram><i class="nf nf-mdi-telegram"></i></a></div></div><aside><ul><h3>Newton Project</h3><li><a href=https://www.newtonproject.org>Newton Project Website</a></li><li><a href=https://developer.newtonproject.org>Developer Website</a></li><li><a href=https://www.newtonproject.org/contact/>Contact Team</a></li></ul></aside><row><p>© 2021 Newton Project & Other Contributors</p></row></div></footer></body></html>
