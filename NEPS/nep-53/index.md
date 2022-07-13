@@ -62,8 +62,8 @@ interface EVTVariable {
 
     /// @notice Retrieve the all properties including dynamic and static
     /// @param _tokenId token ID
-    /// @return properties
-    function getProperties(uint256 _tokenId) external view returns (bytes);
+    /// @return ids, properties
+    function getProperties(uint256 _tokenId) external view returns (bytes32[], bytes[]);
 
     /// @notice Check whether support the given property
     /// @param _propertyID property ID
