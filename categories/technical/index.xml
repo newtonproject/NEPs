@@ -19,7 +19,7 @@ Abstract # The following standard allows for the implementation of a standard AP
 We considered use cases of NFTs being owned and transacted by individuals as well as consignment to third party brokers/wallets/auctioneers (“operators”). NFTs can represent ownership over digital or physical assets.</description></item><item><title>Physical Commodity Standard (NRC-19)</title><link>https://neps.newtonproject.org/neps/nep-19/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neps.newtonproject.org/neps/nep-19/</guid><description>Simple Summary # A standard interface for Physical Commodity token
 Abstract # This template mainly uses the block chain encryption and non tampering features to verify the ownership, capital flow, receipt confirmation and other information of the physical Commodity involved in the production and circulation process, and synthesizes the information flow, capital flow and logistics flowing in the whole process of raw material suppliers, producers, channel agents, dealers and consumers through the block chain technology There is a sound system of credit value flow.</description></item><item><title>URI Format For Universal Storage Mechanism</title><link>https://neps.newtonproject.org/neps/nep-56/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neps.newtonproject.org/neps/nep-56/</guid><description>Abstract # This standard defines the URI format for universal storage mechanism. This URI can then be shown either as a QR code or as a link.
 Specification # URI Format # [protocol] :// [?region code/] [parameters]
-Example # ipfs://1/QmXGPn9JF2v2G5CZexUHjkxFf8so8xgA1hujoWbvc1YJVh
+Example # ipfs://rc-1/QmXGPn9JF2v2G5CZexUHjkxFf8so8xgA1hujoWbvc1YJVh
 Protocol # IPFS, AR, HTTP, BTFS etc.
-Region code # These are the templete registered region code for usage.
-Region code Protocol Application Endpoints 1 IPFS MyApp https://ipfs.</description></item></channel></rss>
+Region code # These are the template registered region code for usage.
+Region code Protocol Application Endpoints rc-1 IPFS MyApp https://ipfs.</description></item></channel></rss>
