@@ -78,40 +78,46 @@ interface EVTVariable {
 
 ```solidity
 interface EVTEncryption {
+​    /// @notice This emits when register a encrypted key.
+​    /// @param _tokenId token ID
+​    /// @param _encryptedKeyID encrypted key ID
+​    event EncryptedKeyRegister(uint256 indexed tokenId, bytes32 encryptedKeyID);
+
+    /// @notice This emits when add a permission.
+​    /// @param _tokenId token ID
+​    /// @param _encryptedKeyID encrypted key ID
+​    /// @param _owner owner
+​    event PermissionAdd(uint256 indexed tokenId, bytes32 encryptedKeyID, address indexed owner);
+
+    /// @notice This emits when remove a permission.
+​    /// @param _tokenId token ID
+​    /// @param _encryptedKeyID encrypted key ID
+​    /// @param _owner owner
+​    event PermissionRemove(uint256 indexed tokenId, bytes32 encryptedKeyID, address indexed owner);
+
     /// @notice Register the encrypted key
     /// @param _tokenId token ID
     /// @param _encryptedKeyID encrypted key ID
-    /// @param _encryptedKeyValue encrypted key value
-    /// @return Success or fail
-    function registerEncryptedKey(uint256 _tokenId, bytes32 _encryptedKeyID, bytes _encryptedKeyValue) external payable returns(bool);
+    function registerEncryptedKey(uint256 _tokenId, bytes32 _encryptedKeyID) external payable;
 
     /// @notice Add the permission rule of the encrypted key for given address
     /// @param _tokenId token ID
     /// @param _encryptedKeyID encrypted key ID
     /// @param _owner owner
-    /// @param _expiredTime expired time
-    /// @return Success or fail
-    function addPermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _owner, uint256 _expiredTime) external payable returns(bool);
+    function addPermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _owner) external payable;
 
     /// @notice Remove the permission rule of the encrypted key for given address
     /// @param _tokenId token ID
     /// @param _encryptedKeyID encrypted key ID
     /// @param _owner owner
-    /// @return Success or fail
-    function removePermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _owner) external returns (bool);
+    function removePermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _owner) external;
 
     /// @notice Check permission rule of the encrypted key for given address
     /// @param _tokenId token ID
     /// @param _encryptedKeyID encrypted key ID
     /// @param _owner owner
-    /// @return yes or no
+    /// @return true or false
     function hasPermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _owner) external view returns (bool);
-
-    /// @notice Retrieve the encrypted key value by encrypted key ID
-    /// @param _tokenId token ID
-    /// @param _encryptedKeyID encrypted key ID
-    /// @return encrypted key value
-    function getEncryptedKeyValue(uint256 _tokenId, bytes32 _encryptedKeyID) external view returns (bytes);
 }
 ```
 
