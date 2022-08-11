@@ -22,7 +22,7 @@ This standard defines the URI format for universal storage mechanism. This URI c
 >
 
 #### Example
-ipfs://1/QmXGPn9JF2v2G5CZexUHjkxFf8so8xgA1hujoWbvc1YJVh
+ipfs://rc-1/QmXGPn9JF2v2G5CZexUHjkxFf8so8xgA1hujoWbvc1YJVh
 
 #### Protocol
 
@@ -30,11 +30,11 @@ IPFS, AR, HTTP, BTFS etc.
 
 #### Region code
 
-These are the templete registered region code for usage.
+These are the template registered region code for usage.
 
 Region code | Protocol    | Application    | Endpoints
 ------------|-------------|----------------|---------------------    
-1           | IPFS        | MyApp          | https://ipfs.xxxxx.com
+rc-1        | IPFS        | MyApp          | `https://ipfs.xxxxx.com`
 
 This NEP is not a central directory for the registered region code, please visit AEPs: 
 https://github.com/newtonproject/AEPs/blob/master/AEP-56.md
