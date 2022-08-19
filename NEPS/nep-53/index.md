@@ -42,20 +42,20 @@ The current implementation of EVT is based on solidity programming language. In 
 ```solidity
 interface EVTVariable {
     /// @dev This emits when token dynamic property added.
-    event DynamicPropertyAdded(bytes32 propertyId);
+    event DynamicPropertyAdded(bytes32 _propertyId);
     
     /// @dev This emits when token dynamic property updated.
-    event DynamicPropertyUpdated(uint256 tokenId, bytes32 propertyId, bytes propertyValue);
+    event DynamicPropertyUpdated(uint256 _tokenId, bytes32 _propertyId, bytes _propertyValue);
 
     /// @notice Add the dynamic property
-    /// @param _propertyID property ID
-    function addDynamicProperty(bytes32 _propertyID) external payable;
+    /// @param _propertyId property ID
+    function addDynamicProperty(bytes32 _propertyId) external payable;
 
     /// @notice Set the dynamic property
     /// @param _tokenId token ID
-    /// @param _propertyID property ID
+    /// @param _propertyId property ID
     /// @param _propertyValue property value
-    function setDynamicProperty(uint256 _tokenId, bytes32 _propertyID, bytes _propertyValue) external payable;
+    function setDynamicProperty(uint256 _tokenId, bytes32 _propertyId, bytes _propertyValue) external payable;
 
     /// @notice Set multiple dynamic properties once
     /// @param _tokenId token ID
@@ -64,9 +64,9 @@ interface EVTVariable {
 
     /// @notice Retrieve the vale of dynamic property
     /// @param _tokenId token ID
-    /// @param _propertyID property ID
+    /// @param _propertyId property ID
     /// @return property value
-    function getDynamicProperty(uint256 _tokenId, bytes32 _propertyID) external view returns (bytes);
+    function getDynamicProperty(uint256 _tokenId, bytes32 _propertyId) external view returns (bytes);
 
     /// @notice Retrieve the all properties including dynamic and static
     /// @param _tokenId token ID
@@ -74,13 +74,13 @@ interface EVTVariable {
     function getDynamicProperties(uint256 _tokenId) external view returns (bytes32[], bytes[]);
 
     /// @notice Check whether support the given property
-    /// @param _propertyID property ID
+    /// @param _propertyId property ID
     /// @return support or unsupport
-    function supportsProperty(bytes32 _propertyID) external view returns (bool);
+    function supportsProperty(bytes32 _propertyId) external view returns (bool);
 }
 ```
 
-`_propertyID` is calculated by `bytes32(keccak256('propertyName'))` .
+`_propertyId` is calculated by `bytes32(keccak256('propertyName'))` .
 
 **Encryption Interfaces**
 
@@ -88,44 +88,44 @@ interface EVTVariable {
 interface EVTEncryption {
 ​    /// @notice This emits when registered a encrypted key.
 ​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyID encrypted key ID
-​    event EncryptedKeyRegistered(uint256 indexed _tokenId, bytes32 _encryptedKeyID);
+​    /// @param _encryptedKeyId encrypted key ID
+​    event EncryptedKeyRegistered(uint256 indexed _tokenId, bytes32 _encryptedKeyId);
 
     /// @notice This emits when add a permission.
 ​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyID encrypted key ID
+​    /// @param _encryptedKeyId encrypted key ID
 ​    /// @param _licensee licensee
-​    event PermissionAdded(uint256 indexed _tokenId, bytes32 _encryptedKeyID, address indexed _licensee);
+​    event PermissionAdded(uint256 indexed _tokenId, bytes32 _encryptedKeyId, address indexed _licensee);
 
     /// @notice This emits when remove a permission.
 ​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyID encrypted key ID
+​    /// @param _encryptedKeyId encrypted key ID
 ​    /// @param _licensee licensee
-​    event PermissionRemoved(uint256 indexed _tokenId, bytes32 _encryptedKeyID, address indexed _licensee);
+​    event PermissionRemoved(uint256 indexed _tokenId, bytes32 _encryptedKeyId, address indexed _licensee);
 
     /// @notice Register encrypted key
     /// @param _tokenId token ID
-    /// @param _encryptedKeyID encrypted key ID
-    function registerEncryptedKey(uint256 _tokenId, bytes32 _encryptedKeyID) external payable;
+    /// @param _encryptedKeyId encrypted key ID
+    function registerEncryptedKey(uint256 _tokenId, bytes32 _encryptedKeyId) external payable;
 
     /// @notice Add the permission rule of the encrypted key for given address
     /// @param _tokenId token ID
-    /// @param _encryptedKeyID encrypted key ID
+    /// @param _encryptedKeyId encrypted key ID
     /// @param _licensee licensee
-    function addPermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _licensee) external payable;
+    function addPermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external payable;
 
     /// @notice Remove the permission rule of the encrypted key for given address
     /// @param _tokenId token ID
-    /// @param _encryptedKeyID encrypted key ID
+    /// @param _encryptedKeyId encrypted key ID
     /// @param _licensee licensee
-    function removePermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _licensee) external;
+    function removePermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external;
 
     /// @notice Check permission rule of the encrypted key for given address
     /// @param _tokenId token ID
-    /// @param _encryptedKeyID encrypted key ID
+    /// @param _encryptedKeyId encrypted key ID
     /// @param _licensee licensee
     /// @return true or false
-    function hasPermission(uint256 _tokenId, bytes32 _encryptedKeyID, address _licensee) external view returns (bool);
+    function hasPermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external view returns (bool);
 }
 ```
 
