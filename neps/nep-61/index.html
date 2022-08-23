@@ -1,0 +1,181 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Simple Summary #  This proposal is an improved implementation of the NRC-53(EVT) that supports minting multiple tokens for close to the cost of one.
+Motivation #  Gas savings is very important for EVT&rsquo;s users. So we propose a fully compliant implementation of NRC-53(EVT) with significant gas savings for minting multiple EVTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices."><meta property="og:title" content="Support Of Batch Mint EVT (NRC-61)"><meta property="og:description" content="Simple Summary #  This proposal is an improved implementation of the NRC-53(EVT) that supports minting multiple tokens for close to the cost of one.
+Motivation #  Gas savings is very important for EVT&rsquo;s users. So we propose a fully compliant implementation of NRC-53(EVT) with significant gas savings for minting multiple EVTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-61/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Support Of Batch Mint EVT (NRC-61) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.7974bc093ac358c1050eb00c5452fdb1624d6b8d6700474f201a6899df102c96.js integrity="sha256-eXS8CTrDWMEFDrAMVFL9sWJNa41nAEdPIBpomd8QLJY="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
+<label class="toggle transparent" color=none><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#emoji-sunglasses"/></svg></label></div><div id=navbar-collapse><ul class=navbar-nav><li class="nav-item dropdown" style=order:100><a href=#>More</a><ul class=dropdown-menu><li class=nav-item><a href=https://github.com/newtonproject/neps>NEPs Github</a></li><li class=nav-item><a href=https://newtonproject.org>Newton Project</a></li><li class=nav-item><a href=https://explorer.newtonproject.org>Newton Explorer</a></li></ul></li><li class=nav-item><a href=/neps/>All NEPs</a></li><li class=nav-item><a href=/guides/>Guides</a></li><li class=nav-item><a href=/reviews/>Reviews</a></li></ul><div class=search-form><input type=search id=navbar-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class=search-results><ul id=navbar-search-results></ul></div></div></div></div></nav><main><div class=container><div id=breadcrumb><span><a href=https://neps.newtonproject.org/><i class="nf nf-oct-home"></i></a></span><span><a href=https://neps.newtonproject.org/neps/>NEPs</a></span>
+<span class=active><a href=https://neps.newtonproject.org/neps/nep-61/>NEP-61</a></span></div></div><div class=container><div class=page-content><article class=markdown><h1>NEP-61: Support Of Batch Mint EVT (NRC-61)</h1><table class=nep-table><tr><th>NEP</th><td>61</td></tr><tr><th>Title</th><td>Support Of Batch Mint EVT (NRC-61)</td></tr><tr><th>Author(s)</th><td>Newton Core Team</td></tr><tr><th>Discussions To</th><td><a href=https://github.com/newtonproject/NEPs/issues/61>https://github.com/newtonproject/NEPs/issues/61</a></td></tr><tr><th>Category</th><td>Technical</td></tr><tr><th>Type</th><td>NRC</td></tr><tr><th>Status</th><td><span class="nep-status draft">Draft</span></td></tr><tr><th>Created</th><td>2022-08-22</td></tr></table><h2 id=simple-summary>Simple Summary
+<a class=anchor href=#simple-summary>#</a></h2><p>This proposal is an improved implementation of the NRC-53(EVT) that supports minting multiple tokens for close to the cost of one.</p><h2 id=motivation>Motivation
+<a class=anchor href=#motivation>#</a></h2><p>Gas savings is very important for EVT&rsquo;s users. So we propose a fully compliant implementation of NRC-53(EVT) with significant gas savings for minting multiple EVTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices.</p><p>The network BASEFEE remained low despite huge demand, resulting in low gas costs for minters, while minimizing network disruption for the wider ecosystem as well.</p><table><thead><tr><th>Quantity</th><th>EVT(new)</th><th>EVTA(new)</th></tr></thead><tbody><tr><td>1</td><td>29.884</td><td>28.688</td></tr><tr><td>2</td><td>44.935</td><td>29.6585</td></tr><tr><td>3</td><td>59.7355</td><td>30.629</td></tr><tr><td>5</td><td>89.3365</td><td>32.57</td></tr><tr><td>10</td><td>163.339</td><td>37.4225</td></tr><tr><td>50</td><td>755.3615</td><td>76.2425</td></tr><tr><td>100</td><td>1495.3945</td><td>124.7675</td></tr><tr><td>200</td><td>2975.4745</td><td>221.8175</td></tr></tbody></table><h2 id=specification>Specification
+<a class=anchor href=#specification>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> IEVTA {
+    <span style=color:#8be9fd;font-style:italic>struct</span> TokenOwnership {
+        <span style=color:#6272a4>// The address of the owner.
+</span><span style=color:#6272a4></span>        <span style=color:#8be9fd>address</span> addr;
+        <span style=color:#6272a4>// Stores the start time of ownership with minimal overhead for tokenomics.
+</span><span style=color:#6272a4></span>        <span style=color:#8be9fd>uint64</span> startTimestamp;
+        <span style=color:#6272a4>// Whether the token has been burned.
+</span><span style=color:#6272a4></span>        <span style=color:#8be9fd>bool</span> burned;
+        <span style=color:#6272a4>// Arbitrary data similar to `startTimestamp` that can be set via {_extraData}.
+</span><span style=color:#6272a4></span>        <span style=color:#8be9fd>uint24</span> extraData;
+    }
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns the total number of tokens in existence.
+</span><span style=color:#6272a4>    * Burned tokens will reduce the count.
+</span><span style=color:#6272a4>    * To get the total number of tokens minted, please see{_totalMinted}.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> totalSupply() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns true if this contract implements the interface defined by
+</span><span style=color:#6272a4>    * `interfaceId`. See the corresponding
+</span><span style=color:#6272a4>    * [EIP section](https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified)
+</span><span style=color:#6272a4>    * to learn more about how these ids are created.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * This function call must use less than 30000 gas.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> supportsInterface(<span style=color:#8be9fd>bytes4</span> interfaceId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Emitted when `tokenId` token is transferred from `from` to `to`.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> Transfer(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> to, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> Approval(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> approved, <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Emitted when `owner` enables or disables
+</span><span style=color:#6272a4>    * (`approved`) `operator` to manage all of its assets.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> ApprovalForAll(<span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> owner, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> operator, <span style=color:#8be9fd>bool</span> approved);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns the number of tokens in `owner`&#39;s account.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> balanceOf(<span style=color:#8be9fd>address</span> owner) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>uint256</span> <span style=color:#8be9fd;font-style:italic>balance</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns the owner of the `tokenId` token.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - `tokenId` must exist.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> ownerOf(<span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span> owner);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Safely transfers `tokenId` token from `from` to `to`,
+</span><span style=color:#6272a4>    * checking first that contract recipients are aware of the ERC721 protocol
+</span><span style=color:#6272a4>    * to prevent tokens from being forever locked.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - `from` cannot be the zero address.
+</span><span style=color:#6272a4>    * - `to` cannot be the zero address.
+</span><span style=color:#6272a4>    * - `tokenId` token must exist and be owned by `from`.
+</span><span style=color:#6272a4>    * - If the caller is not `from`, it must be have been allowed to move
+</span><span style=color:#6272a4>    * this token by either {approve} or {setApprovalForAll}.
+</span><span style=color:#6272a4>    * - If `to` refers to a smart contract, it must implement
+</span><span style=color:#6272a4>    * {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Emits a {Transfer} event.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(
+        <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>,
+        <span style=color:#8be9fd>address</span> to,
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>bytes</span> calldata data
+    ) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Equivalent to `safeTransferFrom(from, to, tokenId, &#39;&#39;)`.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> safeTransferFrom(
+        <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>,
+        <span style=color:#8be9fd>address</span> to,
+        <span style=color:#8be9fd>uint256</span> tokenId
+    ) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Transfers `tokenId` from `from` to `to`.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * WARNING: Usage of this method is discouraged, use {safeTransferFrom}
+</span><span style=color:#6272a4>    * whenever possible.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - `from` cannot be the zero address.
+</span><span style=color:#6272a4>    * - `to` cannot be the zero address.
+</span><span style=color:#6272a4>    * - `tokenId` token must be owned by `from`.
+</span><span style=color:#6272a4>    * - If the caller is not `from`, it must be approved to move this token
+</span><span style=color:#6272a4>    * by either {approve} or {setApprovalForAll}.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Emits a {Transfer} event.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> transferFrom(
+        <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>from</span>,
+        <span style=color:#8be9fd>address</span> to,
+        <span style=color:#8be9fd>uint256</span> tokenId
+    ) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Gives permission to `to` to transfer `tokenId` token to another account.
+</span><span style=color:#6272a4>    * The approval is cleared when the token is transferred.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Only a single account can be approved at a time, so approving the
+</span><span style=color:#6272a4>    * zero address clears previous approvals.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - The caller must own the token or be an approved operator.
+</span><span style=color:#6272a4>    * - `tokenId` must exist.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Emits an {Approval} event.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> approve(<span style=color:#8be9fd>address</span> to, <span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Approve or remove `operator` as an operator for the caller.
+</span><span style=color:#6272a4>    * Operators can call {transferFrom} or {safeTransferFrom}
+</span><span style=color:#6272a4>    * for any token owned by the caller.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - The `operator` cannot be the caller.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Emits an {ApprovalForAll} event.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> setApprovalForAll(<span style=color:#8be9fd>address</span> operator, <span style=color:#8be9fd>bool</span> _approved) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns the account approved for `tokenId` token.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * Requirements:
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * - `tokenId` must exist.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> getApproved(<span style=color:#8be9fd>uint256</span> tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span> operator);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * See {setApprovalForAll}.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>function</span> isApprovedForAll(<span style=color:#8be9fd>address</span> owner, <span style=color:#8be9fd>address</span> operator) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/**
+</span><span style=color:#6272a4>    * @dev Emitted when tokens in `fromTokenId` to `toTokenId`
+</span><span style=color:#6272a4>    * (inclusive) is transferred from `from` to `to`, as defined in the
+</span><span style=color:#6272a4>    * [ERC2309](https://eips.ethereum.org/EIPS/eip-2309).
+</span><span style=color:#6272a4>    *
+</span><span style=color:#6272a4>    * See {_mintERC2309} for more details.
+</span><span style=color:#6272a4>    */</span>
+    <span style=color:#8be9fd;font-style:italic>event</span> ConsecutiveTransfer(<span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> fromTokenId, <span style=color:#8be9fd>uint256</span> toTokenId, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> <span style=color:#ff79c6>from</span>, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> to);
+}
+</code></pre></div><h2 id=references>References
+<a class=anchor href=#references>#</a></h2><p><strong>Proposals</strong></p><ol><li><a href=https://neps.newtonproject.org/neps/nep-53>NEP-53</a> Encrypted Variable Token Proposal.</li></ol><h2 id=copyright>Copyright
+<a class=anchor href=#copyright>#</a></h2><p>Copyright and related rights waived via
+<a href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</p></article><section class=git-info><div class="item links"><a href=https://github.com/newtonproject/NEPs/blob/main/NEPS/nep-61/index.md target=_blank title="Support Of Batch Mint EVT (NRC-61) Source" rel=noopener><i class="nf nf-fa-code"></i>Source</a>
+<a href=https://github.com/newtonproject/NEPs/edit/main/NEPS/nep-61/index.md title="Edit Support Of Batch Mint EVT (NRC-61)" target=_blank rel=noopener><i class="nf nf-fa-edit"></i>Edit</a></div></section><div class=nav id=nav-prev-next><a class=previous href=https://neps.newtonproject.org/neps/nep-56/><div class=link><span>Previous</span><h4>URI Format For Universal Storage Mechanism</h4></div></a><a class=next href=https://neps.newtonproject.org/neps/nep-19/><div class=link><span>Next</span><h4>Physical Commodity Standard (NRC-19)</h4></div></a></div></div><aside id=aside-b><section class=toc><input type=checkbox class="hidden toggle" id=toc-control>
+<label class=toggle for=toc-control id=toc-check><h3>On This Page<svg class="icon" id="toc-icon"><use xlink:href="/icons/bootstrap-icons.svg#caret-down-fill"/></svg></h3></label><nav id=TableOfContents><ul><li><a href=#simple-summary>Simple Summary</a></li><li><a href=#motivation>Motivation</a></li><li><a href=#specification>Specification</a></li><li><a href=#references>References</a></li><li><a href=#copyright>Copyright</a></li></ul></nav></section></aside></div></main><footer id=site-footer><div class=container><div class=brand><a class=footer-brand href=https://neps.newtonproject.org/><img src=https://neps.newtonproject.org//logo.svg class="logo invert" alt=Logo></a><p class=footer-info-text>Newton Evolution Proposals Website.</p><div class=social-icons><a href=https://github.com/newtonproject/newbridge.network target=_blank title=Github><i class="nf nf-oct-mark_github"></i></a><a href=https://twitter.com/newton_project target=_blank title=Twitter><i class="nf nf-fa-twitter"></i></a><a href=https://www.facebook.com/newtonproject target=_blank title=Facebook><i class="nf nf-fa-facebook_square"></i></a><a href=https://t.me/newtonproject target=_blank title=Telegram><i class="nf nf-mdi-telegram"></i></a></div></div><aside><ul><h3>Newton Project</h3><li><a href=https://www.newtonproject.org>Newton Project Website</a></li><li><a href=https://developer.newtonproject.org>Developer Website</a></li><li><a href=https://www.newtonproject.org/contact/>Contact Team</a></li></ul></aside><row><p>© 2021 Newton Project & Other Contributors</p></row></div></footer></body></html>
