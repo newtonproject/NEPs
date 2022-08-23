@@ -11,11 +11,11 @@ Created: 2022-08-22
 
 ## Simple Summary
 
-this standard is an improved implementation of the NRC-53(EVT) standard that supports minting multiple tokens for close to the cost of one.
+This proposal is an improved implementation of the NRC-53(EVT) that supports minting multiple tokens for close to the cost of one.
 
 ## Motivation
 
-The goal of standard is to provide a fully compliant implementation of NRC-53(EVT) with significant gas savings for minting multiple EVTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices.
+Gas savings is very important for EVT's users. So we propose a fully compliant implementation of NRC-53(EVT) with significant gas savings for minting multiple EVTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices.
 
 The network BASEFEE remained low despite huge demand, resulting in low gas costs for minters, while minimizing network disruption for the wider ecosystem as well.
 
@@ -196,7 +196,7 @@ interface IEVTA {
     /**
     * @dev Emitted when tokens in `fromTokenId` to `toTokenId`
     * (inclusive) is transferred from `from` to `to`, as defined in the
-    * [ERC2309](https://eips.ethereum.org/EIPS/eip-2309) standard.
+    * [ERC2309](https://eips.ethereum.org/EIPS/eip-2309).
     *
     * See {_mintERC2309} for more details.
     */
@@ -206,9 +206,9 @@ interface IEVTA {
 
 ## References
 
-**Standards**
+**Proposals**
 
-1. [NEP-53](https://neps.newtonproject.org/neps/nep-53) Encrypted Variable Token Proposal Standard.
+1. [NEP-53](https://neps.newtonproject.org/neps/nep-53) Encrypted Variable Token Proposal.
 
 ## Copyright
 
