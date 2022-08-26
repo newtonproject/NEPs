@@ -3,7 +3,7 @@ NEP: 52
 Title: "Fee market change for NewChain"
 Authors: "newchain"
 Discussions: https://github.com/newtonproject/NEPs/issues/x
-Status: Draft
+Status: Rejected
 Categories: Technical
 Types: Process
 Created: 2022-03-03
