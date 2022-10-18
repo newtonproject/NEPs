@@ -97,7 +97,7 @@ params:
   # This theme uses icons by https://fontawesome.com
   social:
     - title: Github
-      url: 'https://github.com/newtonproject/newbridge.network'
+      url: 'https://github.com/newtonproject'
       icon: nf-oct-mark_github
       icon_pack: nf
     - title: Twitter
