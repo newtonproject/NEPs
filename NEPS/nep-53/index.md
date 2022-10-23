@@ -132,27 +132,34 @@ interface EVTEncryption {
 The **metadata extension** is for EVT smart contracts.
 
 ```solidity
-interface EVTMetadata {
-    /// @notice A descriptive name for a collection of EVTs in this contract
-    function name() external view returns (string _name);
+interface EVTMetadata /* is EVT, NRC7Metadata */ {
+    /// @notice tags for a collection of EVTs in this contract
+    function from() external view returns (string memory);
 
-    /// @notice A description EVTs in this contract
-    function description() external view returns (string _description);
-
-    /// @notice A logo for EVTs in this contract
-    function logo() external view returns (string _logo);
-
-    /// @notice An abbreviated name for EVTs in this contract
-    function symbol() external view returns (string _symbol);
-
-    /// @notice A distinct Uniform Resource Identifier (URI) for a given asset.
+    /// @notice Returns the Uniform Resource Identifier (URI) for the specified EVT tokenId
     /// @dev Throws if `_tokenId` is not a valid EVT. URIs are defined in RFC3986. 
     ///  The URI may point to a JSON file or Base64 encode data that conforms to the
     ///  "NRC7 Metadata JSON Schema".
+    /// @return The JSON formatted URI for the specified EVT tokenId
     function tokenURI(uint256 _tokenId) external view returns (string memory);
 
-    /// @notice tags for a collection of EVTs in this contract
-    function from() external view returns (string);
+    /// @notice Returns the Uniform Resource Identifier (URI) for the current EVT contract.
+    /// @dev This function SHOULD return the URI for this contract in JSON format, starting with
+    ///  header `data:application/json;`.
+    /// @return The JSON formatted URI of the current EVT contract
+    function contractURI() external view returns (string memory);
+
+    /// @notice Returns the Uniform Resource Identifier (URI) for the variable properties of specified EVT tokenId.
+    /// @dev This function SHOULD return the URI for those properties in JSON format, starting with
+    ///  header `data:application/json;`.
+    /// @return The JSON formatted URI for the variable properties of specified EVT tokenId
+    function variableURI(uint256 _tokenId) external view returns (string memory);
+
+    /// @notice Returns the Uniform Resource Identifier (URI) for the encryption resources of specified EVT tokenId.
+    /// @dev This function SHOULD return the URI for those resources in JSON format, starting with
+    ///  header `data:application/json;`.
+    /// @return The JSON formatted URI for the encryption resources of specified EVT tokenId
+    function encryptionURI(uint256 _tokenId) external view returns (string memory); 
 }
 ```
 
@@ -160,7 +167,7 @@ interface EVTMetadata {
 
 Example implementations are available at
 
-[evt-standard](https://github.com/newtonproject/evt-standard)
+[evt-lib](https://github.com/newtonproject/evt-lib)
 
 
 ## References
