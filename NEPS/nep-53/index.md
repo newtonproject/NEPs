@@ -145,19 +145,19 @@ interface EVTMetadata /* is EVT, NRC7Metadata */ {
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the storefront-level metadata for your contract.
     /// @dev This function SHOULD return the URI for this contract in JSON format, starting with
-    ///  header `data:application/json;`.
+    ///  header `data:application/json;base64,`. 
     /// @return The JSON formatted URI of the current EVT contract
     function contractURI() external view returns (string memory);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the variable properties of specified EVT tokenId.
     /// @dev This function SHOULD return the URI for those properties in JSON format, starting with
-    ///  header `data:application/json;`.
+    ///  header `data:application/json;base64,`. 
     /// @return The JSON formatted URI for the variable properties of specified EVT tokenId
     function variableURI(uint256 _tokenId) external view returns (string memory);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the encryption resources of specified EVT tokenId.
     /// @dev This function SHOULD return the URI for those resources in JSON format, starting with
-    ///  header `data:application/json;`.
+    ///  header `data:application/json;base64,`. 
     /// @return The JSON formatted URI for the encryption resources of specified EVT tokenId
     function encryptionURI(uint256 _tokenId) external view returns (string memory); 
 }
