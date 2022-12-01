@@ -41,125 +41,199 @@ The current implementation of EVT is based on solidity programming language. In 
 
 ```solidity
 interface EVTVariable {
-    /// @dev This emits when token dynamic property added.
-    event DynamicPropertyAdded(bytes32 _propertyId);
-    
-    /// @dev This emits when token dynamic property updated.
-    event DynamicPropertyUpdated(uint256 _tokenId, bytes32 _propertyId, bytes _propertyValue);
 
-    /// @notice Add the dynamic property
-    /// @param _propertyId property ID
-    function addDynamicProperty(bytes32 _propertyId) external payable;
+    /// @dev Emitted when dynamic property added.
+    event DynamicPropertyAdded(string propertyName);
 
-    /// @notice Set the dynamic property
-    /// @param _tokenId token ID
-    /// @param _propertyId property ID
-    /// @param _propertyValue property value
-    function setDynamicProperty(uint256 _tokenId, bytes32 _propertyId, bytes _propertyValue) external payable;
+    /// @dev Emitted when dynamic property updated.
+    event DynamicPropertyUpdated(
+        uint256 indexed tokenId,
+        string propertyName,
+        string propertyValue
+    );
 
-    /// @notice Set multiple dynamic properties once
-    /// @param _tokenId token ID
-    /// @param _message message
-    function setDynamicProperties(uint256 _tokenId, bytes _message) external payable;
+    /// @dev Add the `propertyName`.
+    /// @param propertyName
+    function addDynamicProperty(string memory propertyName) external;
 
-    /// @notice Retrieve the vale of dynamic property
-    /// @param _tokenId token ID
-    /// @param _propertyId property ID
-    /// @return property value
-    function getDynamicProperty(uint256 _tokenId, bytes32 _propertyId) external view returns (bytes);
+    /// @dev Set the `propertyValue` by `tokenId` and `propertyName`.
+    /// @param tokenId
+    /// @param propertyName name of property 
+    /// @param propertyValue value of property
+    function setDynamicProperty(
+        uint256 tokenId,
+        string memory propertyName,
+        string memory propertyValue
+    ) external payable;
 
-    /// @notice Retrieve the all properties including dynamic and static
-    /// @param _tokenId token ID
-    /// @return ids, properties
-    function getDynamicProperties(uint256 _tokenId) external view returns (bytes32[], bytes[]);
+    /// @dev Set the `propertyValue` by `tokenId` and `propertyName` in quantity.
+    /// @param tokenId
+    /// @param propertyNames array of property names
+    /// @param propertyValue array of property values
+    function setDynamicProperties(
+        uint256 tokenId,
+        string[] memory propertyNames,
+        string[] memory propertyValues
+    ) external payable;
 
-    /// @notice Check whether support the given property
-    /// @param _propertyId property ID
-    /// @return support or unsupport
-    function supportsProperty(bytes32 _propertyId) external view returns (bool);
+    /// @dev Returns the `propertyValue` of the tokenId's `propertyName`.
+    /// @param tokenId
+    /// @param propertyName name of property 
+    function getDynamicPropertyValue(
+        uint256 tokenId,
+        string memory propertyName
+    ) external view returns (string memory propertyValue);
+
+    /// @dev Returns the `propertyName` array and `propertyValue` array corresponding to tokenId.
+    /// @param tokenId
+    function getDynamicProperties(uint256 tokenId)
+        external
+        view
+        returns (string[] memory propertyNames, string[] memory propertyValues);
+
+    /// @dev Returns all supported propertyNames.
+    function getAllSupportProperties() external view returns (string[] memory);
+
+    /// @dev Returns whether the `propertyName` exists.
+    /// @param propertyName name of property 
+    function supportsProperty(string memory propertyName)
+        external
+        view
+        returns (bool);
+
+    /// @dev Get tokenId's dynamic properties.
+    /// @param tokenId
+    function getDynamicPropertiesAsString(uint256 tokenId)
+        external
+        view
+        returns (string memory);
 }
-```
 
-`_propertyId` is calculated by `bytes32(keccak256('propertyName'))` .
+```
 
 **Encryption Interfaces**
 
 ```solidity
 interface EVTEncryption {
-​    /// @notice This emits when registered a encrypted key.
-​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyId encrypted key ID
-​    event EncryptedKeyRegistered(uint256 indexed _tokenId, bytes32 _encryptedKeyId);
+    /// @dev Emitted when register `encryptedKeyID` encryptedKey.
+​    /// @param encryptedKeyID encrypted key ID
+    event EncryptedKeyRegistered(bytes32 encryptedKeyID);
 
-    /// @notice This emits when add a permission.
-​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyId encrypted key ID
-​    /// @param _licensee licensee
-​    event PermissionAdded(uint256 indexed _tokenId, bytes32 _encryptedKeyId, address indexed _licensee);
+    /// @dev Emitted when add `encryptedKeyID` to `tokenId` token.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+    event EncryptedKeyIDAdded(uint256 indexed tokenId, bytes32 encryptedKeyID);
 
-    /// @notice This emits when remove a permission.
-​    /// @param _tokenId token ID
-​    /// @param _encryptedKeyId encrypted key ID
-​    /// @param _licensee licensee
-​    event PermissionRemoved(uint256 indexed _tokenId, bytes32 _encryptedKeyId, address indexed _licensee);
+    /// @dev Emitted when add `tokenId` token permission to `licensee`.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    event PermissionAdded(
+        uint256 indexed tokenId,
+        bytes32 encryptedKeyID,
+        address indexed licensee
+    );
 
-    /// @notice Register encrypted key
-    /// @param _tokenId token ID
-    /// @param _encryptedKeyId encrypted key ID
-    function registerEncryptedKey(uint256 _tokenId, bytes32 _encryptedKeyId) external payable;
+    /// @dev Emitted when remove `tokenId` token permission from `licensee`.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    event PermissionRemoved(
+        uint256 indexed tokenId,
+        bytes32 encryptedKeyID,
+        address indexed licensee
+    );
 
-    /// @notice Add the permission rule of the encrypted key for given address
-    /// @param _tokenId token ID
-    /// @param _encryptedKeyId encrypted key ID
-    /// @param _licensee licensee
-    function addPermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external payable;
+    /// @dev registerEncryptedKey to the contract.
+​    /// @param encryptedKeyID encrypted key ID
+    function registerEncryptedKey(bytes32 encryptedKeyID) external;
 
-    /// @notice Remove the permission rule of the encrypted key for given address
-    /// @param _tokenId token ID
-    /// @param _encryptedKeyId encrypted key ID
-    /// @param _licensee licensee
-    function removePermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external;
+    /// @dev Add `tokenId` token Permission to `licensee` width `encryptedKeyID`
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function addPermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external payable;
 
-    /// @notice Check permission rule of the encrypted key for given address
-    /// @param _tokenId token ID
-    /// @param _encryptedKeyId encrypted key ID
-    /// @param _licensee licensee
-    /// @return true or false
-    function hasPermission(uint256 _tokenId, bytes32 _encryptedKeyId, address _licensee) external view returns (bool);
+    /// @dev Remove `tokenId` token Permission to `licensee` width `encryptedKeyID`
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function removePermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external;
+
+    /// @dev Returns the results - bool
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function hasPermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external view returns (bool);
+
+    /// @dev Returns the list of licensees
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+    function getPermissions(uint256 tokenId, bytes32 encryptedKeyID)
+        external
+        view
+        returns (address[] memory);
+
+    /// @dev Get tokenId's encryptedKeys and licenses for every encryptionKey.
+    /// @notice The result is a string in a JSON formatted array.
+    /// @param tokenId
+    function getPermissionsAsString(uint256 tokenId)
+        external
+        view
+        returns (string memory);
 }
+
 ```
 
 The **metadata extension** is for EVT smart contracts.
 
 ```solidity
-interface EVTMetadata /* is EVT, NRC7Metadata */ {
-    /// @notice tags for a collection of EVTs in this contract
-    function from() external view returns (string memory);
+interface EVTMetadata is /* ERC721Metadata */{
+    /// @notice tags for a collection of EVTs in this contract.
+    function from() external view returns (address);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the specified EVT tokenId.
-    /// @dev Throws if `_tokenId` is not a valid EVT. URIs are defined in RFC3986. 
-    ///  The URI may point to a JSON file or Base64 encode data that conforms to the
-    ///  "NRC7 Metadata JSON Schema".
-    /// @return The JSON formatted URI for the specified EVT tokenId
-    function tokenURI(uint256 _tokenId) external view returns (string memory);
+    /// @dev Throws if `_tokenId` is not a valid EVT. URIs are defined in RFC3986.
+    ///The URI may point to a JSON file or Base64 encode data that conforms to the "NRC7 Metadata JSON Schema".
+    /// @return The JSON formatted URI for the specified EVT tokenId.
+    function tokenURI(uint256 _tokenId)
+        external
+        view
+        override
+        returns (string memory);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the storefront-level metadata for your contract.
-    /// @dev This function SHOULD return the URI for this contract in JSON format, starting with
-    ///  header `data:application/json;base64,`. 
-    /// @return The JSON formatted URI of the current EVT contract
+    /// @dev This function SHOULD return the URI for this contract in JSON format, starting with header `data:application/json;base64,`.
+    /// @return The JSON formatted URI of the current EVT contract.
     function contractURI() external view returns (string memory);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the variable properties of specified EVT tokenId.
-    /// @dev This function SHOULD return the URI for those properties in JSON format, starting with
-    ///  header `data:application/json;base64,`. 
-    /// @return The JSON formatted URI for the variable properties of specified EVT tokenId
-    function variableURI(uint256 _tokenId) external view returns (string memory);
+    /// @dev This function SHOULD return the URI for those properties in JSON format, starting with header `data:application/json;base64,`.
+    /// @return The JSON formatted URI for the variable properties of specified EVT tokenId.
+    function variableURI(uint256 _tokenId)
+        external
+        view
+        returns (string memory);
 
     /// @notice Returns the Uniform Resource Identifier (URI) for the encryption resources of specified EVT tokenId.
-    /// @dev This function SHOULD return the URI for those resources in JSON format, starting with
-    ///  header `data:application/json;base64,`. 
-    /// @return The JSON formatted URI for the encryption resources of specified EVT tokenId
-    function encryptionURI(uint256 _tokenId) external view returns (string memory); 
+    /// @dev This function SHOULD return the URI for those resources in JSON format, starting with header `data:application/json;base64,`.
+    /// @return The JSON formatted URI for the encryption resources of specified EVT tokenId.
+    function encryptionURI(uint256 _tokenId)
+        external
+        view
+        returns (string memory);
 }
 ```
 
