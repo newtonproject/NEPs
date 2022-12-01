@@ -200,7 +200,7 @@ interface EVTEncryption {
 The **metadata extension** is for EVT smart contracts.
 
 ```solidity
-interface EVTMetadata is /* ERC721Metadata */{
+interface EVTMetadata is /* NRC7Metadata */{
     /// @notice tags for a collection of EVTs in this contract.
     function from() external view returns (address);
 
