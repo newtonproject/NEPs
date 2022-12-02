@@ -33,182 +33,181 @@ The network BASEFEE remained low despite huge demand, resulting in low gas costs
 
 ## Specification
 
+**EVTA Interfaces**
+
 ```solidity
-interface IEVTA {
-    struct TokenOwnership {
-        // The address of the owner.
-        address addr;
-        // Stores the start time of ownership with minimal overhead for tokenomics.
-        uint64 startTimestamp;
-        // Whether the token has been burned.
-        bool burned;
-        // Arbitrary data similar to `startTimestamp` that can be set via {_extraData}.
-        uint24 extraData;
-    }
+interface EVTA is /* ERC721A, EVTVariable, EVTEncryption */{}
+```
+**Variable Interfaces**
 
-    /**
-    * @dev Returns the total number of tokens in existence.
-    * Burned tokens will reduce the count.
-    * To get the total number of tokens minted, please see{_totalMinted}.
-    */
-    function totalSupply() external view returns (uint256);
+```solidity
+interface EVTVariable {
 
-    /**
-    * @dev Returns true if this contract implements the interface defined by
-    * `interfaceId`. See the corresponding
-    * [EIP section](https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified)
-    * to learn more about how these ids are created.
-    *
-    * This function call must use less than 30000 gas.
-    */
-    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+    /// @dev Emitted when dynamic property added.
+    event DynamicPropertyAdded(string propertyName);
 
-    /**
-    * @dev Emitted when `tokenId` token is transferred from `from` to `to`.
-    */
-    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+    /// @dev Emitted when dynamic property updated.
+    event DynamicPropertyUpdated(
+        uint256 indexed tokenId,
+        string propertyName,
+        string propertyValue
+    );
 
-    /**
-    * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
-    */
-    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
+    /// @dev Add the `propertyName`.
+    /// @param propertyName
+    function addDynamicProperty(string memory propertyName) external;
 
-    /**
-    * @dev Emitted when `owner` enables or disables
-    * (`approved`) `operator` to manage all of its assets.
-    */
-    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
-
-    /**
-    * @dev Returns the number of tokens in `owner`'s account.
-    */
-    function balanceOf(address owner) external view returns (uint256 balance);
-
-    /**
-    * @dev Returns the owner of the `tokenId` token.
-    *
-    * Requirements:
-    *
-    * - `tokenId` must exist.
-    */
-    function ownerOf(uint256 tokenId) external view returns (address owner);
-
-    /**
-    * @dev Safely transfers `tokenId` token from `from` to `to`,
-    * checking first that contract recipients are aware of the ERC721 protocol
-    * to prevent tokens from being forever locked.
-    *
-    * Requirements:
-    *
-    * - `from` cannot be the zero address.
-    * - `to` cannot be the zero address.
-    * - `tokenId` token must exist and be owned by `from`.
-    * - If the caller is not `from`, it must be have been allowed to move
-    * this token by either {approve} or {setApprovalForAll}.
-    * - If `to` refers to a smart contract, it must implement
-    * {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
-    *
-    * Emits a {Transfer} event.
-    */
-    function safeTransferFrom(
-        address from,
-        address to,
+    /// @dev Set the `propertyValue` by `tokenId` and `propertyName`.
+    /// @param tokenId
+    /// @param propertyName name of property 
+    /// @param propertyValue value of property
+    function setDynamicProperty(
         uint256 tokenId,
-        bytes calldata data
-    ) external;
+        string memory propertyName,
+        string memory propertyValue
+    ) external payable;
 
-    /**
-    * @dev Equivalent to `safeTransferFrom(from, to, tokenId, '')`.
-    */
-    function safeTransferFrom(
-        address from,
-        address to,
-        uint256 tokenId
-    ) external;
+    /// @dev Set the `propertyValue` by `tokenId` and `propertyName` in quantity.
+    /// @param tokenId
+    /// @param propertyNames array of property names
+    /// @param propertyValue array of property values
+    function setDynamicProperties(
+        uint256 tokenId,
+        string[] memory propertyNames,
+        string[] memory propertyValues
+    ) external payable;
 
-    /**
-    * @dev Transfers `tokenId` from `from` to `to`.
-    *
-    * WARNING: Usage of this method is discouraged, use {safeTransferFrom}
-    * whenever possible.
-    *
-    * Requirements:
-    *
-    * - `from` cannot be the zero address.
-    * - `to` cannot be the zero address.
-    * - `tokenId` token must be owned by `from`.
-    * - If the caller is not `from`, it must be approved to move this token
-    * by either {approve} or {setApprovalForAll}.
-    *
-    * Emits a {Transfer} event.
-    */
-    function transferFrom(
-        address from,
-        address to,
-        uint256 tokenId
-    ) external;
+    /// @dev Returns the `propertyValue` of the tokenId's `propertyName`.
+    /// @param tokenId
+    /// @param propertyName name of property 
+    function getDynamicPropertyValue(
+        uint256 tokenId,
+        string memory propertyName
+    ) external view returns (string memory propertyValue);
 
-    /**
-    * @dev Gives permission to `to` to transfer `tokenId` token to another account.
-    * The approval is cleared when the token is transferred.
-    *
-    * Only a single account can be approved at a time, so approving the
-    * zero address clears previous approvals.
-    *
-    * Requirements:
-    *
-    * - The caller must own the token or be an approved operator.
-    * - `tokenId` must exist.
-    *
-    * Emits an {Approval} event.
-    */
-    function approve(address to, uint256 tokenId) external;
+    /// @dev Returns the `propertyName` array and `propertyValue` array corresponding to tokenId.
+    /// @param tokenId
+    function getDynamicProperties(uint256 tokenId)
+        external
+        view
+        returns (string[] memory propertyNames, string[] memory propertyValues);
 
-    /**
-    * @dev Approve or remove `operator` as an operator for the caller.
-    * Operators can call {transferFrom} or {safeTransferFrom}
-    * for any token owned by the caller.
-    *
-    * Requirements:
-    *
-    * - The `operator` cannot be the caller.
-    *
-    * Emits an {ApprovalForAll} event.
-    */
-    function setApprovalForAll(address operator, bool _approved) external;
+    /// @dev Returns all supported propertyNames.
+    function getAllSupportProperties() external view returns (string[] memory);
 
-    /**
-    * @dev Returns the account approved for `tokenId` token.
-    *
-    * Requirements:
-    *
-    * - `tokenId` must exist.
-    */
-    function getApproved(uint256 tokenId) external view returns (address operator);
+    /// @dev Returns whether the `propertyName` exists.
+    /// @param propertyName name of property 
+    function supportsProperty(string memory propertyName)
+        external
+        view
+        returns (bool);
 
-    /**
-    * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
-    *
-    * See {setApprovalForAll}.
-    */
-    function isApprovedForAll(address owner, address operator) external view returns (bool);
-
-    /**
-    * @dev Emitted when tokens in `fromTokenId` to `toTokenId`
-    * (inclusive) is transferred from `from` to `to`, as defined in the
-    * [ERC2309](https://eips.ethereum.org/EIPS/eip-2309).
-    *
-    * See {_mintERC2309} for more details.
-    */
-    event ConsecutiveTransfer(uint256 indexed fromTokenId, uint256 toTokenId, address indexed from, address indexed to);
+    /// @dev Get tokenId's dynamic properties.
+    /// @param tokenId
+    function getDynamicPropertiesAsString(uint256 tokenId)
+        external
+        view
+        returns (string memory);
 }
+
+```
+
+**Encryption Interfaces**
+
+```solidity
+interface EVTEncryption {
+    /// @dev Emitted when register `encryptedKeyID` encryptedKey.
+​    /// @param encryptedKeyID encrypted key ID
+    event EncryptedKeyRegistered(bytes32 encryptedKeyID);
+
+    /// @dev Emitted when add `encryptedKeyID` to `tokenId` token.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+    event EncryptedKeyIDAdded(uint256 indexed tokenId, bytes32 encryptedKeyID);
+
+    /// @dev Emitted when add `tokenId` token permission to `licensee`.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    event PermissionAdded(
+        uint256 indexed tokenId,
+        bytes32 encryptedKeyID,
+        address indexed licensee
+    );
+
+    /// @dev Emitted when remove `tokenId` token permission from `licensee`.
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    event PermissionRemoved(
+        uint256 indexed tokenId,
+        bytes32 encryptedKeyID,
+        address indexed licensee
+    );
+
+    /// @dev registerEncryptedKey to the contract.
+​    /// @param encryptedKeyID encrypted key ID
+    function registerEncryptedKey(bytes32 encryptedKeyID) external;
+
+    /// @dev Add `tokenId` token Permission to `licensee` width `encryptedKeyID`
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function addPermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external payable;
+
+    /// @dev Remove `tokenId` token Permission to `licensee` width `encryptedKeyID`
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function removePermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external;
+
+    /// @dev Returns the results - bool
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+​    /// @param licensee licensee's adderss
+    function hasPermission(
+        uint256 tokenId,
+        bytes32 encryptedKeyID,
+        address licensee
+    ) external view returns (bool);
+
+    /// @dev Returns the list of licensees
+    /// @param tokenId
+​    /// @param encryptedKeyID encrypted key ID
+    function getPermissions(uint256 tokenId, bytes32 encryptedKeyID)
+        external
+        view
+        returns (address[] memory);
+
+    /// @dev Get tokenId's encryptedKeys and licenses for every encryptionKey.
+    /// @notice The result is a string in a JSON formatted array.
+    /// @param tokenId
+    function getPermissionsAsString(uint256 tokenId)
+        external
+        view
+        returns (string memory);
+}
+
 ```
 
 ## References
 
+**IERC721A**
+
+1. The goal of [ERC721A](https://github.com/chiru-labs/ERC721A) is to provide a fully compliant implementation of IERC721 with significant gas savings for minting multiple NFTs in a single transaction. This project and implementation will be updated regularly and will continue to stay up to date with best practices.
+
 **Proposals**
 
 1. [NEP-53](https://neps.newtonproject.org/neps/nep-53) Encrypted Variable Token Proposal.
+
 
 ## Copyright
 
