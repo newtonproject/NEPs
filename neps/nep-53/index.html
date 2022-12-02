@@ -6,120 +6,196 @@ We considered the use cases of EVTs including vitality assets, privacy based ass
 Abstract #  EVT(Encrypted Variable Token) is the replacement of NFT in metaverse and physical world.
 The key features of EVT are variableness, encryption, traceability.
 The following standard allows for the implementation of a standard API for EVTs within smart contracts. This standard provides basic functionality to track, transfer, dynamic properties, encryption.
-We considered the use cases of EVTs including vitality assets, privacy based assets, digital identities."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-53/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Encrypted Variable Token Proposal (NRC-53) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.b744cdb027fc7487f7fbba462925a1bc4bb6a03e9ed35c0eccf9dead2f0ae953.js integrity="sha256-t0TNsCf8dIf3+7pGKSWhvEu2oD6e01wOzPnerS8K6VM="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
+We considered the use cases of EVTs including vitality assets, privacy based assets, digital identities."><meta property="og:type" content="article"><meta property="og:url" content="https://neps.newtonproject.org/neps/nep-53/"><meta property="og:site_name" content="Newton Evolution Proposals (NEPs)"><title>Encrypted Variable Token Proposal (NRC-53) | Newton Evolution Proposals (NEPs)</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/newdocs.min.61198eece24911070cbaf1c60fef3ad76b93d2c4e0fee70bd533340bc5037fca.css integrity="sha256-YRmO7OJJEQcMuvHGD+8612uT0sTg/ucL1TM0C8UDf8o="><script defer src=/en.search.min.af94de4220cec2c01c1e94841ba7a4743c9282f420b59aa78a90883c18e698ee.js integrity="sha256-r5TeQiDOwsAcHpSEG6ekdDySgvQgtZqnipCIPBjmmO4="></script><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><script>window.onload=function(){document.body.className=document.body.className.replace('preload','');};</script></head><body dir=ltr class=preload><nav id=navbar><input type=checkbox class="hidden toggle" id=menu-control><div class=container><input type=checkbox id=navbar-check><div class="header brand"><label for=navbar-check class=toggle><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#filter-left"/></svg></label><a href=/><img src=/logo.svg alt=Logo class="logo invertable"><span style=display:none>Newton Evolution Proposals (NEPs)</span></a>
 <label class="toggle transparent" color=none><svg class="icon"><use xlink:href="/icons/bootstrap-icons.svg#emoji-sunglasses"/></svg></label></div><div id=navbar-collapse><ul class=navbar-nav><li class="nav-item dropdown" style=order:100><a href=#>More</a><ul class=dropdown-menu><li class=nav-item><a href=https://github.com/newtonproject/neps>NEPs Github</a></li><li class=nav-item><a href=https://newtonproject.org>Newton Project</a></li><li class=nav-item><a href=https://explorer.newtonproject.org>Newton Explorer</a></li></ul></li><li class=nav-item><a href=/neps/>All NEPs</a></li><li class=nav-item><a href=/guides/>Guides</a></li><li class=nav-item><a href=/reviews/>Reviews</a></li></ul><div class=search-form><input type=search id=navbar-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class=search-results><ul id=navbar-search-results></ul></div></div></div></div></nav><main><div class=container><div id=breadcrumb><span><a href=https://neps.newtonproject.org/><i class="nf nf-oct-home"></i></a></span><span><a href=https://neps.newtonproject.org/neps/>NEPs</a></span>
 <span class=active><a href=https://neps.newtonproject.org/neps/nep-53/>NEP-53</a></span></div></div><div class=container><div class=page-content><article class=markdown><h1>NEP-53: Encrypted Variable Token Proposal (NRC-53)</h1><table class=nep-table><tr><th>NEP</th><td>53</td></tr><tr><th>Title</th><td>Encrypted Variable Token Proposal (NRC-53)</td></tr><tr><th>Author(s)</th><td>Newton Core Team</td></tr><tr><th>Discussions To</th><td><a href=https://github.com/newtonproject/NEPs/issues/53>https://github.com/newtonproject/NEPs/issues/53</a></td></tr><tr><th>Category</th><td>Technical</td></tr><tr><th>Type</th><td>NRC</td></tr><tr><th>Status</th><td><span class="nep-status draft">Draft</span></td></tr><tr><th>Created</th><td>2022-07-01</td></tr></table><h2 id=simple-summary>Simple Summary
 <a class=anchor href=#simple-summary>#</a></h2><p>A standard interface for encrypted variable tokens.</p><h2 id=abstract>Abstract
 <a class=anchor href=#abstract>#</a></h2><p>EVT(Encrypted Variable Token) is the replacement of NFT in metaverse and physical world.</p><p>The key features of EVT are variableness, encryption, traceability.</p><p>The following standard allows for the implementation of a standard API for EVTs within smart contracts. This standard provides basic functionality to track, transfer, dynamic properties, encryption.</p><p>We considered the use cases of EVTs including vitality assets, privacy based assets, digital identities. We also considered a diverse universe of assets, and we know you will dream up many more:</p><ul><li>Metaverse — buildings, avatars, flowers, animals</li><li>Physical property — houses, artwork, movies, tickets</li><li>“Negative value” assets — loans, burdens and other responsibilities</li></ul><h2 id=motivation>Motivation
 <a class=anchor href=#motivation>#</a></h2><p>This document aims to guide the EVT&rsquo;s integration and interoperationality with wallet, marketplace, metaverse.</p><h2 id=specification>Specification
 <a class=anchor href=#specification>#</a></h2><p>EVT will inherit the interfaces of NRC7.</p><p>The current implementation of EVT is based on solidity programming language. In Solidity, serialization and deserialization is not built-in. So in the implementation of EVT, protobuf3 can be used for the serialization and deserialization of variable properties,</p><p><strong>Variable Interfaces</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> EVTVariable {
-    <span style=color:#6272a4>/// @dev This emits when token dynamic property added.
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> DynamicPropertyAdded(<span style=color:#8be9fd>bytes32</span> _propertyId);
-    
-    <span style=color:#6272a4>/// @dev This emits when token dynamic property updated.
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> DynamicPropertyUpdated(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _propertyId, <span style=color:#8be9fd>bytes</span> _propertyValue);
 
-    <span style=color:#6272a4>/// @notice Add the dynamic property
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _propertyId property ID
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> addDynamicProperty(<span style=color:#8be9fd>bytes32</span> _propertyId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+    <span style=color:#6272a4>/// @dev Emitted when dynamic property added.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> DynamicPropertyAdded(<span style=color:#8be9fd>string</span> propertyName);
 
-    <span style=color:#6272a4>/// @notice Set the dynamic property
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _propertyId property ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _propertyValue property value
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> setDynamicProperty(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _propertyId, <span style=color:#8be9fd>bytes</span> _propertyValue) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+    <span style=color:#6272a4>/// @dev Emitted when dynamic property updated.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> DynamicPropertyUpdated(
+        <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId,
+        <span style=color:#8be9fd>string</span> propertyName,
+        <span style=color:#8be9fd>string</span> propertyValue
+    );
 
-    <span style=color:#6272a4>/// @notice Set multiple dynamic properties once
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _message message
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> setDynamicProperties(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes</span> _message) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+    <span style=color:#6272a4>/// @dev Add the `propertyName`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyName
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> addDynamicProperty(<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyName) <span style=color:#ff79c6>external</span>;
 
-    <span style=color:#6272a4>/// @notice Retrieve the vale of dynamic property
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _propertyId property ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return property value
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getDynamicProperty(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _propertyId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bytes</span>);
+    <span style=color:#6272a4>/// @dev Set the `propertyValue` by `tokenId` and `propertyName`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyName name of property 
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyValue value of property
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> setDynamicProperty(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyName,
+        <span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyValue
+    ) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/// @notice Retrieve the all properties including dynamic and static
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return ids, properties
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getDynamicProperties(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bytes32</span>[], <span style=color:#8be9fd>bytes</span>[]);
+    <span style=color:#6272a4>/// @dev Set the `propertyValue` by `tokenId` and `propertyName` in quantity.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyNames array of property names
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyValue array of property values
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> setDynamicProperties(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>string</span>[] <span style=color:#ff79c6>memory</span> propertyNames,
+        <span style=color:#8be9fd>string</span>[] <span style=color:#ff79c6>memory</span> propertyValues
+    ) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
 
-    <span style=color:#6272a4>/// @notice Check whether support the given property
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _propertyId property ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return support or unsupport
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> supportsProperty(<span style=color:#8be9fd>bytes32</span> _propertyId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+    <span style=color:#6272a4>/// @dev Returns the `propertyValue` of the tokenId&#39;s `propertyName`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyName name of property 
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getDynamicPropertyValue(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyName
+    ) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyValue);
+
+    <span style=color:#6272a4>/// @dev Returns the `propertyName` array and `propertyValue` array corresponding to tokenId.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getDynamicProperties(<span style=color:#8be9fd>uint256</span> tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span>[] <span style=color:#ff79c6>memory</span> propertyNames, <span style=color:#8be9fd>string</span>[] <span style=color:#ff79c6>memory</span> propertyValues);
+
+    <span style=color:#6272a4>/// @dev Returns all supported propertyNames.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getAllSupportProperties() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span>[] <span style=color:#ff79c6>memory</span>);
+
+    <span style=color:#6272a4>/// @dev Returns whether the `propertyName` exists.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param propertyName name of property 
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> supportsProperty(<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span> propertyName)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/// @dev Get tokenId&#39;s dynamic properties.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getDynamicPropertiesAsString(<span style=color:#8be9fd>uint256</span> tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 }
-</code></pre></div><p><code>_propertyId</code> is calculated by <code>bytes32(keccak256('propertyName'))</code> .</p><p><strong>Encryption Interfaces</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> EVTEncryption {
-​    <span style=color:#6272a4>/// @notice This emits when registered a encrypted key.
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>​    <span style=color:#8be9fd;font-style:italic>event</span> EncryptedKeyRegistered(<span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId);
 
-    <span style=color:#6272a4>/// @notice This emits when add a permission.
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _licensee licensee
-</span><span style=color:#6272a4></span>​    <span style=color:#8be9fd;font-style:italic>event</span> PermissionAdded(<span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _licensee);
+</code></pre></div><p><strong>Encryption Interfaces</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> EVTEncryption {
+    <span style=color:#6272a4>/// @dev Emitted when register `encryptedKeyID` encryptedKey.
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> EncryptedKeyRegistered(<span style=color:#8be9fd>bytes32</span> encryptedKeyID);
 
-    <span style=color:#6272a4>/// @notice This emits when remove a permission.
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param _licensee licensee
-</span><span style=color:#6272a4></span>​    <span style=color:#8be9fd;font-style:italic>event</span> PermissionRemoved(<span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId, <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> _licensee);
+    <span style=color:#6272a4>/// @dev Emitted when add `encryptedKeyID` to `tokenId` token.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> EncryptedKeyIDAdded(<span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId, <span style=color:#8be9fd>bytes32</span> encryptedKeyID);
 
-    <span style=color:#6272a4>/// @notice Register encrypted key
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> registerEncryptedKey(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+    <span style=color:#6272a4>/// @dev Emitted when add `tokenId` token permission to `licensee`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param licensee licensee&#39;s adderss
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> PermissionAdded(
+        <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId,
+        <span style=color:#8be9fd>bytes32</span> encryptedKeyID,
+        <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> licensee
+    );
 
-    <span style=color:#6272a4>/// @notice Add the permission rule of the encrypted key for given address
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _licensee licensee
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> addPermission(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId, <span style=color:#8be9fd>address</span> _licensee) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+    <span style=color:#6272a4>/// @dev Emitted when remove `tokenId` token permission from `licensee`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param licensee licensee&#39;s adderss
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>event</span> PermissionRemoved(
+        <span style=color:#8be9fd>uint256</span> <span style=color:#ff79c6>indexed</span> tokenId,
+        <span style=color:#8be9fd>bytes32</span> encryptedKeyID,
+        <span style=color:#8be9fd>address</span> <span style=color:#ff79c6>indexed</span> licensee
+    );
 
-    <span style=color:#6272a4>/// @notice Remove the permission rule of the encrypted key for given address
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _licensee licensee
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> removePermission(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId, <span style=color:#8be9fd>address</span> _licensee) <span style=color:#ff79c6>external</span>;
+    <span style=color:#6272a4>/// @dev registerEncryptedKey to the contract.
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> registerEncryptedKey(<span style=color:#8be9fd>bytes32</span> encryptedKeyID) <span style=color:#ff79c6>external</span>;
 
-    <span style=color:#6272a4>/// @notice Check permission rule of the encrypted key for given address
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _tokenId token ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _encryptedKeyId encrypted key ID
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param _licensee licensee
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return true or false
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> hasPermission(<span style=color:#8be9fd>uint256</span> _tokenId, <span style=color:#8be9fd>bytes32</span> _encryptedKeyId, <span style=color:#8be9fd>address</span> _licensee) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+    <span style=color:#6272a4>/// @dev Add `tokenId` token Permission to `licensee` width `encryptedKeyID`
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param licensee licensee&#39;s adderss
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> addPermission(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>bytes32</span> encryptedKeyID,
+        <span style=color:#8be9fd>address</span> licensee
+    ) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>payable</span>;
+
+    <span style=color:#6272a4>/// @dev Remove `tokenId` token Permission to `licensee` width `encryptedKeyID`
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param licensee licensee&#39;s adderss
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> removePermission(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>bytes32</span> encryptedKeyID,
+        <span style=color:#8be9fd>address</span> licensee
+    ) <span style=color:#ff79c6>external</span>;
+
+    <span style=color:#6272a4>/// @dev Returns the results - bool
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param licensee licensee&#39;s adderss
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> hasPermission(
+        <span style=color:#8be9fd>uint256</span> tokenId,
+        <span style=color:#8be9fd>bytes32</span> encryptedKeyID,
+        <span style=color:#8be9fd>address</span> licensee
+    ) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>bool</span>);
+
+    <span style=color:#6272a4>/// @dev Returns the list of licensees
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>​    <span style=color:#6272a4>/// @param encryptedKeyID encrypted key ID
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getPermissions(<span style=color:#8be9fd>uint256</span> tokenId, <span style=color:#8be9fd>bytes32</span> encryptedKeyID)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span>[] <span style=color:#ff79c6>memory</span>);
+
+    <span style=color:#6272a4>/// @dev Get tokenId&#39;s encryptedKeys and licenses for every encryptionKey.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @notice The result is a string in a JSON formatted array.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @param tokenId
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> getPermissionsAsString(<span style=color:#8be9fd>uint256</span> tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 }
-</code></pre></div><p>The <strong>metadata extension</strong> is for EVT smart contracts.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> EVTMetadata <span style=color:#6272a4>/* is EVT, NRC7Metadata */</span> {
-    <span style=color:#6272a4>/// @notice tags for a collection of EVTs in this contract
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> <span style=color:#ff79c6>from</span>() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
+
+</code></pre></div><p>The <strong>metadata extension</strong> is for EVT smart contracts.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-solidity data-lang=solidity><span style=color:#8be9fd;font-style:italic>interface</span> EVTMetadata <span style=color:#ff79c6>is</span> <span style=color:#6272a4>/* NRC7Metadata */</span>{
+    <span style=color:#6272a4>/// @notice tags for a collection of EVTs in this contract.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> <span style=color:#ff79c6>from</span>() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>address</span>);
 
     <span style=color:#6272a4>/// @notice Returns the Uniform Resource Identifier (URI) for the specified EVT tokenId.
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_tokenId` is not a valid EVT. URIs are defined in RFC3986. 
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  The URI may point to a JSON file or Base64 encode data that conforms to the
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  &#34;NRC7 Metadata JSON Schema&#34;.
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the specified EVT tokenId
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> tokenURI(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev Throws if `_tokenId` is not a valid EVT. URIs are defined in RFC3986.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///The URI may point to a JSON file or Base64 encode data that conforms to the &#34;NRC7 Metadata JSON Schema&#34;.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the specified EVT tokenId.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> tokenURI(<span style=color:#8be9fd>uint256</span> _tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        override
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 
     <span style=color:#6272a4>/// @notice Returns the Uniform Resource Identifier (URI) for the storefront-level metadata for your contract.
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for this contract in JSON format, starting with
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  header `data:application/json;base64,`. 
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI of the current EVT contract
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for this contract in JSON format, starting with header `data:application/json;base64,`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI of the current EVT contract.
 </span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> contractURI() <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 
     <span style=color:#6272a4>/// @notice Returns the Uniform Resource Identifier (URI) for the variable properties of specified EVT tokenId.
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for those properties in JSON format, starting with
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  header `data:application/json;base64,`. 
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the variable properties of specified EVT tokenId
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> variableURI(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for those properties in JSON format, starting with header `data:application/json;base64,`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the variable properties of specified EVT tokenId.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> variableURI(<span style=color:#8be9fd>uint256</span> _tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 
     <span style=color:#6272a4>/// @notice Returns the Uniform Resource Identifier (URI) for the encryption resources of specified EVT tokenId.
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for those resources in JSON format, starting with
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>///  header `data:application/json;base64,`. 
-</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the encryption resources of specified EVT tokenId
-</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> encryptionURI(<span style=color:#8be9fd>uint256</span> _tokenId) <span style=color:#ff79c6>external</span> <span style=color:#ff79c6>view</span> <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>); 
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @dev This function SHOULD return the URI for those resources in JSON format, starting with header `data:application/json;base64,`.
+</span><span style=color:#6272a4></span>    <span style=color:#6272a4>/// @return The JSON formatted URI for the encryption resources of specified EVT tokenId.
+</span><span style=color:#6272a4></span>    <span style=color:#8be9fd;font-style:italic>function</span> encryptionURI(<span style=color:#8be9fd>uint256</span> _tokenId)
+        <span style=color:#ff79c6>external</span>
+        <span style=color:#ff79c6>view</span>
+        <span style=color:#ff79c6>returns</span> (<span style=color:#8be9fd>string</span> <span style=color:#ff79c6>memory</span>);
 }
 </code></pre></div><h2 id=implementations>Implementations
 <a class=anchor href=#implementations>#</a></h2><p>Example implementations are available at</p><p><a href=https://github.com/newtonproject/evt-lib>evt-lib</a></p><h2 id=references>References
