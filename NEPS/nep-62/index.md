@@ -23,7 +23,7 @@ In the past year, the ledger nodes have served to protect the network.
 
 Currently, there are 69 active NEW DAOs on Newton, which enrich Newton's community building and eco-governance. The incentives for NEW DAO will be maintained in 2023.
 
-To better improve the mobility of NEW and the richness of Newton's ecology, the incentives for Cross-chain Bridges and  Dapps development will be increased.
+To better improve the mobility of NEW and the richness of Newton's ecology, the incentives for Cross-chain Bridges and  Dapps will be increased.
 
 ## Abstract
 
@@ -35,8 +35,8 @@ The release plan for each part is as follows:
 | ---- | -------------- | ----------------------- | ------------------------------- |
 | 1    | Machine node   | Ledgering               | 20% (191240216 NEW) |
 | 2    | NEW DAO        | Maintaining DAO         | 20% (191240216 NEW) |
-| 3    | Cross-chain Bridges      | NewBridge,etc.            | 30% (286860324 NEW) |
-| 4    | Dapps development  | NewMall Miner, etc.             | 30% (286860324 NEW) |
+| 3    | Cross-chain Bridges      | NewBridge transfer-in,etc.            | 30% (286860324 NEW) |
+| 4    | Dapps  | NewMall Mining, etc.             | 30% (286860324 NEW) |
 
 ## Implementation
 
