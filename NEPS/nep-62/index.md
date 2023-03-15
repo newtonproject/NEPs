@@ -3,11 +3,11 @@ NEP: 62
 Title: "Changes On Community NEW Budget Plan for 2023"
 Authors: "X-Team"
 Discussions:
-Status: Draft
+Status: Accepted
 Categories: Community Governance
 Types: Process
 Created: 2023-03-13
-Updated: 2023-03-13
+Updated: 2023-03-14
 ---
 
 ## Simple Summary
