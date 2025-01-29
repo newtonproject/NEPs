@@ -3,11 +3,11 @@ NEP: 63
 Title: "NEW Token Release Adjustment and NewForce System Retirement"
 Authors: "Newton DAO, AB"
 Discussions:
-Status: Draft
+Status: Accepted
 Categories: Tokenomics
 Types: Process
 Created: 2025-01-25
-Updated: 2025-01-25
+Updated: 2025-01-29
 ---
 
 ## Simple Summary
