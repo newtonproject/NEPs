@@ -7,7 +7,7 @@ Status: Accepted
 Categories: Tokenomics
 Types: Process
 Created: 2025-01-25
-Updated: 2025-01-29
+Updated: 2025-01-31
 ---
 
 ## Simple Summary
@@ -34,10 +34,10 @@ Additionally, promoting the circulation of the 56.6 billion locked NEW tokens is
    - Starting February 1, 2025, all NEW token incentives will be distributed exclusively to machine nodes operating on Newton Finance and Newton Core.  
    - The 56.6 billion locked NEW tokens will be released evenly over the next 12 months, ensuring that all NEW tokens are in circulation by February 2026.  
 
-2. **Retirement of NewForce System:**  
+2. **Retirement of the NewForce System:**  
    - The NewForce system will stop providing rewards on February 1, 2025.  
-   - The NewForce system will cease operations on August 1, 2025.  
-   - Users must unlock and withdraw their NEW tokens from the NewForce system before August 1, 2025, as locked assets will become inaccessible after this date.  
+   - The NewForce system will cease operations on March 1, 2025.  
+   - Users must unlock and withdraw their NEW tokens from the NewForce system before March 1, 2025.  
 
 3. **Future Community Incentives:**  
    - Newton DAO will explore new mechanisms for community rewards.  
@@ -47,14 +47,14 @@ Additionally, promoting the circulation of the 56.6 billion locked NEW tokens is
 
 ## Rationale  
 
-Redirecting incentives to machine nodes ensures the ecosystem can meet increasing performance and reliability demands. Releasing all remaining locked NEW tokens over the next 12 months will enhance liquidity and unlock the full potential of the token economy. Retiring the NewForce system and exploring new reward mechanisms aligns with Newton DAO’s commitment to both community participation and ecosystem growth.  
+Redirecting incentives to machine nodes ensures the ecosystem can meet increasing performance and reliability demands. Releasing all remaining locked NEW tokens over the next 12 months will enhance liquidity and unlock the full potential of the token economy. Retiring the NewForce system and exploring new reward mechanisms align with Newton DAO’s commitment to both community participation and ecosystem growth.  
 
 ---
 
 ## Implementation  
 
 - The revised token distribution rules will take effect on February 1, 2025.  
-- The NewForce system will stop offering rewards on February 1, 2025, and will terminate operations on August 1, 2025.  
+- The NewForce system will stop offering rewards on February 1, 2025, and will terminate operations on March 1, 2025.  
 - Discussions on new community reward mechanisms will be prioritized by Newton DAO.  
 
 ---
